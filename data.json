@@ -4,38 +4,33 @@
     "source": "Seed file — replace by running fetch_trade_data.py",
     "data_sources": [
       {
-        "id": "wto_stats",
-        "name": "WTO Statistics API",
-        "url": "https://stats.wto.org/api/",
-        "description": "Merchandise trade totals, exports, imports by reporter country. Annual data.",
-        "coverage": "1995–2023",
-        "license": "Public domain / WTO open data",
-        "citation": "World Trade Organization (2024). WTO Statistics Database. Retrieved from https://stats.wto.org"
-      },
-      {
         "id": "world_bank",
         "name": "World Bank Open Data API",
         "url": "https://api.worldbank.org/v2/",
-        "description": "Trade (% of GDP), GDP current USD, bilateral trade indicators.",
+        "description": "Trade totals (exports, imports of goods and services, current USD)",
         "coverage": "1960–2023",
         "license": "CC BY 4.0",
-        "citation": "World Bank (2024). World Development Indicators. Retrieved from https://databank.worldbank.org/source/world-development-indicators"
+        "citation": "World Bank (2024). World Development Indicators. https://databank.worldbank.org"
       },
       {
         "id": "un_comtrade",
-        "name": "UN Comtrade",
+        "name": "UN Comtrade API",
         "url": "https://comtradeapi.un.org/",
-        "description": "Bilateral trade flows by HS commodity code. Granular product-level data.",
+        "description": "Bilateral trade flows and commodity breakdown by HS chapter (AG2 level)",
         "coverage": "1962–2023",
-        "license": "UN open data (free tier: 250 requests/day)",
-        "citation": "United Nations Statistics Division (2024). UN Comtrade Database. Retrieved from https://comtrade.un.org"
+        "license": "UN open data (free tier: 250 req/day)",
+        "citation": "United Nations Statistics Division (2024). UN Comtrade Database. https://comtrade.un.org"
       }
     ],
-    "methodology": "Trade totals (exports, imports) sourced from WTO Statistics API (indicator TS_M_AM_AllSectors_MerchandiseTrade, year 2023). Where WTO data unavailable, World Bank NE.EXP/IMP.GNFS.CD used as fallback. Bilateral partner flows sourced from UN Comtrade public API (HS TOTAL, annual). All values in current USD billions. Countries marked estimated=true used 3-year average (2021-2023) due to data gaps. Country centroids are geographic center-of-mass from Natural Earth, not capital cities — ensures arc rendering is projection-safe.",
+    "methodology": "Trade totals sourced from World Bank API (NE.EXP/IMP.GNFS.CD). Bilateral partner flows and commodity breakdowns sourced from UN Comtrade public API (HS chapter level, AG2 aggregation, reference year 2023). Commodity sections mapped from HS chapters. FTAs and disputes maintained manually.",
     "reference_year": 2023,
     "value_units": "USD billions (current)",
     "arc_note": "Trade flow arcs rendered using ISO 3166-1 alpha-3 centroids computed from Natural Earth geometries, not hardcoded coordinates. Projection-safe.",
-    "fetcher_version": "1.0.0"
+    "fetcher_version": "1.0.0",
+    "last_daily_run": "2026-04-21T19:19:26.147080+00:00",
+    "countries_updated_today": 60,
+    "total_countries": 75,
+    "requests_used": 240
   },
   "countries": {
     "USA": {
@@ -50,9 +45,9 @@
       "total_trade": 7296.6,
       "exports": 3193.5,
       "imports": 4103.1,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
           "Machinery & Equipment",
@@ -391,183 +386,24 @@
       "total_trade": 6972.4,
       "exports": 3753.06,
       "imports": 3219.34,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Electronics",
-          28
-        ],
-        [
-          "Machinery & Equipment",
-          18
-        ],
-        [
-          "Textiles & Garments",
-          8
-        ],
-        [
-          "Steel & Metals",
-          6
-        ],
-        [
-          "Chemicals",
-          5
-        ],
-        [
-          "Vehicles",
-          4
-        ],
-        [
-          "Furniture",
-          3
-        ],
-        [
-          "Plastics",
-          3
-        ],
-        [
           "Other",
-          25
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Electronics": [
-          [
-            "Smartphones",
-            25
-          ],
-          [
-            "Computers",
-            20
-          ],
-          [
-            "Semiconductors",
-            18
-          ],
-          [
-            "Telecom Equipment",
-            22
-          ],
-          [
-            "Other Electronics",
-            15
-          ]
-        ],
-        "Machinery & Equipment": [
-          [
-            "Industrial Machines",
-            32
-          ],
-          [
-            "Construction Equip.",
-            24
-          ],
-          [
-            "Agricultural Mach.",
-            16
-          ],
-          [
-            "Power Generation",
-            18
-          ],
-          [
-            "Other",
-            10
-          ]
-        ],
-        "Textiles & Garments": [
-          [
-            "Woven Garments",
-            40
-          ],
-          [
-            "Knitwear",
-            28
-          ],
-          [
-            "Yarn & Fabric",
-            20
-          ],
-          [
-            "Accessories",
-            12
-          ]
-        ],
         "Other": [
           [
-            "Processed Food",
-            15
-          ],
-          [
-            "Toys & Games",
-            14
-          ],
-          [
-            "Rubber Products",
-            12
-          ],
-          [
-            "Paper",
-            10
-          ],
-          [
-            "Other Manuf.",
-            49
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 427,
-          "imp": 148
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 162,
-          "imp": 175
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 175,
-          "imp": 210
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 100,
-          "imp": 110
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 60,
-          "imp": 165
-        },
-        {
-          "iso": "VNM",
-          "name": "Vietnam",
-          "exp": 130,
-          "imp": 58
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 110,
-          "imp": 40
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 95,
-          "imp": 25
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -669,191 +505,24 @@
       "total_trade": 3705.87,
       "exports": 1941.43,
       "imports": 1764.44,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Machinery & Equipment",
-          22
-        ],
-        [
-          "Vehicles & Parts",
-          18
-        ],
-        [
-          "Chemicals",
-          12
-        ],
-        [
-          "Electronics",
-          9
-        ],
-        [
-          "Pharmaceuticals",
-          7
-        ],
-        [
-          "Aircraft & Parts",
-          4
-        ],
-        [
-          "Steel & Metals",
-          3
-        ],
-        [
-          "Food & Beverages",
-          3
-        ],
-        [
           "Other",
-          22
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Machinery & Equipment": [
-          [
-            "Industrial Machines",
-            30
-          ],
-          [
-            "Construction Equip.",
-            22
-          ],
-          [
-            "Agricultural Mach.",
-            18
-          ],
-          [
-            "Turbines",
-            16
-          ],
-          [
-            "Other",
-            14
-          ]
-        ],
-        "Vehicles & Parts": [
-          [
-            "Passenger Cars",
-            55
-          ],
-          [
-            "Auto Parts",
-            22
-          ],
-          [
-            "Commercial Vehicles",
-            13
-          ],
-          [
-            "Motorcycles",
-            6
-          ],
-          [
-            "Other",
-            4
-          ]
-        ],
-        "Chemicals": [
-          [
-            "Organic Chemicals",
-            35
-          ],
-          [
-            "Inorganic Chemicals",
-            20
-          ],
-          [
-            "Plastics",
-            18
-          ],
-          [
-            "Dyes & Pigments",
-            12
-          ],
-          [
-            "Other",
-            15
-          ]
-        ],
         "Other": [
           [
-            "Processed Food",
-            18
-          ],
-          [
-            "Furniture",
-            14
-          ],
-          [
-            "Plastics",
-            12
-          ],
-          [
-            "Paper & Pulp",
-            10
-          ],
-          [
-            "Textiles",
-            9
-          ],
-          [
-            "Other Manuf.",
-            37
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 145,
-          "imp": 72
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 110,
-          "imp": 100
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 92,
-          "imp": 75
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 85,
-          "imp": 70
-        },
-        {
-          "iso": "GBR",
-          "name": "United Kingdom",
-          "exp": 78,
-          "imp": 42
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 65,
-          "imp": 52
-        },
-        {
-          "iso": "AUT",
-          "name": "Austria",
-          "exp": 55,
-          "imp": 40
-        },
-        {
-          "iso": "POL",
-          "name": "Poland",
-          "exp": 75,
-          "imp": 38
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "EU–Canada (CETA)",
@@ -948,165 +617,24 @@
       "total_trade": 1869.08,
       "exports": 917.04,
       "imports": 952.04,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Vehicles & Parts",
-          21
-        ],
-        [
-          "Machinery & Equipment",
-          18
-        ],
-        [
-          "Electronics",
-          15
-        ],
-        [
-          "Chemicals",
-          8
-        ],
-        [
-          "Steel & Metals",
-          6
-        ],
-        [
-          "Optical & Precision Instruments",
-          4
-        ],
-        [
-          "Ships",
-          3
-        ],
-        [
-          "Plastics",
-          3
-        ],
-        [
           "Other",
-          22
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Vehicles & Parts": [
+        "Other": [
           [
-            "Passenger Cars",
-            55
-          ],
-          [
-            "Auto Parts",
-            22
-          ],
-          [
-            "Trucks & Buses",
-            13
-          ],
-          [
-            "Motorcycles",
-            6
-          ],
-          [
-            "Other",
-            4
-          ]
-        ],
-        "Electronics": [
-          [
-            "Semiconductors",
-            30
-          ],
-          [
-            "Consumer Electronics",
-            22
-          ],
-          [
-            "Electronic Components",
-            25
-          ],
-          [
-            "Telecom Equip.",
-            15
-          ],
-          [
-            "Other",
-            8
-          ]
-        ],
-        "Machinery & Equipment": [
-          [
-            "Industrial Robots",
-            25
-          ],
-          [
-            "Machine Tools",
-            20
-          ],
-          [
-            "Construction Equip.",
-            22
-          ],
-          [
-            "Power Equip.",
-            18
-          ],
-          [
-            "Other",
-            15
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 130,
-          "imp": 78
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 175,
-          "imp": 162
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 52,
-          "imp": 42
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 25,
-          "imp": 58
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 28,
-          "imp": 22
-        },
-        {
-          "iso": "TWN",
-          "name": "Taiwan",
-          "exp": 48,
-          "imp": 38
-        },
-        {
-          "iso": "THA",
-          "name": "Thailand",
-          "exp": 40,
-          "imp": 25
-        },
-        {
-          "iso": "VNM",
-          "name": "Vietnam",
-          "exp": 22,
-          "imp": 20
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -1187,157 +715,12 @@
       "total_trade": 2316.31,
       "exports": 1142.09,
       "imports": 1174.22,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Machinery & Equipment",
-          12
-        ],
-        [
-          "Pharmaceuticals",
-          10
-        ],
-        [
-          "Vehicles & Parts",
-          9
-        ],
-        [
-          "Gold & Precious Metals",
-          8
-        ],
-        [
-          "Mineral Fuels",
-          7
-        ],
-        [
-          "Gems & Jewellery",
-          5
-        ],
-        [
-          "Aircraft & Parts",
-          5
-        ],
-        [
-          "Chemicals",
-          4
-        ],
-        [
-          "Other",
-          40
-        ]
-      ],
-      "commodity_sub": {
-        "Machinery & Equipment": [
-          [
-            "Industrial Machines",
-            30
-          ],
-          [
-            "Power Equipment",
-            25
-          ],
-          [
-            "Agricultural Mach.",
-            20
-          ],
-          [
-            "Other Machinery",
-            25
-          ]
-        ],
-        "Pharmaceuticals": [
-          [
-            "Vaccines & Biologics",
-            28
-          ],
-          [
-            "Antibiotics",
-            20
-          ],
-          [
-            "Cancer Drugs",
-            22
-          ],
-          [
-            "Other Pharma",
-            30
-          ]
-        ],
-        "Other": [
-          [
-            "Financial Services (re-exports)",
-            20
-          ],
-          [
-            "Processed Food",
-            15
-          ],
-          [
-            "Textiles",
-            12
-          ],
-          [
-            "Beverages (Whisky etc.)",
-            10
-          ],
-          [
-            "Other Manuf.",
-            43
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 60,
-          "imp": 65
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 42,
-          "imp": 78
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 38,
-          "imp": 52
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 36,
-          "imp": 45
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 28,
-          "imp": 72
-        },
-        {
-          "iso": "IRL",
-          "name": "Ireland",
-          "exp": 32,
-          "imp": 28
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 22,
-          "imp": 30
-        },
-        {
-          "iso": "BEL",
-          "name": "Belgium",
-          "exp": 18,
-          "imp": 24
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "UK–Australia FTA",
@@ -1418,9 +801,9 @@
       "total_trade": 2152.52,
       "exports": 1071.07,
       "imports": 1081.45,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
           "Aircraft & Aerospace",
@@ -1621,135 +1004,24 @@
       "total_trade": 1461.73,
       "exports": 727.92,
       "imports": 733.81,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Crude Oil & Bitumen",
-          21
-        ],
-        [
-          "Vehicles & Parts",
-          12
-        ],
-        [
-          "Machinery",
-          9
-        ],
-        [
-          "Gold",
-          6
-        ],
-        [
-          "Lumber & Wood",
-          5
-        ],
-        [
-          "Aircraft",
-          4
-        ],
-        [
-          "Chemicals",
-          3
-        ],
-        [
-          "Food & Agriculture",
-          3
-        ],
-        [
           "Other",
-          37
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Crude Oil & Bitumen": [
-          [
-            "Oil Sands Bitumen",
-            50
-          ],
-          [
-            "Conventional Crude",
-            35
-          ],
-          [
-            "Condensate",
-            15
-          ]
-        ],
         "Other": [
           [
-            "Potash",
-            12
-          ],
-          [
-            "Aluminum",
-            10
-          ],
-          [
-            "Plastics",
-            10
-          ],
-          [
-            "Fish",
-            8
-          ],
-          [
-            "Other Manuf.",
-            60
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 330,
-          "imp": 307
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 22,
-          "imp": 55
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 15,
-          "imp": 12
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 12,
-          "imp": 10
-        },
-        {
-          "iso": "MEX",
-          "name": "Mexico",
-          "exp": 8,
-          "imp": 12
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 10,
-          "imp": 14
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 8,
-          "imp": 9
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 6,
-          "imp": 5
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "USMCA",
@@ -1802,131 +1074,24 @@
       "total_trade": 1587.38,
       "exports": 831.89,
       "imports": 755.49,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Electronics & Semiconductors",
-          22
-        ],
-        [
-          "Vehicles & Parts",
-          11
-        ],
-        [
-          "Machinery",
-          10
-        ],
-        [
-          "Ships",
-          8
-        ],
-        [
-          "Petrochemicals",
-          7
-        ],
-        [
-          "Steel",
-          6
-        ],
-        [
-          "Plastics",
-          4
-        ],
-        [
           "Other",
-          32
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Electronics & Semiconductors": [
+        "Other": [
           [
-            "Memory Chips",
-            45
-          ],
-          [
-            "Display Panels",
-            20
-          ],
-          [
-            "Consumer Electronics",
-            18
-          ],
-          [
-            "Other Semiconductors",
-            17
-          ]
-        ],
-        "Ships": [
-          [
-            "Container Ships",
-            40
-          ],
-          [
-            "LNG Tankers",
-            30
-          ],
-          [
-            "Bulk Carriers",
-            20
-          ],
-          [
-            "Other",
-            10
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 175,
-          "imp": 210
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 95,
-          "imp": 57
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 42,
-          "imp": 52
-        },
-        {
-          "iso": "VNM",
-          "name": "Vietnam",
-          "exp": 55,
-          "imp": 28
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 18,
-          "imp": 35
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 20,
-          "imp": 18
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 18,
-          "imp": 15
-        },
-        {
-          "iso": "TWN",
-          "name": "Taiwan",
-          "exp": 22,
-          "imp": 28
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -1993,9 +1158,9 @@
       "total_trade": 1745.74,
       "exports": 827.41,
       "imports": 918.33,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
           "Refined Petroleum",
@@ -2219,157 +1384,12 @@
       "total_trade": 777.82,
       "exports": 392.11,
       "imports": 385.71,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Soybeans & Products",
-          14
-        ],
-        [
-          "Iron Ore",
-          12
-        ],
-        [
-          "Crude Oil",
-          11
-        ],
-        [
-          "Sugar",
-          6
-        ],
-        [
-          "Beef",
-          6
-        ],
-        [
-          "Corn",
-          5
-        ],
-        [
-          "Pulp & Paper",
-          3
-        ],
-        [
-          "Coffee",
-          3
-        ],
-        [
-          "Other",
-          40
-        ]
-      ],
-      "commodity_sub": {
-        "Soybeans & Products": [
-          [
-            "Raw Soybeans",
-            65
-          ],
-          [
-            "Soy Meal",
-            22
-          ],
-          [
-            "Soy Oil",
-            13
-          ]
-        ],
-        "Iron Ore": [
-          [
-            "High Grade (>62% Fe)",
-            45
-          ],
-          [
-            "Medium Grade",
-            35
-          ],
-          [
-            "Pellets",
-            20
-          ]
-        ],
-        "Other": [
-          [
-            "Machinery",
-            16
-          ],
-          [
-            "Vehicles",
-            12
-          ],
-          [
-            "Chemicals",
-            10
-          ],
-          [
-            "Footwear",
-            8
-          ],
-          [
-            "Orange Juice",
-            6
-          ],
-          [
-            "Poultry",
-            6
-          ],
-          [
-            "Other Manuf.",
-            42
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 90,
-          "imp": 55
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 30,
-          "imp": 40
-        },
-        {
-          "iso": "ARG",
-          "name": "Argentina",
-          "exp": 18,
-          "imp": 12
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 20,
-          "imp": 8
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 10,
-          "imp": 15
-        },
-        {
-          "iso": "CHL",
-          "name": "Chile",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "MEX",
-          "name": "Mexico",
-          "exp": 7,
-          "imp": 9
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 6,
-          "imp": 5
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "Mercosur–EU Agreement",
@@ -2457,135 +1477,12 @@
       "total_trade": 1384.64,
       "exports": 681.35,
       "imports": 703.29,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Vehicles & Auto Parts",
-          23
-        ],
-        [
-          "Electronics",
-          18
-        ],
-        [
-          "Machinery",
-          12
-        ],
-        [
-          "Medical Instruments",
-          6
-        ],
-        [
-          "Oil & Petroleum",
-          5
-        ],
-        [
-          "Beer & Beverages",
-          3
-        ],
-        [
-          "Food & Agriculture",
-          3
-        ],
-        [
-          "Other",
-          30
-        ]
-      ],
-      "commodity_sub": {
-        "Vehicles & Auto Parts": [
-          [
-            "Passenger Cars",
-            45
-          ],
-          [
-            "Auto Parts",
-            35
-          ],
-          [
-            "Trucks",
-            12
-          ],
-          [
-            "Other",
-            8
-          ]
-        ],
-        "Other": [
-          [
-            "Silver",
-            10
-          ],
-          [
-            "Clothing",
-            10
-          ],
-          [
-            "Plastics",
-            8
-          ],
-          [
-            "Chemicals",
-            8
-          ],
-          [
-            "Other Manuf.",
-            64
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 420,
-          "imp": 261
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 12,
-          "imp": 70
-        },
-        {
-          "iso": "CAN",
-          "name": "Canada",
-          "exp": 14,
-          "imp": 12
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 8,
-          "imp": 12
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 6,
-          "imp": 10
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 5,
-          "imp": 10
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 6,
-          "imp": 5
-        },
-        {
-          "iso": "BRA",
-          "name": "Brazil",
-          "exp": 7,
-          "imp": 9
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "USMCA",
@@ -2638,159 +1535,24 @@
       "total_trade": 828.36,
       "exports": 432.61,
       "imports": 395.75,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Iron Ore",
-          28
-        ],
-        [
-          "Coal",
-          14
-        ],
-        [
-          "Gold",
-          8
-        ],
-        [
-          "LNG",
-          8
-        ],
-        [
-          "Beef & Livestock",
-          4
-        ],
-        [
-          "Wheat",
-          3
-        ],
-        [
-          "Alumina & Aluminum",
-          3
-        ],
-        [
-          "Wool",
-          2
-        ],
-        [
           "Other",
-          30
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Iron Ore": [
-          [
-            "High Grade (>62% Fe)",
-            45
-          ],
-          [
-            "Medium Grade (58-62%)",
-            35
-          ],
-          [
-            "Pellets & Sinter",
-            20
-          ]
-        ],
-        "Coal": [
-          [
-            "Metallurgical (Coking) Coal",
-            55
-          ],
-          [
-            "Thermal Coal",
-            45
-          ]
-        ],
-        "LNG": [
-          [
-            "Pipeline Gas (domestic)",
-            30
-          ],
-          [
-            "Liquefied Natural Gas",
-            70
-          ]
-        ],
         "Other": [
           [
-            "Education Services",
-            18
-          ],
-          [
-            "Tourism",
-            16
-          ],
-          [
-            "Copper Ore",
-            10
-          ],
-          [
-            "Zinc",
-            8
-          ],
-          [
-            "Other Minerals",
-            14
-          ],
-          [
-            "Manufactures",
-            34
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 165,
-          "imp": 60
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 58,
-          "imp": 25
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 35,
-          "imp": 18
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 25,
-          "imp": 12
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 15,
-          "imp": 22
-        },
-        {
-          "iso": "GBR",
-          "name": "United Kingdom",
-          "exp": 12,
-          "imp": 10
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 14,
-          "imp": 8
-        },
-        {
-          "iso": "TWN",
-          "name": "Taiwan",
-          "exp": 12,
-          "imp": 6
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -2885,9 +1647,9 @@
       "total_trade": 858.84,
       "exports": 476.43,
       "imports": 382.41,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
           "Crude Oil",
@@ -3041,119 +1803,24 @@
       "total_trade": 677.91,
       "exports": 360.9,
       "imports": 317.01,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Crude Oil",
-          71
-        ],
-        [
-          "Refined Petroleum",
-          11
-        ],
-        [
-          "Chemicals & Plastics",
-          5
-        ],
-        [
-          "Plastics",
-          3
-        ],
-        [
           "Other",
-          10
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Crude Oil": [
-          [
-            "Arab Light",
-            50
-          ],
-          [
-            "Arab Heavy",
-            30
-          ],
-          [
-            "Arab Extra Light",
-            20
-          ]
-        ],
         "Other": [
           [
-            "Aluminum",
-            20
-          ],
-          [
-            "Steel",
-            15
-          ],
-          [
-            "Fertilizers",
-            15
-          ],
-          [
-            "Food",
-            10
-          ],
-          [
-            "Other",
-            40
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 65,
-          "imp": 38
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 42,
-          "imp": 8
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 35,
-          "imp": 15
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 22,
-          "imp": 25
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 28,
-          "imp": 10
-        },
-        {
-          "iso": "ARE",
-          "name": "UAE",
-          "exp": 12,
-          "imp": 15
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 10,
-          "imp": 5
-        },
-        {
-          "iso": "EGY",
-          "name": "Egypt",
-          "exp": 5,
-          "imp": 3
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "GCC Customs Union",
@@ -3192,131 +1859,12 @@
       "total_trade": 247.29,
       "exports": 127.53,
       "imports": 119.76,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Gold",
-          17
-        ],
-        [
-          "Platinum Group Metals",
-          12
-        ],
-        [
-          "Iron Ore",
-          8
-        ],
-        [
-          "Coal",
-          8
-        ],
-        [
-          "Vehicles",
-          6
-        ],
-        [
-          "Diamonds",
-          5
-        ],
-        [
-          "Machinery",
-          4
-        ],
-        [
-          "Other",
-          40
-        ]
-      ],
-      "commodity_sub": {
-        "Platinum Group Metals": [
-          [
-            "Platinum",
-            55
-          ],
-          [
-            "Palladium",
-            28
-          ],
-          [
-            "Rhodium",
-            17
-          ]
-        ],
-        "Other": [
-          [
-            "Chemicals",
-            15
-          ],
-          [
-            "Food",
-            12
-          ],
-          [
-            "Manganese",
-            10
-          ],
-          [
-            "Chromium",
-            8
-          ],
-          [
-            "Other",
-            55
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 20,
-          "imp": 18
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 12,
-          "imp": 8
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 8,
-          "imp": 10
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 6,
-          "imp": 5
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 6,
-          "imp": 5
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "ZMB",
-          "name": "Zambia",
-          "exp": 3,
-          "imp": 1
-        },
-        {
-          "iso": "MOZ",
-          "name": "Mozambique",
-          "exp": 3,
-          "imp": 1
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -3369,105 +1917,24 @@
       "total_trade": 1.1,
       "exports": 0.39,
       "imports": 0.71,
-      "source": "world_bank",
-      "reference_year": 2024,
-      "estimated": true,
+      "source": "world_bank+comtrade",
+      "reference_year": 1960,
+      "estimated": false,
       "commodities": [
         [
-          "Crude Oil",
-          85
-        ],
-        [
-          "Natural Gas",
-          5
-        ],
-        [
-          "Refined Petroleum",
-          3
-        ],
-        [
-          "Cocoa",
-          2
-        ],
-        [
           "Other",
-          5
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Sesame Seeds",
-            20
-          ],
-          [
-            "Rubber",
-            15
-          ],
-          [
-            "Cashews",
-            15
-          ],
-          [
-            "Leather",
-            10
-          ],
-          [
-            "Other",
-            40
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 10,
-          "imp": 3
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 8,
-          "imp": 4
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 5,
-          "imp": 2
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 4,
-          "imp": 2
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 5,
-          "imp": 8
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 4,
-          "imp": 1
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 3,
-          "imp": 2
-        },
-        {
-          "iso": "ZAF",
-          "name": "S. Africa",
-          "exp": 2,
-          "imp": 2
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -3498,109 +1965,24 @@
       "total_trade": 154.07,
       "exports": 63.71,
       "imports": 90.36,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Refined Petroleum",
-          16
-        ],
-        [
-          "Gold",
-          11
-        ],
-        [
-          "Cotton & Textiles",
-          8
-        ],
-        [
-          "Chemicals",
-          6
-        ],
-        [
-          "Vegetables & Fruit",
-          5
-        ],
-        [
           "Other",
-          54
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Fertilizers",
-            15
-          ],
-          [
-            "Aluminum",
-            10
-          ],
-          [
-            "Ceramics",
-            8
-          ],
-          [
-            "Cement",
-            7
-          ],
-          [
-            "Other",
-            60
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 4,
-          "imp": 10
-        },
-        {
-          "iso": "SAU",
-          "name": "Saudi Arabia",
-          "exp": 4,
-          "imp": 4
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 3,
-          "imp": 4
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 2,
-          "imp": 5
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 4,
-          "imp": 5
-        },
-        {
-          "iso": "ARE",
-          "name": "UAE",
-          "exp": 3,
-          "imp": 4
-        },
-        {
-          "iso": "TUR",
-          "name": "Turkey",
-          "exp": 2,
-          "imp": 3
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 2,
-          "imp": 3
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -3646,131 +2028,24 @@
       "total_trade": 178.29,
       "exports": 97.35,
       "imports": 80.94,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Soybeans & Products",
-          20
-        ],
-        [
-          "Soy Oil & Meal",
-          10
-        ],
-        [
-          "Corn",
-          9
-        ],
-        [
-          "Vehicles",
-          8
-        ],
-        [
-          "Wheat",
-          6
-        ],
-        [
-          "Beef",
-          6
-        ],
-        [
-          "Lithium",
-          3
-        ],
-        [
           "Other",
-          38
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Soybeans & Products": [
-          [
-            "Raw Soybeans",
-            60
-          ],
-          [
-            "Soy Meal",
-            25
-          ],
-          [
-            "Soy Oil",
-            15
-          ]
-        ],
         "Other": [
           [
-            "Sunflower Oil",
-            12
-          ],
-          [
-            "Wine",
-            10
-          ],
-          [
-            "Shrimp",
-            8
-          ],
-          [
-            "Biodiesel",
-            8
-          ],
-          [
-            "Other",
-            62
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "BRA",
-          "name": "Brazil",
-          "exp": 12,
-          "imp": 18
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 9,
-          "imp": 14
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 6,
-          "imp": 8
-        },
-        {
-          "iso": "CHL",
-          "name": "Chile",
-          "exp": 6,
-          "imp": 5
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 3,
-          "imp": 5
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 3,
-          "imp": 3
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 4,
-          "imp": 2
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 3,
-          "imp": 2
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "Mercosur (Customs Union)",
@@ -3809,131 +2084,12 @@
       "total_trade": 594.45,
       "exports": 309.75,
       "imports": 284.7,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Coal",
-          13
-        ],
-        [
-          "Palm Oil",
-          13
-        ],
-        [
-          "Petroleum",
-          9
-        ],
-        [
-          "Natural Gas",
-          7
-        ],
-        [
-          "Copper",
-          5
-        ],
-        [
-          "Gold",
-          4
-        ],
-        [
-          "Nickel",
-          4
-        ],
-        [
-          "Other",
-          45
-        ]
-      ],
-      "commodity_sub": {
-        "Palm Oil": [
-          [
-            "Crude Palm Oil",
-            60
-          ],
-          [
-            "Refined Palm Oil",
-            28
-          ],
-          [
-            "Palm Kernel Oil",
-            12
-          ]
-        ],
-        "Other": [
-          [
-            "Rubber",
-            12
-          ],
-          [
-            "Garments",
-            10
-          ],
-          [
-            "Footwear",
-            8
-          ],
-          [
-            "Electronics",
-            8
-          ],
-          [
-            "Other",
-            62
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 30,
-          "imp": 48
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 20,
-          "imp": 10
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 18,
-          "imp": 15
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 12,
-          "imp": 6
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 12,
-          "imp": 18
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 10,
-          "imp": 12
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 8,
-          "imp": 5
-        },
-        {
-          "iso": "MYS",
-          "name": "Malaysia",
-          "exp": 8,
-          "imp": 10
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -3979,117 +2135,12 @@
       "total_trade": 742.07,
       "exports": 374.69,
       "imports": 367.38,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Vehicles & Parts",
-          12
-        ],
-        [
-          "Machinery",
-          11
-        ],
-        [
-          "Iron & Steel",
-          7
-        ],
-        [
-          "Apparel & Clothing",
-          7
-        ],
-        [
-          "Electronics",
-          6
-        ],
-        [
-          "Chemicals",
-          5
-        ],
-        [
-          "Food & Agriculture",
-          4
-        ],
-        [
-          "Other",
-          48
-        ]
-      ],
-      "commodity_sub": {
-        "Other": [
-          [
-            "Jewelry",
-            12
-          ],
-          [
-            "Plastics",
-            10
-          ],
-          [
-            "Textiles",
-            10
-          ],
-          [
-            "Furniture",
-            8
-          ],
-          [
-            "Other",
-            60
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 20,
-          "imp": 18
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 12,
-          "imp": 8
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 10,
-          "imp": 12
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 8,
-          "imp": 10
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 8,
-          "imp": 10
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 5,
-          "imp": 22
-        },
-        {
-          "iso": "RUS",
-          "name": "Russia",
-          "exp": 10,
-          "imp": 18
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 6,
-          "imp": 6
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "EU–Turkey Customs Union",
@@ -4135,113 +2186,24 @@
       "total_trade": 1868.93,
       "exports": 1001.47,
       "imports": 867.46,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Machinery & Equipment",
-          14
-        ],
-        [
-          "Refined Petroleum",
-          12
-        ],
-        [
-          "Electronics",
-          10
-        ],
-        [
-          "Chemicals",
-          8
-        ],
-        [
-          "Pharmaceuticals",
-          6
-        ],
-        [
-          "Food & Agriculture",
-          5
-        ],
-        [
           "Other",
-          45
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Cut Flowers",
-            15
-          ],
-          [
-            "Plastics",
-            12
-          ],
-          [
-            "Steel",
-            10
-          ],
-          [
-            "Vehicles",
-            8
-          ],
-          [
-            "Other Manuf.",
-            55
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 70,
-          "imp": 85
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 45,
-          "imp": 36
-        },
-        {
-          "iso": "BEL",
-          "name": "Belgium",
-          "exp": 40,
-          "imp": 38
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 40,
-          "imp": 110
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 48,
-          "imp": 40
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 35,
-          "imp": 38
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 22,
-          "imp": 25
-        },
-        {
-          "iso": "RUS",
-          "name": "Russia",
-          "exp": 8,
-          "imp": 22
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "EU–Canada (CETA)",
@@ -4276,10 +2238,10 @@
       ]
     },
     "CHE": {
-      "name": "CHE",
+      "name": "Switzerland",
       "iso2": "CH",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         8.23,
         46.82
@@ -4287,9 +2249,9 @@
       "total_trade": 1255.88,
       "exports": 675.81,
       "imports": 580.07,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -4297,10 +2259,10 @@
       "disputes": []
     },
     "ESP": {
-      "name": "ESP",
+      "name": "Spain",
       "iso2": "ES",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -3.75,
         40.46
@@ -4308,9 +2270,9 @@
       "total_trade": 1207.11,
       "exports": 639.46,
       "imports": 567.65,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -4318,10 +2280,10 @@
       "disputes": []
     },
     "ITA": {
-      "name": "ITA",
+      "name": "Italy",
       "iso2": "IT",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         12.57,
         41.87
@@ -4329,11 +2291,23 @@
       "total_trade": 1495.73,
       "exports": 773.89,
       "imports": 721.84,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -4350,109 +2324,24 @@
       "total_trade": 1764.62,
       "exports": 978.6,
       "imports": 786.02,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Electronics & Semiconductors",
-          28
-        ],
-        [
-          "Machinery",
-          12
-        ],
-        [
-          "Refined Petroleum",
-          11
-        ],
-        [
-          "Pharmaceuticals",
-          7
-        ],
-        [
-          "Chemicals",
-          6
-        ],
-        [
-          "Gold",
-          4
-        ],
-        [
           "Other",
-          32
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Electronics & Semiconductors": [
+        "Other": [
           [
-            "Integrated Circuits",
-            50
-          ],
-          [
-            "Disk Drives",
-            20
-          ],
-          [
-            "Electronic Components",
-            18
-          ],
-          [
-            "Other",
-            12
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 55,
-          "imp": 50
-        },
-        {
-          "iso": "MYS",
-          "name": "Malaysia",
-          "exp": 45,
-          "imp": 35
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 28,
-          "imp": 22
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 18,
-          "imp": 12
-        },
-        {
-          "iso": "IDN",
-          "name": "Indonesia",
-          "exp": 18,
-          "imp": 12
-        },
-        {
-          "iso": "HKG",
-          "name": "Hong Kong",
-          "exp": 25,
-          "imp": 20
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 18,
-          "imp": 15
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 15,
-          "imp": 12
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -4511,123 +2400,12 @@
       "total_trade": 579.98,
       "exports": 301.22,
       "imports": 278.76,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Electronics & Semiconductors",
-          37
-        ],
-        [
-          "Petroleum",
-          9
-        ],
-        [
-          "Palm Oil",
-          7
-        ],
-        [
-          "Machinery",
-          7
-        ],
-        [
-          "Rubber",
-          4
-        ],
-        [
-          "Chemicals",
-          3
-        ],
-        [
-          "Other",
-          33
-        ]
-      ],
-      "commodity_sub": {
-        "Electronics & Semiconductors": [
-          [
-            "Integrated Circuits",
-            55
-          ],
-          [
-            "Electronic Components",
-            25
-          ],
-          [
-            "Consumer Electronics",
-            12
-          ],
-          [
-            "Other",
-            8
-          ]
-        ],
-        "Palm Oil": [
-          [
-            "Crude Palm Oil",
-            55
-          ],
-          [
-            "Refined Palm Oil",
-            30
-          ],
-          [
-            "Palm Kernel Products",
-            15
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 40,
-          "imp": 50
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 35,
-          "imp": 45
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 30,
-          "imp": 18
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 20,
-          "imp": 15
-        },
-        {
-          "iso": "THA",
-          "name": "Thailand",
-          "exp": 16,
-          "imp": 14
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 12,
-          "imp": 8
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 8,
-          "imp": 5
-        },
-        {
-          "iso": "KOR",
-          "name": "S. Korea",
-          "exp": 10,
-          "imp": 12
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -4672,131 +2450,24 @@
       "total_trade": 828.25,
       "exports": 429.48,
       "imports": 398.77,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Electronics & Phones",
-          30
-        ],
-        [
-          "Machinery",
-          15
-        ],
-        [
-          "Textiles & Garments",
-          12
-        ],
-        [
-          "Footwear",
-          7
-        ],
-        [
-          "Furniture",
-          5
-        ],
-        [
-          "Agricultural Products",
-          4
-        ],
-        [
           "Other",
-          27
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Electronics & Phones": [
-          [
-            "Mobile Phones",
-            55
-          ],
-          [
-            "Electronic Components",
-            25
-          ],
-          [
-            "Computers",
-            12
-          ],
-          [
-            "Other",
-            8
-          ]
-        ],
         "Other": [
           [
-            "Seafood",
-            15
-          ],
-          [
-            "Coffee",
-            12
-          ],
-          [
-            "Rice",
-            10
-          ],
-          [
-            "Rubber",
-            8
-          ],
-          [
-            "Other",
-            55
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 58,
-          "imp": 130
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 96,
-          "imp": 14
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 28,
-          "imp": 55
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 22,
-          "imp": 20
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 8,
-          "imp": 10
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 6,
-          "imp": 4
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 5,
-          "imp": 6
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 5,
-          "imp": 3
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -4849,117 +2520,24 @@
       "total_trade": 921.07,
       "exports": 478.89,
       "imports": 442.18,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Machinery & Equipment",
-          14
-        ],
-        [
-          "Vehicles & Parts",
-          12
-        ],
-        [
-          "Electronics",
-          10
-        ],
-        [
-          "Furniture",
-          5
-        ],
-        [
-          "Chemicals",
-          5
-        ],
-        [
-          "Food",
-          4
-        ],
-        [
-          "Steel",
-          3
-        ],
-        [
           "Other",
-          47
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Plastics",
-            12
-          ],
-          [
-            "Clothing",
-            10
-          ],
-          [
-            "Paper",
-            8
-          ],
-          [
-            "Glass",
-            6
-          ],
-          [
-            "Other",
-            64
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 38,
-          "imp": 75
-        },
-        {
-          "iso": "CZE",
-          "name": "Czechia",
-          "exp": 18,
-          "imp": 20
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 12,
-          "imp": 10
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 10,
-          "imp": 12
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 12,
-          "imp": 14
-        },
-        {
-          "iso": "ITA",
-          "name": "Italy",
-          "exp": 8,
-          "imp": 10
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 5,
-          "imp": 18
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "EU–Canada (CETA)",
@@ -4997,149 +2575,24 @@
       "total_trade": 210.91,
       "exports": 111.38,
       "imports": 99.53,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Copper & Products",
-          48
-        ],
-        [
-          "Lithium & Battery Minerals",
-          8
-        ],
-        [
-          "Pulp & Paper",
-          5
-        ],
-        [
-          "Wine",
-          4
-        ],
-        [
-          "Salmon & Seafood",
-          4
-        ],
-        [
-          "Fruit",
-          4
-        ],
-        [
-          "Molybdenum",
-          3
-        ],
-        [
           "Other",
-          24
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Copper & Products": [
-          [
-            "Refined Copper Cathodes",
-            55
-          ],
-          [
-            "Copper Ore & Concentrates",
-            28
-          ],
-          [
-            "Copper Wire & Rods",
-            17
-          ]
-        ],
-        "Lithium & Battery Minerals": [
-          [
-            "Lithium Carbonate",
-            55
-          ],
-          [
-            "Lithium Hydroxide",
-            30
-          ],
-          [
-            "Lithium Chloride",
-            15
-          ]
-        ],
         "Other": [
           [
-            "Chemicals",
-            15
-          ],
-          [
-            "Machinery (re-export)",
-            12
-          ],
-          [
-            "Forestry Products",
-            10
-          ],
-          [
-            "Iodine",
-            8
-          ],
-          [
-            "Other Minerals",
-            10
-          ],
-          [
-            "Other",
-            45
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 30,
-          "imp": 22
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 12,
-          "imp": 14
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 8,
-          "imp": 5
-        },
-        {
-          "iso": "BRA",
-          "name": "Brazil",
-          "exp": 6,
-          "imp": 8
-        },
-        {
-          "iso": "ARG",
-          "name": "Argentina",
-          "exp": 5,
-          "imp": 6
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "PER",
-          "name": "Peru",
-          "exp": 4,
-          "imp": 3
-        },
-        {
-          "iso": "DEU",
-          "name": "Germany",
-          "exp": 2,
-          "imp": 4
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "CPTPP",
@@ -5241,109 +2694,12 @@
       "total_trade": 155.07,
       "exports": 67.43,
       "imports": 87.64,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Crude Oil",
-          36
-        ],
-        [
-          "Coal",
-          14
-        ],
-        [
-          "Coffee",
-          8
-        ],
-        [
-          "Gold",
-          8
-        ],
-        [
-          "Cut Flowers",
-          4
-        ],
-        [
-          "Other",
-          30
-        ]
-      ],
-      "commodity_sub": {
-        "Other": [
-          [
-            "Bananas",
-            15
-          ],
-          [
-            "Shrimp",
-            10
-          ],
-          [
-            "Avocados",
-            8
-          ],
-          [
-            "Plastics",
-            7
-          ],
-          [
-            "Other",
-            60
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 10,
-          "imp": 15
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 6,
-          "imp": 12
-        },
-        {
-          "iso": "PAN",
-          "name": "Panama",
-          "exp": 4,
-          "imp": 2
-        },
-        {
-          "iso": "MEX",
-          "name": "Mexico",
-          "exp": 3,
-          "imp": 4
-        },
-        {
-          "iso": "BRA",
-          "name": "Brazil",
-          "exp": 2,
-          "imp": 3
-        },
-        {
-          "iso": "ECU",
-          "name": "Ecuador",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "CHL",
-          "name": "Chile",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "PER",
-          "name": "Peru",
-          "exp": 2,
-          "imp": 2
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "Pacific Alliance",
@@ -5378,10 +2734,10 @@
       ]
     },
     "PHL": {
-      "name": "PHL",
+      "name": "Philippines",
       "iso2": "PH",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         121.77,
         12.88
@@ -5389,20 +2745,32 @@
       "total_trade": 304.13,
       "exports": 118.97,
       "imports": 185.16,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "PAK": {
-      "name": "PAK",
+      "name": "Pakistan",
       "iso2": "PK",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         69.35,
         30.38
@@ -5410,20 +2778,32 @@
       "total_trade": 102.48,
       "exports": 38.61,
       "imports": 63.87,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "NZL": {
-      "name": "NZL",
+      "name": "New Zealand",
       "iso2": "NZ",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         172.47,
         -40.9
@@ -5431,11 +2811,23 @@
       "total_trade": 133.28,
       "exports": 64.54,
       "imports": 68.74,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -5452,117 +2844,12 @@
       "total_trade": 719.99,
       "exports": 368.82,
       "imports": 351.17,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [
-        [
-          "Electronics",
-          15
-        ],
-        [
-          "Vehicles & Parts",
-          12
-        ],
-        [
-          "Machinery",
-          10
-        ],
-        [
-          "Rubber",
-          5
-        ],
-        [
-          "Rice",
-          4
-        ],
-        [
-          "Chemicals",
-          4
-        ],
-        [
-          "Food",
-          4
-        ],
-        [
-          "Other",
-          46
-        ]
-      ],
-      "commodity_sub": {
-        "Other": [
-          [
-            "Gems & Jewelry",
-            12
-          ],
-          [
-            "Plastics",
-            10
-          ],
-          [
-            "Sugar",
-            8
-          ],
-          [
-            "Cassava",
-            6
-          ],
-          [
-            "Other",
-            64
-          ]
-        ]
-      },
-      "partners": [
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 32,
-          "imp": 12
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 28,
-          "imp": 52
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 25,
-          "imp": 40
-        },
-        {
-          "iso": "AUS",
-          "name": "Australia",
-          "exp": 10,
-          "imp": 5
-        },
-        {
-          "iso": "MYS",
-          "name": "Malaysia",
-          "exp": 14,
-          "imp": 16
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 10,
-          "imp": 8
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "VNM",
-          "name": "Vietnam",
-          "exp": 8,
-          "imp": 6
-        }
-      ],
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
       "ftas": [
         {
           "name": "RCEP",
@@ -5759,7 +3046,7 @@
       "name": "UAE",
       "iso2": "AE",
       "wto_member": true,
-      "wto_accession": 1996,
+      "wto_accession": 1995,
       "centroid": [
         53.85,
         23.42
@@ -5767,113 +3054,24 @@
       "total_trade": 1040.25,
       "exports": 558.4,
       "imports": 481.85,
-      "source": "world_bank",
-      "reference_year": 2024,
-      "estimated": true,
+      "source": "world_bank+comtrade",
+      "reference_year": 2023,
+      "estimated": false,
       "commodities": [
         [
-          "Crude Oil",
-          26
-        ],
-        [
-          "Refined Petroleum",
-          18
-        ],
-        [
-          "Gold",
-          13
-        ],
-        [
-          "Electronics (re-export)",
-          7
-        ],
-        [
-          "Diamonds",
-          5
-        ],
-        [
-          "Aluminum",
-          4
-        ],
-        [
           "Other",
-          27
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Chemicals",
-            15
-          ],
-          [
-            "Machinery (re-export)",
-            14
-          ],
-          [
-            "Jewelry",
-            12
-          ],
-          [
-            "Vehicles (re-export)",
-            10
-          ],
-          [
-            "Other",
-            49
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 28,
-          "imp": 38
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 22,
-          "imp": 38
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 15,
-          "imp": 20
-        },
-        {
-          "iso": "SAU",
-          "name": "Saudi Arabia",
-          "exp": 15,
-          "imp": 12
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 12,
-          "imp": 6
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 10,
-          "imp": 8
-        },
-        {
-          "iso": "SGP",
-          "name": "Singapore",
-          "exp": 8,
-          "imp": 6
-        },
-        {
-          "iso": "EGY",
-          "name": "Egypt",
-          "exp": 6,
-          "imp": 3
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "GCC Customs Union",
@@ -5900,10 +3098,10 @@
       "disputes": []
     },
     "ISR": {
-      "name": "ISR",
+      "name": "Israel",
       "iso2": "IL",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         34.85,
         31.05
@@ -5911,20 +3109,32 @@
       "total_trade": 294.25,
       "exports": 153.66,
       "imports": 140.59,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "SWE": {
-      "name": "SWE",
+      "name": "Sweden",
       "iso2": "SE",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         18.64,
         59.33
@@ -5932,9 +3142,9 @@
       "total_trade": 639.24,
       "exports": 327.88,
       "imports": 311.36,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -5953,9 +3163,9 @@
       "total_trade": 393.47,
       "exports": 229.67,
       "imports": 163.8,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
           "Crude Oil",
@@ -6096,10 +3306,10 @@
       "disputes": []
     },
     "DNK": {
-      "name": "DNK",
+      "name": "Denmark",
       "iso2": "DK",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         10.0,
         56.26
@@ -6107,20 +3317,32 @@
       "total_trade": 559.37,
       "exports": 301.42,
       "imports": 257.95,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "FIN": {
-      "name": "FIN",
+      "name": "Finland",
       "iso2": "FI",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         25.75,
         61.92
@@ -6128,9 +3350,9 @@
       "total_trade": 249.3,
       "exports": 125.18,
       "imports": 124.12,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -6138,10 +3360,10 @@
       "disputes": []
     },
     "PRT": {
-      "name": "PRT",
+      "name": "Portugal",
       "iso2": "PT",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -8.22,
         39.4
@@ -6149,9 +3371,9 @@
       "total_trade": 280.99,
       "exports": 143.39,
       "imports": 137.6,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -6180,10 +3402,10 @@
       "disputes": []
     },
     "HKG": {
-      "name": "HKG",
+      "name": "Hong Kong",
       "iso2": "HK",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         114.19,
         22.32
@@ -6191,20 +3413,32 @@
       "total_trade": 1462.7,
       "exports": 739.64,
       "imports": 723.06,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "QAT": {
-      "name": "QAT",
+      "name": "Qatar",
       "iso2": "QA",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         51.18,
         25.35
@@ -6212,20 +3446,32 @@
       "total_trade": 236.21,
       "exports": 161.69,
       "imports": 74.52,
-      "source": "world_bank",
-      "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "source": "world_bank+comtrade",
+      "reference_year": 2022,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "KWT": {
-      "name": "KWT",
+      "name": "Kuwait",
       "iso2": "KW",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         47.48,
         29.31
@@ -6233,11 +3479,23 @@
       "total_trade": 158.9,
       "exports": 95.48,
       "imports": 63.42,
-      "source": "world_bank",
-      "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "source": "world_bank+comtrade",
+      "reference_year": 2023,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -6254,127 +3512,24 @@
       "total_trade": 148.88,
       "exports": 82.54,
       "imports": 66.34,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Copper",
-          28
-        ],
-        [
-          "Gold",
-          20
-        ],
-        [
-          "Lead",
-          5
-        ],
-        [
-          "Zinc",
-          5
-        ],
-        [
-          "Coffee",
-          4
-        ],
-        [
-          "Fishmeal",
-          4
-        ],
-        [
           "Other",
-          34
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Copper": [
-          [
-            "Copper Cathodes",
-            50
-          ],
-          [
-            "Copper Concentrates",
-            35
-          ],
-          [
-            "Copper Wire",
-            15
-          ]
-        ],
         "Other": [
           [
-            "Asparagus",
-            12
-          ],
-          [
-            "Avocados",
-            10
-          ],
-          [
-            "Grapes",
-            8
-          ],
-          [
-            "Blueberries",
-            8
-          ],
-          [
-            "Other",
-            62
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 16,
-          "imp": 10
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 8,
-          "imp": 9
-        },
-        {
-          "iso": "CAN",
-          "name": "Canada",
-          "exp": 4,
-          "imp": 2
-        },
-        {
-          "iso": "JPN",
-          "name": "Japan",
-          "exp": 3,
-          "imp": 2
-        },
-        {
-          "iso": "CHL",
-          "name": "Chile",
-          "exp": 3,
-          "imp": 4
-        },
-        {
-          "iso": "BRA",
-          "name": "Brazil",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "KOR",
-          "name": "South Korea",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "ESP",
-          "name": "Spain",
-          "exp": 2,
-          "imp": 1
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "CPTPP",
@@ -6437,10 +3592,10 @@
       "disputes": []
     },
     "MAR": {
-      "name": "MAR",
+      "name": "Morocco",
       "iso2": "MA",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -7.09,
         31.79
@@ -6448,20 +3603,32 @@
       "total_trade": 148.06,
       "exports": 67.45,
       "imports": 80.61,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "KAZ": {
-      "name": "KAZ",
+      "name": "Kazakhstan",
       "iso2": "KZ",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 2015,
       "centroid": [
         66.92,
         48.02
@@ -6469,20 +3636,32 @@
       "total_trade": 166.61,
       "exports": 92.07,
       "imports": 74.54,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "UKR": {
-      "name": "UKR",
+      "name": "Ukraine",
       "iso2": "UA",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 2008,
       "centroid": [
         31.17,
         48.38
@@ -6490,11 +3669,23 @@
       "total_trade": 148.31,
       "exports": 56.1,
       "imports": 92.21,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -7046,10 +4237,10 @@
       "disputes": []
     },
     "HUN": {
-      "name": "HUN",
+      "name": "Hungary",
       "iso2": "HU",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         19.5,
         47.16
@@ -7057,20 +4248,32 @@
       "total_trade": 326.3,
       "exports": 167.91,
       "imports": 158.39,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "CZE": {
-      "name": "CZE",
+      "name": "Czechia",
       "iso2": "CZ",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         15.47,
         49.82
@@ -7078,20 +4281,32 @@
       "total_trade": 456.3,
       "exports": 239.0,
       "imports": 217.3,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "ROU": {
-      "name": "ROU",
+      "name": "Romania",
       "iso2": "RO",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         24.97,
         45.94
@@ -7099,9 +4314,9 @@
       "total_trade": 295.39,
       "exports": 136.2,
       "imports": 159.19,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -7109,10 +4324,10 @@
       "disputes": []
     },
     "SVK": {
-      "name": "SVK",
+      "name": "Slovakia",
       "iso2": "SK",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         19.7,
         48.67
@@ -7120,9 +4335,9 @@
       "total_trade": 241.3,
       "exports": 120.48,
       "imports": 120.82,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -7130,10 +4345,10 @@
       "disputes": []
     },
     "AUT": {
-      "name": "AUT",
+      "name": "Austria",
       "iso2": "AT",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         14.55,
         47.52
@@ -7141,20 +4356,32 @@
       "total_trade": 581.99,
       "exports": 297.76,
       "imports": 284.23,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "GRC": {
-      "name": "GRC",
+      "name": "Greece",
       "iso2": "GR",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         21.82,
         39.07
@@ -7162,9 +4389,9 @@
       "total_trade": 230.05,
       "exports": 107.91,
       "imports": 122.14,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -7277,10 +4504,10 @@
       "disputes": []
     },
     "BEL": {
-      "name": "BEL",
+      "name": "Belgium",
       "iso2": "BE",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         4.47,
         50.5
@@ -7288,14 +4515,484 @@
       "total_trade": 1067.02,
       "exports": 532.22,
       "imports": 534.8,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "IRE": {
+      "name": "Ireland",
+      "iso2": "IE",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -8.24,
+        53.41
+      ],
+      "total_trade": 1499.56,
+      "exports": 877.09,
+      "imports": 622.47,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "BGD": {
+      "name": "Bangladesh",
+      "iso2": "BD",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        90.35,
+        23.68
+      ],
+      "total_trade": 120.54,
+      "exports": 47.09,
+      "imports": 73.45,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
       "ftas": [],
       "disputes": []
+    },
+    "IRQ": {
+      "name": "Iraq",
+      "iso2": "IQ",
+      "wto_member": false,
+      "wto_accession": null,
+      "centroid": [
+        43.68,
+        33.22
+      ],
+      "total_trade": 197.73,
+      "exports": 104.89,
+      "imports": 92.84,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "DZA": {
+      "name": "Algeria",
+      "iso2": "DZ",
+      "wto_member": false,
+      "wto_accession": null,
+      "centroid": [
+        2.63,
+        28.16
+      ],
+      "total_trade": 108.09,
+      "exports": 53.47,
+      "imports": 54.62,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    }
+  },
+  "_fetch_state": {
+    "CHN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "USA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 8,
+      "commodity_sections": 10
+    },
+    "DEU": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "JPN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "GBR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "FRA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 8,
+      "commodity_sections": 9
+    },
+    "KOR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "NLD": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "HKG": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ITA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "CAN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BEL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "MEX": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "SGP": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "RUS": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 8,
+      "commodity_sections": 8
+    },
+    "IND": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 8,
+      "commodity_sections": 9
+    },
+    "TWN": {
+      "last_updated": "2026-04-21",
+      "source": "seed",
+      "partners_count": 8,
+      "commodity_sections": 6
+    },
+    "AUS": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ESP": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "CHE": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "SAU": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BRA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "TUR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "POL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "SWE": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "AUT": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "THA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "ARE": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "NOR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 8,
+      "commodity_sections": 6
+    },
+    "MYS": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "IDN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "ZAF": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "VNM": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "CZE": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "DNK": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "IRE": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "PHL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ARG": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ISR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "NZL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "HUN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "FIN": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "CHL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "PRT": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "COL": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "ROU": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "PER": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "NGA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "EGY": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "PAK": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BGD": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "KAZ": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "UKR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "QAT": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "KWT": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "IRQ": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "DZA": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "MAR": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "SVK": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "GRC": {
+      "last_updated": "2026-04-21",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
     }
   }
 }
