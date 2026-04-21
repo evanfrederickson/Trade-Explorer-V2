@@ -42,58 +42,339 @@
       "iso2": "US",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [-98.58, 39.83],
+      "centroid": [
+        -98.58,
+        39.83
+      ],
       "total_trade": 5200,
       "exports": 2019,
       "imports": 3176,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Machinery & Equipment", 18],
-        ["Aircraft & Spacecraft", 9],
-        ["Electronics", 8],
-        ["Pharmaceuticals", 7],
-        ["Mineral Fuels", 6],
-        ["Vehicles", 5],
-        ["Medical Instruments", 4],
-        ["Chemicals", 4],
-        ["Food & Beverages", 4],
-        ["Other", 35]
+        [
+          "Machinery & Equipment",
+          18
+        ],
+        [
+          "Aircraft & Spacecraft",
+          9
+        ],
+        [
+          "Electronics",
+          8
+        ],
+        [
+          "Pharmaceuticals",
+          7
+        ],
+        [
+          "Mineral Fuels",
+          6
+        ],
+        [
+          "Vehicles",
+          5
+        ],
+        [
+          "Medical Instruments",
+          4
+        ],
+        [
+          "Chemicals",
+          4
+        ],
+        [
+          "Food & Beverages",
+          4
+        ],
+        [
+          "Other",
+          35
+        ]
       ],
       "commodity_sub": {
-        "Machinery & Equipment": [["Industrial Machines",30],["Agricultural Mach.",22],["Pumps & Compressors",18],["Turbines",16],["Other Machinery",14]],
-        "Aircraft & Spacecraft": [["Commercial Aircraft",62],["Aircraft Parts",22],["Military Aircraft",10],["Spacecraft",6]],
-        "Electronics": [["Semiconductors",35],["Consumer Electronics",25],["Telecom Equipment",20],["Industrial Electronics",12],["Other",8]],
-        "Pharmaceuticals": [["Vaccines",22],["Antibiotics",18],["Hormones",15],["Vitamins",12],["Other",33]],
-        "Vehicles": [["Passenger Cars",55],["Auto Parts",22],["Commercial Vehicles",13],["Motorcycles",6],["Other",4]],
-        "Other": [["Processed Food",18],["Furniture",14],["Plastics",12],["Paper & Pulp",10],["Beverages",9],["Metals n.e.s.",9],["Other Manuf.",28]]
+        "Machinery & Equipment": [
+          [
+            "Industrial Machines",
+            30
+          ],
+          [
+            "Agricultural Mach.",
+            22
+          ],
+          [
+            "Pumps & Compressors",
+            18
+          ],
+          [
+            "Turbines",
+            16
+          ],
+          [
+            "Other Machinery",
+            14
+          ]
+        ],
+        "Aircraft & Spacecraft": [
+          [
+            "Commercial Aircraft",
+            62
+          ],
+          [
+            "Aircraft Parts",
+            22
+          ],
+          [
+            "Military Aircraft",
+            10
+          ],
+          [
+            "Spacecraft",
+            6
+          ]
+        ],
+        "Electronics": [
+          [
+            "Semiconductors",
+            35
+          ],
+          [
+            "Consumer Electronics",
+            25
+          ],
+          [
+            "Telecom Equipment",
+            20
+          ],
+          [
+            "Industrial Electronics",
+            12
+          ],
+          [
+            "Other",
+            8
+          ]
+        ],
+        "Pharmaceuticals": [
+          [
+            "Vaccines",
+            22
+          ],
+          [
+            "Antibiotics",
+            18
+          ],
+          [
+            "Hormones",
+            15
+          ],
+          [
+            "Vitamins",
+            12
+          ],
+          [
+            "Other",
+            33
+          ]
+        ],
+        "Vehicles": [
+          [
+            "Passenger Cars",
+            55
+          ],
+          [
+            "Auto Parts",
+            22
+          ],
+          [
+            "Commercial Vehicles",
+            13
+          ],
+          [
+            "Motorcycles",
+            6
+          ],
+          [
+            "Other",
+            4
+          ]
+        ],
+        "Other": [
+          [
+            "Processed Food",
+            18
+          ],
+          [
+            "Furniture",
+            14
+          ],
+          [
+            "Plastics",
+            12
+          ],
+          [
+            "Paper & Pulp",
+            10
+          ],
+          [
+            "Beverages",
+            9
+          ],
+          [
+            "Metals n.e.s.",
+            9
+          ],
+          [
+            "Other Manuf.",
+            28
+          ]
+        ]
       },
       "partners": [
-        {"iso": "CHN", "name": "China", "exp": 148, "imp": 427},
-        {"iso": "MEX", "name": "Mexico", "exp": 261, "imp": 309},
-        {"iso": "CAN", "name": "Canada", "exp": 307, "imp": 335},
-        {"iso": "DEU", "name": "Germany", "exp": 72, "imp": 145},
-        {"iso": "JPN", "name": "Japan", "exp": 78, "imp": 134},
-        {"iso": "GBR", "name": "United Kingdom", "exp": 65, "imp": 58},
-        {"iso": "KOR", "name": "South Korea", "exp": 57, "imp": 96},
-        {"iso": "IND", "name": "India", "exp": 40, "imp": 83}
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 148,
+          "imp": 427
+        },
+        {
+          "iso": "MEX",
+          "name": "Mexico",
+          "exp": 261,
+          "imp": 309
+        },
+        {
+          "iso": "CAN",
+          "name": "Canada",
+          "exp": 307,
+          "imp": 335
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 72,
+          "imp": 145
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 78,
+          "imp": 134
+        },
+        {
+          "iso": "GBR",
+          "name": "United Kingdom",
+          "exp": 65,
+          "imp": 58
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 57,
+          "imp": 96
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 40,
+          "imp": 83
+        }
       ],
       "ftas": [
-        {"name": "USMCA", "year": 2020, "parties": "Canada, Mexico", "scope": "Goods, Services, IP, Investment, Digital Trade", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement"},
-        {"name": "US–South Korea FTA (KORUS)", "year": 2012, "parties": "South Korea", "scope": "Goods, Services, Autos, Financial Services", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta"},
-        {"name": "US–Australia FTA", "year": 2005, "parties": "Australia", "scope": "Goods, Services, Investment", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/australian-fta"},
-        {"name": "US–Chile FTA", "year": 2004, "parties": "Chile", "scope": "Goods, Services, Investment", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/chile-fta"},
-        {"name": "US–Singapore FTA", "year": 2004, "parties": "Singapore", "scope": "Goods, Services", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/singapore-fta"},
-        {"name": "CAFTA-DR", "year": 2006, "parties": "Costa Rica, Dom. Rep., El Salvador, Guatemala, Honduras, Nicaragua", "scope": "Goods, Services", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/cafta-dr-dominican-republic-central-america-fta"},
-        {"name": "US–Morocco FTA", "year": 2006, "parties": "Morocco", "scope": "Goods, Services", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/morocco-fta"},
-        {"name": "US–Bahrain FTA", "year": 2006, "parties": "Bahrain", "scope": "Goods, Services", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/bahrain-fta"}
+        {
+          "name": "USMCA",
+          "year": 2020,
+          "parties": "Canada, Mexico",
+          "scope": "Goods, Services, IP, Investment, Digital Trade",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement"
+        },
+        {
+          "name": "US–South Korea FTA (KORUS)",
+          "year": 2012,
+          "parties": "South Korea",
+          "scope": "Goods, Services, Autos, Financial Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta"
+        },
+        {
+          "name": "US–Australia FTA",
+          "year": 2005,
+          "parties": "Australia",
+          "scope": "Goods, Services, Investment",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/australian-fta"
+        },
+        {
+          "name": "US–Chile FTA",
+          "year": 2004,
+          "parties": "Chile",
+          "scope": "Goods, Services, Investment",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/chile-fta"
+        },
+        {
+          "name": "US–Singapore FTA",
+          "year": 2004,
+          "parties": "Singapore",
+          "scope": "Goods, Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/singapore-fta"
+        },
+        {
+          "name": "CAFTA-DR",
+          "year": 2006,
+          "parties": "Costa Rica, Dom. Rep., El Salvador, Guatemala, Honduras, Nicaragua",
+          "scope": "Goods, Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/cafta-dr-dominican-republic-central-america-fta"
+        },
+        {
+          "name": "US–Morocco FTA",
+          "year": 2006,
+          "parties": "Morocco",
+          "scope": "Goods, Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/morocco-fta"
+        },
+        {
+          "name": "US–Bahrain FTA",
+          "year": 2006,
+          "parties": "Bahrain",
+          "scope": "Goods, Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/bahrain-fta"
+        }
       ],
       "disputes": [
-        {"ds": "DS316", "title": "EU Subsidies on Large Civil Aircraft (Airbus)", "role": "complainant", "year": 2004, "status": "Settled 2021"},
-        {"ds": "DS353", "title": "US Subsidies on Large Civil Aircraft (Boeing)", "role": "respondent", "year": 2005, "status": "Settled 2021"},
-        {"ds": "DS579", "title": "US Tariffs on Steel and Aluminum (Section 232)", "role": "respondent", "year": 2019, "status": "Ongoing"},
-        {"ds": "DS543", "title": "US Tariffs on Chinese Goods — China Retaliation", "role": "respondent", "year": 2018, "status": "Ongoing"},
-        {"ds": "DS436", "title": "Countervailing Duties on Hot-Rolled Carbon Steel (India)", "role": "respondent", "year": 2012, "status": "Ruled against"}
+        {
+          "ds": "DS316",
+          "title": "EU Subsidies on Large Civil Aircraft (Airbus)",
+          "role": "complainant",
+          "year": 2004,
+          "status": "Settled 2021"
+        },
+        {
+          "ds": "DS353",
+          "title": "US Subsidies on Large Civil Aircraft (Boeing)",
+          "role": "respondent",
+          "year": 2005,
+          "status": "Settled 2021"
+        },
+        {
+          "ds": "DS579",
+          "title": "US Tariffs on Steel and Aluminum (Section 232)",
+          "role": "respondent",
+          "year": 2019,
+          "status": "Ongoing"
+        },
+        {
+          "ds": "DS543",
+          "title": "US Tariffs on Chinese Goods — China Retaliation",
+          "role": "respondent",
+          "year": 2018,
+          "status": "Ongoing"
+        },
+        {
+          "ds": "DS436",
+          "title": "Countervailing Duties on Hot-Rolled Carbon Steel (India)",
+          "role": "respondent",
+          "year": 2012,
+          "status": "Ruled against"
+        }
       ]
     },
     "CHN": {
@@ -101,54 +382,276 @@
       "iso2": "CN",
       "wto_member": true,
       "wto_accession": 2001,
-      "centroid": [104.19, 35.86],
+      "centroid": [
+        104.19,
+        35.86
+      ],
       "total_trade": 6520,
       "exports": 3380,
       "imports": 2560,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Electronics", 28],
-        ["Machinery & Equipment", 18],
-        ["Textiles & Garments", 8],
-        ["Steel & Metals", 6],
-        ["Chemicals", 5],
-        ["Vehicles", 4],
-        ["Furniture", 3],
-        ["Plastics", 3],
-        ["Other", 25]
+        [
+          "Electronics",
+          28
+        ],
+        [
+          "Machinery & Equipment",
+          18
+        ],
+        [
+          "Textiles & Garments",
+          8
+        ],
+        [
+          "Steel & Metals",
+          6
+        ],
+        [
+          "Chemicals",
+          5
+        ],
+        [
+          "Vehicles",
+          4
+        ],
+        [
+          "Furniture",
+          3
+        ],
+        [
+          "Plastics",
+          3
+        ],
+        [
+          "Other",
+          25
+        ]
       ],
       "commodity_sub": {
-        "Electronics": [["Smartphones",25],["Computers",20],["Semiconductors",18],["Telecom Equipment",22],["Other Electronics",15]],
-        "Machinery & Equipment": [["Industrial Machines",32],["Construction Equip.",24],["Agricultural Mach.",16],["Power Generation",18],["Other",10]],
-        "Textiles & Garments": [["Woven Garments",40],["Knitwear",28],["Yarn & Fabric",20],["Accessories",12]],
-        "Other": [["Processed Food",15],["Toys & Games",14],["Rubber Products",12],["Paper",10],["Other Manuf.",49]]
+        "Electronics": [
+          [
+            "Smartphones",
+            25
+          ],
+          [
+            "Computers",
+            20
+          ],
+          [
+            "Semiconductors",
+            18
+          ],
+          [
+            "Telecom Equipment",
+            22
+          ],
+          [
+            "Other Electronics",
+            15
+          ]
+        ],
+        "Machinery & Equipment": [
+          [
+            "Industrial Machines",
+            32
+          ],
+          [
+            "Construction Equip.",
+            24
+          ],
+          [
+            "Agricultural Mach.",
+            16
+          ],
+          [
+            "Power Generation",
+            18
+          ],
+          [
+            "Other",
+            10
+          ]
+        ],
+        "Textiles & Garments": [
+          [
+            "Woven Garments",
+            40
+          ],
+          [
+            "Knitwear",
+            28
+          ],
+          [
+            "Yarn & Fabric",
+            20
+          ],
+          [
+            "Accessories",
+            12
+          ]
+        ],
+        "Other": [
+          [
+            "Processed Food",
+            15
+          ],
+          [
+            "Toys & Games",
+            14
+          ],
+          [
+            "Rubber Products",
+            12
+          ],
+          [
+            "Paper",
+            10
+          ],
+          [
+            "Other Manuf.",
+            49
+          ]
+        ]
       },
       "partners": [
-        {"iso": "USA", "name": "United States", "exp": 427, "imp": 148},
-        {"iso": "JPN", "name": "Japan", "exp": 162, "imp": 175},
-        {"iso": "KOR", "name": "South Korea", "exp": 175, "imp": 210},
-        {"iso": "DEU", "name": "Germany", "exp": 100, "imp": 110},
-        {"iso": "AUS", "name": "Australia", "exp": 60, "imp": 165},
-        {"iso": "VNM", "name": "Vietnam", "exp": 130, "imp": 58},
-        {"iso": "NLD", "name": "Netherlands", "exp": 110, "imp": 40},
-        {"iso": "IND", "name": "India", "exp": 95, "imp": 25}
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 427,
+          "imp": 148
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 162,
+          "imp": 175
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 175,
+          "imp": 210
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 100,
+          "imp": 110
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 60,
+          "imp": 165
+        },
+        {
+          "iso": "VNM",
+          "name": "Vietnam",
+          "exp": 130,
+          "imp": 58
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 110,
+          "imp": 40
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 95,
+          "imp": 25
+        }
       ],
       "ftas": [
-        {"name": "RCEP", "year": 2022, "parties": "ASEAN+5 (Japan, Korea, Australia, NZ)", "scope": "Goods, Services, Investment, IP, E-Commerce", "url": "https://rcepsec.org/"},
-        {"name": "China–ASEAN FTA (CAFTA)", "year": 2005, "parties": "10 ASEAN members", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/chinaasean.shtml"},
-        {"name": "China–Australia FTA (ChAFTA)", "year": 2015, "parties": "Australia", "scope": "Goods, Services, Investment", "url": "https://www.dfat.gov.au/trade/agreements/in-force/chafta"},
-        {"name": "China–South Korea FTA", "year": 2015, "parties": "South Korea", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/chinakorea.shtml"},
-        {"name": "China–New Zealand FTA", "year": 2008, "parties": "New Zealand", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/newzealand.shtml"},
-        {"name": "China–Switzerland FTA", "year": 2014, "parties": "Switzerland", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/switzerland.shtml"},
-        {"name": "China–Chile FTA", "year": 2006, "parties": "Chile", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/chile.shtml"},
-        {"name": "China–Pakistan FTA", "year": 2007, "parties": "Pakistan", "scope": "Goods", "url": "https://fta.mofcom.gov.cn/topic/pakistan.shtml"}
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+5 (Japan, Korea, Australia, NZ)",
+          "scope": "Goods, Services, Investment, IP, E-Commerce",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "China–ASEAN FTA (CAFTA)",
+          "year": 2005,
+          "parties": "10 ASEAN members",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/chinaasean.shtml"
+        },
+        {
+          "name": "China–Australia FTA (ChAFTA)",
+          "year": 2015,
+          "parties": "Australia",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/chafta"
+        },
+        {
+          "name": "China–South Korea FTA",
+          "year": 2015,
+          "parties": "South Korea",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/chinakorea.shtml"
+        },
+        {
+          "name": "China–New Zealand FTA",
+          "year": 2008,
+          "parties": "New Zealand",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/newzealand.shtml"
+        },
+        {
+          "name": "China–Switzerland FTA",
+          "year": 2014,
+          "parties": "Switzerland",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/switzerland.shtml"
+        },
+        {
+          "name": "China–Chile FTA",
+          "year": 2006,
+          "parties": "Chile",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/chile.shtml"
+        },
+        {
+          "name": "China–Pakistan FTA",
+          "year": 2007,
+          "parties": "Pakistan",
+          "scope": "Goods",
+          "url": "https://fta.mofcom.gov.cn/topic/pakistan.shtml"
+        }
       ],
       "disputes": [
-        {"ds": "DS387", "title": "Anti-Dumping on Grain Oriented Flat-Rolled Electrical Steel", "role": "respondent", "year": 2008, "status": "Ruled against"},
-        {"ds": "DS543", "title": "Additional Duties on US Goods (Section 301 retaliation)", "role": "complainant", "year": 2018, "status": "Ongoing"},
-        {"ds": "DS558", "title": "Tariffs on Certain US Agricultural Products", "role": "respondent", "year": 2018, "status": "Ongoing"},
-        {"ds": "DS517", "title": "Anti-Dumping Measures on Broiler Products", "role": "respondent", "year": 2016, "status": "Ongoing"}
+        {
+          "ds": "DS387",
+          "title": "Anti-Dumping on Grain Oriented Flat-Rolled Electrical Steel",
+          "role": "respondent",
+          "year": 2008,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS543",
+          "title": "Additional Duties on US Goods (Section 301 retaliation)",
+          "role": "complainant",
+          "year": 2018,
+          "status": "Ongoing"
+        },
+        {
+          "ds": "DS558",
+          "title": "Tariffs on Certain US Agricultural Products",
+          "role": "respondent",
+          "year": 2018,
+          "status": "Ongoing"
+        },
+        {
+          "ds": "DS517",
+          "title": "Anti-Dumping Measures on Broiler Products",
+          "role": "respondent",
+          "year": 2016,
+          "status": "Ongoing"
+        }
       ]
     },
     "DEU": {
@@ -156,53 +659,277 @@
       "iso2": "DE",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [10.45, 51.17],
+      "centroid": [
+        10.45,
+        51.17
+      ],
       "total_trade": 2900,
       "exports": 1590,
       "imports": 1310,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Machinery & Equipment", 22],
-        ["Vehicles & Parts", 18],
-        ["Chemicals", 12],
-        ["Electronics", 9],
-        ["Pharmaceuticals", 7],
-        ["Aircraft & Parts", 4],
-        ["Steel & Metals", 3],
-        ["Food & Beverages", 3],
-        ["Other", 22]
+        [
+          "Machinery & Equipment",
+          22
+        ],
+        [
+          "Vehicles & Parts",
+          18
+        ],
+        [
+          "Chemicals",
+          12
+        ],
+        [
+          "Electronics",
+          9
+        ],
+        [
+          "Pharmaceuticals",
+          7
+        ],
+        [
+          "Aircraft & Parts",
+          4
+        ],
+        [
+          "Steel & Metals",
+          3
+        ],
+        [
+          "Food & Beverages",
+          3
+        ],
+        [
+          "Other",
+          22
+        ]
       ],
       "commodity_sub": {
-        "Machinery & Equipment": [["Industrial Machines",30],["Construction Equip.",22],["Agricultural Mach.",18],["Turbines",16],["Other",14]],
-        "Vehicles & Parts": [["Passenger Cars",55],["Auto Parts",22],["Commercial Vehicles",13],["Motorcycles",6],["Other",4]],
-        "Chemicals": [["Organic Chemicals",35],["Inorganic Chemicals",20],["Plastics",18],["Dyes & Pigments",12],["Other",15]],
-        "Other": [["Processed Food",18],["Furniture",14],["Plastics",12],["Paper & Pulp",10],["Textiles",9],["Other Manuf.",37]]
+        "Machinery & Equipment": [
+          [
+            "Industrial Machines",
+            30
+          ],
+          [
+            "Construction Equip.",
+            22
+          ],
+          [
+            "Agricultural Mach.",
+            18
+          ],
+          [
+            "Turbines",
+            16
+          ],
+          [
+            "Other",
+            14
+          ]
+        ],
+        "Vehicles & Parts": [
+          [
+            "Passenger Cars",
+            55
+          ],
+          [
+            "Auto Parts",
+            22
+          ],
+          [
+            "Commercial Vehicles",
+            13
+          ],
+          [
+            "Motorcycles",
+            6
+          ],
+          [
+            "Other",
+            4
+          ]
+        ],
+        "Chemicals": [
+          [
+            "Organic Chemicals",
+            35
+          ],
+          [
+            "Inorganic Chemicals",
+            20
+          ],
+          [
+            "Plastics",
+            18
+          ],
+          [
+            "Dyes & Pigments",
+            12
+          ],
+          [
+            "Other",
+            15
+          ]
+        ],
+        "Other": [
+          [
+            "Processed Food",
+            18
+          ],
+          [
+            "Furniture",
+            14
+          ],
+          [
+            "Plastics",
+            12
+          ],
+          [
+            "Paper & Pulp",
+            10
+          ],
+          [
+            "Textiles",
+            9
+          ],
+          [
+            "Other Manuf.",
+            37
+          ]
+        ]
       },
       "partners": [
-        {"iso": "USA", "name": "United States", "exp": 145, "imp": 72},
-        {"iso": "CHN", "name": "China", "exp": 110, "imp": 100},
-        {"iso": "FRA", "name": "France", "exp": 92, "imp": 75},
-        {"iso": "NLD", "name": "Netherlands", "exp": 85, "imp": 70},
-        {"iso": "GBR", "name": "United Kingdom", "exp": 78, "imp": 42},
-        {"iso": "ITA", "name": "Italy", "exp": 65, "imp": 52},
-        {"iso": "AUT", "name": "Austria", "exp": 55, "imp": 40},
-        {"iso": "POL", "name": "Poland", "exp": 75, "imp": 38}
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 145,
+          "imp": 72
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 110,
+          "imp": 100
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 92,
+          "imp": 75
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 85,
+          "imp": 70
+        },
+        {
+          "iso": "GBR",
+          "name": "United Kingdom",
+          "exp": 78,
+          "imp": 42
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 65,
+          "imp": 52
+        },
+        {
+          "iso": "AUT",
+          "name": "Austria",
+          "exp": 55,
+          "imp": 40
+        },
+        {
+          "iso": "POL",
+          "name": "Poland",
+          "exp": 75,
+          "imp": 38
+        }
       ],
       "ftas": [
-        {"name": "EU–Canada (CETA)", "year": 2017, "parties": "Canada", "scope": "Goods, Services, Investment, IP, Procurement", "url": "https://www.consilium.europa.eu/en/policies/ceta/"},
-        {"name": "EU–Japan EPA", "year": 2019, "parties": "Japan", "scope": "Goods, Services, IP, Procurement", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"},
-        {"name": "EU–South Korea FTA", "year": 2011, "parties": "South Korea", "scope": "Goods, Services, IP, Autos", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"},
-        {"name": "EU–Singapore FTA", "year": 2019, "parties": "Singapore", "scope": "Goods, Services", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/singapore_en"},
-        {"name": "EU–Vietnam FTA (EVFTA)", "year": 2020, "parties": "Vietnam", "scope": "Goods, Services, IP", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/vietnam_en"},
-        {"name": "EU–Ukraine DCFTA", "year": 2016, "parties": "Ukraine", "scope": "Goods, Services", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/ukraine_en"},
-        {"name": "EU–Chile Advanced Framework Agreement", "year": 2024, "parties": "Chile", "scope": "Goods, Services, Investment, Digital", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/chile_en"}
+        {
+          "name": "EU–Canada (CETA)",
+          "year": 2017,
+          "parties": "Canada",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.consilium.europa.eu/en/policies/ceta/"
+        },
+        {
+          "name": "EU–Japan EPA",
+          "year": 2019,
+          "parties": "Japan",
+          "scope": "Goods, Services, IP, Procurement",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"
+        },
+        {
+          "name": "EU–South Korea FTA",
+          "year": 2011,
+          "parties": "South Korea",
+          "scope": "Goods, Services, IP, Autos",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"
+        },
+        {
+          "name": "EU–Singapore FTA",
+          "year": 2019,
+          "parties": "Singapore",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/singapore_en"
+        },
+        {
+          "name": "EU–Vietnam FTA (EVFTA)",
+          "year": 2020,
+          "parties": "Vietnam",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/vietnam_en"
+        },
+        {
+          "name": "EU–Ukraine DCFTA",
+          "year": 2016,
+          "parties": "Ukraine",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/ukraine_en"
+        },
+        {
+          "name": "EU–Chile Advanced Framework Agreement",
+          "year": 2024,
+          "parties": "Chile",
+          "scope": "Goods, Services, Investment, Digital",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/chile_en"
+        }
       ],
       "disputes": [
-        {"ds": "DS316", "title": "EU Subsidies on Large Civil Aircraft (Airbus)", "role": "respondent", "year": 2004, "status": "Settled 2021"},
-        {"ds": "DS26", "title": "EC — Measures on Meat and Meat Products (Hormones)", "role": "respondent", "year": 1996, "status": "Settled 2012"},
-        {"ds": "DS291", "title": "EC — Approval and Marketing of Biotech Products", "role": "respondent", "year": 2003, "status": "Ruled against"},
-        {"ds": "DS248", "title": "EC — Definitive Safeguard Measures on Certain Steel Products", "role": "respondent", "year": 2002, "status": "Ruled against"}
+        {
+          "ds": "DS316",
+          "title": "EU Subsidies on Large Civil Aircraft (Airbus)",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Settled 2021"
+        },
+        {
+          "ds": "DS26",
+          "title": "EC — Measures on Meat and Meat Products (Hormones)",
+          "role": "respondent",
+          "year": 1996,
+          "status": "Settled 2012"
+        },
+        {
+          "ds": "DS291",
+          "title": "EC — Approval and Marketing of Biotech Products",
+          "role": "respondent",
+          "year": 2003,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS248",
+          "title": "EC — Definitive Safeguard Measures on Certain Steel Products",
+          "role": "respondent",
+          "year": 2002,
+          "status": "Ruled against"
+        }
       ]
     },
     "GBR": {
@@ -210,50 +937,229 @@
       "iso2": "GB",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [-3.44, 55.38],
+      "centroid": [
+        -3.44,
+        55.38
+      ],
       "total_trade": 1200,
       "exports": 485,
       "imports": 715,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Machinery & Equipment", 12],
-        ["Pharmaceuticals", 10],
-        ["Vehicles & Parts", 9],
-        ["Gold & Precious Metals", 8],
-        ["Mineral Fuels", 7],
-        ["Gems & Jewellery", 5],
-        ["Aircraft & Parts", 5],
-        ["Chemicals", 4],
-        ["Other", 40]
+        [
+          "Machinery & Equipment",
+          12
+        ],
+        [
+          "Pharmaceuticals",
+          10
+        ],
+        [
+          "Vehicles & Parts",
+          9
+        ],
+        [
+          "Gold & Precious Metals",
+          8
+        ],
+        [
+          "Mineral Fuels",
+          7
+        ],
+        [
+          "Gems & Jewellery",
+          5
+        ],
+        [
+          "Aircraft & Parts",
+          5
+        ],
+        [
+          "Chemicals",
+          4
+        ],
+        [
+          "Other",
+          40
+        ]
       ],
       "commodity_sub": {
-        "Machinery & Equipment": [["Industrial Machines",30],["Power Equipment",25],["Agricultural Mach.",20],["Other Machinery",25]],
-        "Pharmaceuticals": [["Vaccines & Biologics",28],["Antibiotics",20],["Cancer Drugs",22],["Other Pharma",30]],
-        "Other": [["Financial Services (re-exports)",20],["Processed Food",15],["Textiles",12],["Beverages (Whisky etc.)",10],["Other Manuf.",43]]
+        "Machinery & Equipment": [
+          [
+            "Industrial Machines",
+            30
+          ],
+          [
+            "Power Equipment",
+            25
+          ],
+          [
+            "Agricultural Mach.",
+            20
+          ],
+          [
+            "Other Machinery",
+            25
+          ]
+        ],
+        "Pharmaceuticals": [
+          [
+            "Vaccines & Biologics",
+            28
+          ],
+          [
+            "Antibiotics",
+            20
+          ],
+          [
+            "Cancer Drugs",
+            22
+          ],
+          [
+            "Other Pharma",
+            30
+          ]
+        ],
+        "Other": [
+          [
+            "Financial Services (re-exports)",
+            20
+          ],
+          [
+            "Processed Food",
+            15
+          ],
+          [
+            "Textiles",
+            12
+          ],
+          [
+            "Beverages (Whisky etc.)",
+            10
+          ],
+          [
+            "Other Manuf.",
+            43
+          ]
+        ]
       },
       "partners": [
-        {"iso": "USA", "name": "United States", "exp": 60, "imp": 65},
-        {"iso": "DEU", "name": "Germany", "exp": 42, "imp": 78},
-        {"iso": "FRA", "name": "France", "exp": 38, "imp": 52},
-        {"iso": "NLD", "name": "Netherlands", "exp": 36, "imp": 45},
-        {"iso": "CHN", "name": "China", "exp": 28, "imp": 72},
-        {"iso": "IRL", "name": "Ireland", "exp": 32, "imp": 28},
-        {"iso": "ITA", "name": "Italy", "exp": 22, "imp": 30},
-        {"iso": "BEL", "name": "Belgium", "exp": 18, "imp": 24}
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 60,
+          "imp": 65
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 42,
+          "imp": 78
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 38,
+          "imp": 52
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 36,
+          "imp": 45
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 28,
+          "imp": 72
+        },
+        {
+          "iso": "IRL",
+          "name": "Ireland",
+          "exp": 32,
+          "imp": 28
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 22,
+          "imp": 30
+        },
+        {
+          "iso": "BEL",
+          "name": "Belgium",
+          "exp": 18,
+          "imp": 24
+        }
       ],
       "ftas": [
-        {"name": "UK–Australia FTA", "year": 2023, "parties": "Australia", "scope": "Goods, Services, Investment, IP, Digital", "url": "https://www.gov.uk/guidance/uk-australia-free-trade-agreement"},
-        {"name": "UK–New Zealand FTA", "year": 2023, "parties": "New Zealand", "scope": "Goods, Services, Investment, Digital", "url": "https://www.gov.uk/guidance/uk-new-zealand-free-trade-agreement"},
-        {"name": "UK–Japan Comprehensive EPA", "year": 2021, "parties": "Japan", "scope": "Goods, Services, Digital, IP", "url": "https://www.gov.uk/guidance/uk-japan-comprehensive-economic-partnership-agreement"},
-        {"name": "CPTPP (UK accession)", "year": 2024, "parties": "11 Pacific Rim countries", "scope": "Goods, Services, Investment, IP, Procurement", "url": "https://www.gov.uk/government/collections/the-uks-accession-to-cptpp"},
-        {"name": "UK–Singapore FTA (in negotiation)", "year": null, "parties": "Singapore", "scope": "Goods, Services", "url": "https://www.gov.uk/guidance/uk-singapore-free-trade-agreement"},
-        {"name": "UK–India FTA (in negotiation)", "year": null, "parties": "India", "scope": "Goods, Services, Investment", "url": "https://www.gov.uk/guidance/uk-india-free-trade-agreement-negotiations"}
+        {
+          "name": "UK–Australia FTA",
+          "year": 2023,
+          "parties": "Australia",
+          "scope": "Goods, Services, Investment, IP, Digital",
+          "url": "https://www.gov.uk/guidance/uk-australia-free-trade-agreement"
+        },
+        {
+          "name": "UK–New Zealand FTA",
+          "year": 2023,
+          "parties": "New Zealand",
+          "scope": "Goods, Services, Investment, Digital",
+          "url": "https://www.gov.uk/guidance/uk-new-zealand-free-trade-agreement"
+        },
+        {
+          "name": "UK–Japan Comprehensive EPA",
+          "year": 2021,
+          "parties": "Japan",
+          "scope": "Goods, Services, Digital, IP",
+          "url": "https://www.gov.uk/guidance/uk-japan-comprehensive-economic-partnership-agreement"
+        },
+        {
+          "name": "CPTPP (UK accession)",
+          "year": 2024,
+          "parties": "11 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.gov.uk/government/collections/the-uks-accession-to-cptpp"
+        },
+        {
+          "name": "UK–Singapore FTA (in negotiation)",
+          "year": null,
+          "parties": "Singapore",
+          "scope": "Goods, Services",
+          "url": "https://www.gov.uk/guidance/uk-singapore-free-trade-agreement"
+        },
+        {
+          "name": "UK–India FTA (in negotiation)",
+          "year": null,
+          "parties": "India",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.gov.uk/guidance/uk-india-free-trade-agreement-negotiations"
+        }
       ],
       "disputes": [
-        {"ds": "DS316", "title": "EU/UK — Subsidies on Large Civil Aircraft (Airbus)", "role": "respondent", "year": 2004, "status": "Settled 2021"},
-        {"ds": "DS26", "title": "EC/UK — Measures on Meat Products (Hormones)", "role": "respondent", "year": 1996, "status": "Settled 2012"},
-        {"ds": "DS612", "title": "UK — Anti-Dumping on Biodiesel from Argentina", "role": "respondent", "year": 2021, "status": "Ongoing"}
+        {
+          "ds": "DS316",
+          "title": "EU/UK — Subsidies on Large Civil Aircraft (Airbus)",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Settled 2021"
+        },
+        {
+          "ds": "DS26",
+          "title": "EC/UK — Measures on Meat Products (Hormones)",
+          "role": "respondent",
+          "year": 1996,
+          "status": "Settled 2012"
+        },
+        {
+          "ds": "DS612",
+          "title": "UK — Anti-Dumping on Biodiesel from Argentina",
+          "role": "respondent",
+          "year": 2021,
+          "status": "Ongoing"
+        }
       ]
     },
     "JPN": {
@@ -261,50 +1167,237 @@
       "iso2": "JP",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [138.25, 36.20],
+      "centroid": [
+        138.25,
+        36.2
+      ],
       "total_trade": 1500,
       "exports": 715,
       "imports": 785,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Vehicles & Parts", 21],
-        ["Machinery & Equipment", 18],
-        ["Electronics", 15],
-        ["Chemicals", 8],
-        ["Steel & Metals", 6],
-        ["Optical & Precision Instruments", 4],
-        ["Ships", 3],
-        ["Plastics", 3],
-        ["Other", 22]
+        [
+          "Vehicles & Parts",
+          21
+        ],
+        [
+          "Machinery & Equipment",
+          18
+        ],
+        [
+          "Electronics",
+          15
+        ],
+        [
+          "Chemicals",
+          8
+        ],
+        [
+          "Steel & Metals",
+          6
+        ],
+        [
+          "Optical & Precision Instruments",
+          4
+        ],
+        [
+          "Ships",
+          3
+        ],
+        [
+          "Plastics",
+          3
+        ],
+        [
+          "Other",
+          22
+        ]
       ],
       "commodity_sub": {
-        "Vehicles & Parts": [["Passenger Cars",55],["Auto Parts",22],["Trucks & Buses",13],["Motorcycles",6],["Other",4]],
-        "Electronics": [["Semiconductors",30],["Consumer Electronics",22],["Electronic Components",25],["Telecom Equip.",15],["Other",8]],
-        "Machinery & Equipment": [["Industrial Robots",25],["Machine Tools",20],["Construction Equip.",22],["Power Equip.",18],["Other",15]]
+        "Vehicles & Parts": [
+          [
+            "Passenger Cars",
+            55
+          ],
+          [
+            "Auto Parts",
+            22
+          ],
+          [
+            "Trucks & Buses",
+            13
+          ],
+          [
+            "Motorcycles",
+            6
+          ],
+          [
+            "Other",
+            4
+          ]
+        ],
+        "Electronics": [
+          [
+            "Semiconductors",
+            30
+          ],
+          [
+            "Consumer Electronics",
+            22
+          ],
+          [
+            "Electronic Components",
+            25
+          ],
+          [
+            "Telecom Equip.",
+            15
+          ],
+          [
+            "Other",
+            8
+          ]
+        ],
+        "Machinery & Equipment": [
+          [
+            "Industrial Robots",
+            25
+          ],
+          [
+            "Machine Tools",
+            20
+          ],
+          [
+            "Construction Equip.",
+            22
+          ],
+          [
+            "Power Equip.",
+            18
+          ],
+          [
+            "Other",
+            15
+          ]
+        ]
       },
       "partners": [
-        {"iso": "USA", "name": "United States", "exp": 130, "imp": 78},
-        {"iso": "CHN", "name": "China", "exp": 175, "imp": 162},
-        {"iso": "KOR", "name": "South Korea", "exp": 52, "imp": 42},
-        {"iso": "AUS", "name": "Australia", "exp": 25, "imp": 58},
-        {"iso": "DEU", "name": "Germany", "exp": 28, "imp": 22},
-        {"iso": "TWN", "name": "Taiwan", "exp": 48, "imp": 38},
-        {"iso": "THA", "name": "Thailand", "exp": 40, "imp": 25},
-        {"iso": "VNM", "name": "Vietnam", "exp": 22, "imp": 20}
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 130,
+          "imp": 78
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 175,
+          "imp": 162
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 52,
+          "imp": 42
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 25,
+          "imp": 58
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 28,
+          "imp": 22
+        },
+        {
+          "iso": "TWN",
+          "name": "Taiwan",
+          "exp": 48,
+          "imp": 38
+        },
+        {
+          "iso": "THA",
+          "name": "Thailand",
+          "exp": 40,
+          "imp": 25
+        },
+        {
+          "iso": "VNM",
+          "name": "Vietnam",
+          "exp": 22,
+          "imp": 20
+        }
       ],
       "ftas": [
-        {"name": "RCEP", "year": 2022, "parties": "ASEAN+4 (China, Korea, Australia, NZ)", "scope": "Goods, Services, Investment, IP", "url": "https://rcepsec.org/"},
-        {"name": "CPTPP", "year": 2018, "parties": "10 Pacific Rim countries", "scope": "Goods, Services, Investment, IP, Procurement", "url": "https://www.mofa.go.jp/ecm/ie/page3e_001077.html"},
-        {"name": "EU–Japan EPA", "year": 2019, "parties": "European Union", "scope": "Goods, Services, IP, Procurement", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"},
-        {"name": "Japan–UK Comprehensive EPA", "year": 2021, "parties": "United Kingdom", "scope": "Goods, Services, Digital", "url": "https://www.mofa.go.jp/ecm/ie/page3e_001082.html"},
-        {"name": "Japan–Australia EPA", "year": 2015, "parties": "Australia", "scope": "Goods, Services", "url": "https://www.dfat.gov.au/trade/agreements/in-force/jaepa"},
-        {"name": "Japan–India CEPA", "year": 2011, "parties": "India", "scope": "Goods, Services, Investment", "url": "https://www.mofa.go.jp/ecm/ie/page3e_001045.html"}
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4 (China, Korea, Australia, NZ)",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.mofa.go.jp/ecm/ie/page3e_001077.html"
+        },
+        {
+          "name": "EU–Japan EPA",
+          "year": 2019,
+          "parties": "European Union",
+          "scope": "Goods, Services, IP, Procurement",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"
+        },
+        {
+          "name": "Japan–UK Comprehensive EPA",
+          "year": 2021,
+          "parties": "United Kingdom",
+          "scope": "Goods, Services, Digital",
+          "url": "https://www.mofa.go.jp/ecm/ie/page3e_001082.html"
+        },
+        {
+          "name": "Japan–Australia EPA",
+          "year": 2015,
+          "parties": "Australia",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/jaepa"
+        },
+        {
+          "name": "Japan–India CEPA",
+          "year": 2011,
+          "parties": "India",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.mofa.go.jp/ecm/ie/page3e_001045.html"
+        }
       ],
       "disputes": [
-        {"ds": "DS8", "title": "Japan — Taxes on Alcoholic Beverages", "role": "respondent", "year": 1995, "status": "Ruled against"},
-        {"ds": "DS395", "title": "China — Anti-Dumping on Steel Products (Japan complainant)", "role": "complainant", "year": 2009, "status": "Ruled in favor"},
-        {"ds": "DS589", "title": "Japan — Export Restrictions on Semiconductor Materials (Korea)", "role": "respondent", "year": 2019, "status": "Settled 2023"}
+        {
+          "ds": "DS8",
+          "title": "Japan — Taxes on Alcoholic Beverages",
+          "role": "respondent",
+          "year": 1995,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS395",
+          "title": "China — Anti-Dumping on Steel Products (Japan complainant)",
+          "role": "complainant",
+          "year": 2009,
+          "status": "Ruled in favor"
+        },
+        {
+          "ds": "DS589",
+          "title": "Japan — Export Restrictions on Semiconductor Materials (Korea)",
+          "role": "respondent",
+          "year": 2019,
+          "status": "Settled 2023"
+        }
       ]
     },
     "AUS": {
@@ -312,53 +1405,245 @@
       "iso2": "AU",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [133.78, -25.27],
+      "centroid": [
+        133.78,
+        -25.27
+      ],
       "total_trade": 680,
       "exports": 375,
       "imports": 305,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Iron Ore", 28],
-        ["Coal", 14],
-        ["Gold", 8],
-        ["LNG", 8],
-        ["Beef & Livestock", 4],
-        ["Wheat", 3],
-        ["Alumina & Aluminum", 3],
-        ["Wool", 2],
-        ["Other", 30]
+        [
+          "Iron Ore",
+          28
+        ],
+        [
+          "Coal",
+          14
+        ],
+        [
+          "Gold",
+          8
+        ],
+        [
+          "LNG",
+          8
+        ],
+        [
+          "Beef & Livestock",
+          4
+        ],
+        [
+          "Wheat",
+          3
+        ],
+        [
+          "Alumina & Aluminum",
+          3
+        ],
+        [
+          "Wool",
+          2
+        ],
+        [
+          "Other",
+          30
+        ]
       ],
       "commodity_sub": {
-        "Iron Ore": [["High Grade (>62% Fe)",45],["Medium Grade (58-62%)",35],["Pellets & Sinter",20]],
-        "Coal": [["Metallurgical (Coking) Coal",55],["Thermal Coal",45]],
-        "LNG": [["Pipeline Gas (domestic)",30],["Liquefied Natural Gas",70]],
-        "Other": [["Education Services",18],["Tourism",16],["Copper Ore",10],["Zinc",8],["Other Minerals",14],["Manufactures",34]]
+        "Iron Ore": [
+          [
+            "High Grade (>62% Fe)",
+            45
+          ],
+          [
+            "Medium Grade (58-62%)",
+            35
+          ],
+          [
+            "Pellets & Sinter",
+            20
+          ]
+        ],
+        "Coal": [
+          [
+            "Metallurgical (Coking) Coal",
+            55
+          ],
+          [
+            "Thermal Coal",
+            45
+          ]
+        ],
+        "LNG": [
+          [
+            "Pipeline Gas (domestic)",
+            30
+          ],
+          [
+            "Liquefied Natural Gas",
+            70
+          ]
+        ],
+        "Other": [
+          [
+            "Education Services",
+            18
+          ],
+          [
+            "Tourism",
+            16
+          ],
+          [
+            "Copper Ore",
+            10
+          ],
+          [
+            "Zinc",
+            8
+          ],
+          [
+            "Other Minerals",
+            14
+          ],
+          [
+            "Manufactures",
+            34
+          ]
+        ]
       },
       "partners": [
-        {"iso": "CHN", "name": "China", "exp": 165, "imp": 60},
-        {"iso": "JPN", "name": "Japan", "exp": 58, "imp": 25},
-        {"iso": "KOR", "name": "South Korea", "exp": 35, "imp": 18},
-        {"iso": "IND", "name": "India", "exp": 25, "imp": 12},
-        {"iso": "USA", "name": "United States", "exp": 15, "imp": 22},
-        {"iso": "GBR", "name": "United Kingdom", "exp": 12, "imp": 10},
-        {"iso": "SGP", "name": "Singapore", "exp": 14, "imp": 8},
-        {"iso": "TWN", "name": "Taiwan", "exp": 12, "imp": 6}
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 165,
+          "imp": 60
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 58,
+          "imp": 25
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 35,
+          "imp": 18
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 25,
+          "imp": 12
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 15,
+          "imp": 22
+        },
+        {
+          "iso": "GBR",
+          "name": "United Kingdom",
+          "exp": 12,
+          "imp": 10
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 14,
+          "imp": 8
+        },
+        {
+          "iso": "TWN",
+          "name": "Taiwan",
+          "exp": 12,
+          "imp": 6
+        }
       ],
       "ftas": [
-        {"name": "RCEP", "year": 2022, "parties": "ASEAN+4 (China, Japan, Korea, NZ)", "scope": "Goods, Services, Investment, IP", "url": "https://rcepsec.org/"},
-        {"name": "CPTPP", "year": 2018, "parties": "10 Pacific Rim countries", "scope": "Goods, Services, Investment, IP, Procurement", "url": "https://www.dfat.gov.au/trade/agreements/in-force/cptpp"},
-        {"name": "Australia–UK FTA", "year": 2023, "parties": "United Kingdom", "scope": "Goods, Services, Investment, IP, Digital", "url": "https://www.dfat.gov.au/trade/agreements/in-force/aukfta"},
-        {"name": "Australia–India ECTA", "year": 2022, "parties": "India", "scope": "Goods, Services (interim)", "url": "https://www.dfat.gov.au/trade/agreements/in-force/ai-ecta"},
-        {"name": "ChAFTA (China–Australia)", "year": 2015, "parties": "China", "scope": "Goods, Services, Investment", "url": "https://www.dfat.gov.au/trade/agreements/in-force/chafta"},
-        {"name": "Japan–Australia EPA (JAEPA)", "year": 2015, "parties": "Japan", "scope": "Goods, Services", "url": "https://www.dfat.gov.au/trade/agreements/in-force/jaepa"},
-        {"name": "KAFTA (Korea–Australia)", "year": 2014, "parties": "South Korea", "scope": "Goods, Services", "url": "https://www.dfat.gov.au/trade/agreements/in-force/kafta"},
-        {"name": "AANZFTA (ASEAN–Aus–NZ)", "year": 2010, "parties": "10 ASEAN members, New Zealand", "scope": "Goods, Services, Investment", "url": "https://www.dfat.gov.au/trade/agreements/in-force/aanzfta"}
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4 (China, Japan, Korea, NZ)",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/cptpp"
+        },
+        {
+          "name": "Australia–UK FTA",
+          "year": 2023,
+          "parties": "United Kingdom",
+          "scope": "Goods, Services, Investment, IP, Digital",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/aukfta"
+        },
+        {
+          "name": "Australia–India ECTA",
+          "year": 2022,
+          "parties": "India",
+          "scope": "Goods, Services (interim)",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/ai-ecta"
+        },
+        {
+          "name": "ChAFTA (China–Australia)",
+          "year": 2015,
+          "parties": "China",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/chafta"
+        },
+        {
+          "name": "Japan–Australia EPA (JAEPA)",
+          "year": 2015,
+          "parties": "Japan",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/jaepa"
+        },
+        {
+          "name": "KAFTA (Korea–Australia)",
+          "year": 2014,
+          "parties": "South Korea",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/kafta"
+        },
+        {
+          "name": "AANZFTA (ASEAN–Aus–NZ)",
+          "year": 2010,
+          "parties": "10 ASEAN members, New Zealand",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/aanzfta"
+        }
       ],
       "disputes": [
-        {"ds": "DS435", "title": "Australia — Tobacco Plain Packaging (Ukraine)", "role": "respondent", "year": 2012, "status": "Ruled in favor of Australia"},
-        {"ds": "DS441", "title": "Australia — Tobacco Plain Packaging (Honduras)", "role": "respondent", "year": 2012, "status": "Ruled in favor of Australia"},
-        {"ds": "DS508", "title": "Australia — Anti-Dumping Measures on A4 Copy Paper", "role": "respondent", "year": 2016, "status": "Ruled against"}
+        {
+          "ds": "DS435",
+          "title": "Australia — Tobacco Plain Packaging (Ukraine)",
+          "role": "respondent",
+          "year": 2012,
+          "status": "Ruled in favor of Australia"
+        },
+        {
+          "ds": "DS441",
+          "title": "Australia — Tobacco Plain Packaging (Honduras)",
+          "role": "respondent",
+          "year": 2012,
+          "status": "Ruled in favor of Australia"
+        },
+        {
+          "ds": "DS508",
+          "title": "Australia — Anti-Dumping Measures on A4 Copy Paper",
+          "role": "respondent",
+          "year": 2016,
+          "status": "Ruled against"
+        }
       ]
     },
     "BRA": {
@@ -366,51 +1651,236 @@
       "iso2": "BR",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [-51.93, -14.24],
+      "centroid": [
+        -51.93,
+        -14.24
+      ],
       "total_trade": 640,
       "exports": 340,
       "imports": 300,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Soybeans & Products", 14],
-        ["Iron Ore", 12],
-        ["Crude Oil", 11],
-        ["Sugar", 6],
-        ["Beef", 6],
-        ["Corn", 5],
-        ["Pulp & Paper", 3],
-        ["Coffee", 3],
-        ["Other", 40]
+        [
+          "Soybeans & Products",
+          14
+        ],
+        [
+          "Iron Ore",
+          12
+        ],
+        [
+          "Crude Oil",
+          11
+        ],
+        [
+          "Sugar",
+          6
+        ],
+        [
+          "Beef",
+          6
+        ],
+        [
+          "Corn",
+          5
+        ],
+        [
+          "Pulp & Paper",
+          3
+        ],
+        [
+          "Coffee",
+          3
+        ],
+        [
+          "Other",
+          40
+        ]
       ],
       "commodity_sub": {
-        "Soybeans & Products": [["Raw Soybeans",65],["Soy Meal",22],["Soy Oil",13]],
-        "Iron Ore": [["High Grade (>62% Fe)",45],["Medium Grade",35],["Pellets",20]],
-        "Other": [["Machinery",16],["Vehicles",12],["Chemicals",10],["Footwear",8],["Orange Juice",6],["Poultry",6],["Other Manuf.",42]]
+        "Soybeans & Products": [
+          [
+            "Raw Soybeans",
+            65
+          ],
+          [
+            "Soy Meal",
+            22
+          ],
+          [
+            "Soy Oil",
+            13
+          ]
+        ],
+        "Iron Ore": [
+          [
+            "High Grade (>62% Fe)",
+            45
+          ],
+          [
+            "Medium Grade",
+            35
+          ],
+          [
+            "Pellets",
+            20
+          ]
+        ],
+        "Other": [
+          [
+            "Machinery",
+            16
+          ],
+          [
+            "Vehicles",
+            12
+          ],
+          [
+            "Chemicals",
+            10
+          ],
+          [
+            "Footwear",
+            8
+          ],
+          [
+            "Orange Juice",
+            6
+          ],
+          [
+            "Poultry",
+            6
+          ],
+          [
+            "Other Manuf.",
+            42
+          ]
+        ]
       },
       "partners": [
-        {"iso": "CHN", "name": "China", "exp": 90, "imp": 55},
-        {"iso": "USA", "name": "United States", "exp": 30, "imp": 40},
-        {"iso": "ARG", "name": "Argentina", "exp": 18, "imp": 12},
-        {"iso": "NLD", "name": "Netherlands", "exp": 20, "imp": 8},
-        {"iso": "DEU", "name": "Germany", "exp": 10, "imp": 15},
-        {"iso": "CHL", "name": "Chile", "exp": 8, "imp": 6},
-        {"iso": "MEX", "name": "Mexico", "exp": 7, "imp": 9},
-        {"iso": "ESP", "name": "Spain", "exp": 6, "imp": 5}
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 90,
+          "imp": 55
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 30,
+          "imp": 40
+        },
+        {
+          "iso": "ARG",
+          "name": "Argentina",
+          "exp": 18,
+          "imp": 12
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 20,
+          "imp": 8
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 10,
+          "imp": 15
+        },
+        {
+          "iso": "CHL",
+          "name": "Chile",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "MEX",
+          "name": "Mexico",
+          "exp": 7,
+          "imp": 9
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 6,
+          "imp": 5
+        }
       ],
       "ftas": [
-        {"name": "Mercosur–EU Agreement", "year": 2024, "parties": "European Union (27 members)", "scope": "Goods, Services (pending full ratification)", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/mercosur_en"},
-        {"name": "Mercosur (Customs Union)", "year": 1991, "parties": "Argentina, Paraguay, Uruguay", "scope": "Goods (customs union), Services (partial)", "url": "https://www.mercosur.int/"},
-        {"name": "Mercosur–Israel FTA", "year": 2010, "parties": "Israel", "scope": "Goods", "url": "https://rtais.wto.org/"},
-        {"name": "Mercosur–Egypt FTA", "year": 2010, "parties": "Egypt", "scope": "Goods", "url": "https://rtais.wto.org/"},
-        {"name": "Mercosur–Singapore FTA", "year": 2024, "parties": "Singapore", "scope": "Goods, Services, Investment", "url": "https://www.mti.gov.sg/Trade/Free-Trade-Agreements/MSSFTA"},
-        {"name": "Mercosur–SACU Preferential Agreement", "year": 2009, "parties": "South Africa, Botswana, Lesotho, Namibia, Eswatini", "scope": "Goods (partial tariff reductions)", "url": "https://rtais.wto.org/"}
+        {
+          "name": "Mercosur–EU Agreement",
+          "year": 2024,
+          "parties": "European Union (27 members)",
+          "scope": "Goods, Services (pending full ratification)",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/mercosur_en"
+        },
+        {
+          "name": "Mercosur (Customs Union)",
+          "year": 1991,
+          "parties": "Argentina, Paraguay, Uruguay",
+          "scope": "Goods (customs union), Services (partial)",
+          "url": "https://www.mercosur.int/"
+        },
+        {
+          "name": "Mercosur–Israel FTA",
+          "year": 2010,
+          "parties": "Israel",
+          "scope": "Goods",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "Mercosur–Egypt FTA",
+          "year": 2010,
+          "parties": "Egypt",
+          "scope": "Goods",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "Mercosur–Singapore FTA",
+          "year": 2024,
+          "parties": "Singapore",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.mti.gov.sg/Trade/Free-Trade-Agreements/MSSFTA"
+        },
+        {
+          "name": "Mercosur–SACU Preferential Agreement",
+          "year": 2009,
+          "parties": "South Africa, Botswana, Lesotho, Namibia, Eswatini",
+          "scope": "Goods (partial tariff reductions)",
+          "url": "https://rtais.wto.org/"
+        }
       ],
       "disputes": [
-        {"ds": "DS70", "title": "Canada — Measures Affecting Export of Civilian Aircraft", "role": "complainant", "year": 1997, "status": "Ruled in favor"},
-        {"ds": "DS154", "title": "Brazil — Certain Automotive Investment Measures", "role": "respondent", "year": 1998, "status": "Settled"},
-        {"ds": "DS197", "title": "Brazil — Measures on Import of Retreaded Tyres", "role": "respondent", "year": 2005, "status": "Settled"},
-        {"ds": "DS472", "title": "Brazil — Tax Treatment for Certain Industries (CIDE)", "role": "respondent", "year": 2013, "status": "Ruled against"}
+        {
+          "ds": "DS70",
+          "title": "Canada — Measures Affecting Export of Civilian Aircraft",
+          "role": "complainant",
+          "year": 1997,
+          "status": "Ruled in favor"
+        },
+        {
+          "ds": "DS154",
+          "title": "Brazil — Certain Automotive Investment Measures",
+          "role": "respondent",
+          "year": 1998,
+          "status": "Settled"
+        },
+        {
+          "ds": "DS197",
+          "title": "Brazil — Measures on Import of Retreaded Tyres",
+          "role": "respondent",
+          "year": 2005,
+          "status": "Settled"
+        },
+        {
+          "ds": "DS472",
+          "title": "Brazil — Tax Treatment for Certain Industries (CIDE)",
+          "role": "respondent",
+          "year": 2013,
+          "status": "Ruled against"
+        }
       ]
     },
     "IND": {
@@ -418,51 +1888,224 @@
       "iso2": "IN",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [78.96, 20.59],
+      "centroid": [
+        78.96,
+        20.59
+      ],
       "total_trade": 950,
       "exports": 450,
       "imports": 500,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Refined Petroleum", 13],
-        ["Diamonds & Gems", 11],
-        ["Pharmaceuticals", 9],
-        ["Machinery & Equipment", 7],
-        ["Rice", 4],
-        ["Garments & Textiles", 4],
-        ["Chemicals", 3],
-        ["Iron & Steel", 3],
-        ["Other", 46]
+        [
+          "Refined Petroleum",
+          13
+        ],
+        [
+          "Diamonds & Gems",
+          11
+        ],
+        [
+          "Pharmaceuticals",
+          9
+        ],
+        [
+          "Machinery & Equipment",
+          7
+        ],
+        [
+          "Rice",
+          4
+        ],
+        [
+          "Garments & Textiles",
+          4
+        ],
+        [
+          "Chemicals",
+          3
+        ],
+        [
+          "Iron & Steel",
+          3
+        ],
+        [
+          "Other",
+          46
+        ]
       ],
       "commodity_sub": {
-        "Refined Petroleum": [["Diesel",38],["Gasoline",30],["Jet Fuel",18],["Other Ref. Products",14]],
-        "Diamonds & Gems": [["Cut & Polished Diamonds",65],["Rough Diamonds",20],["Colored Gemstones",15]],
-        "Pharmaceuticals": [["Generic Drugs",55],["APIs (Active Pharma Ingredients)",28],["Vaccines",17]]
+        "Refined Petroleum": [
+          [
+            "Diesel",
+            38
+          ],
+          [
+            "Gasoline",
+            30
+          ],
+          [
+            "Jet Fuel",
+            18
+          ],
+          [
+            "Other Ref. Products",
+            14
+          ]
+        ],
+        "Diamonds & Gems": [
+          [
+            "Cut & Polished Diamonds",
+            65
+          ],
+          [
+            "Rough Diamonds",
+            20
+          ],
+          [
+            "Colored Gemstones",
+            15
+          ]
+        ],
+        "Pharmaceuticals": [
+          [
+            "Generic Drugs",
+            55
+          ],
+          [
+            "APIs (Active Pharma Ingredients)",
+            28
+          ],
+          [
+            "Vaccines",
+            17
+          ]
+        ]
       },
       "partners": [
-        {"iso": "CHN", "name": "China", "exp": 25, "imp": 95},
-        {"iso": "USA", "name": "United States", "exp": 83, "imp": 40},
-        {"iso": "ARE", "name": "UAE", "exp": 38, "imp": 28},
-        {"iso": "SAU", "name": "Saudi Arabia", "exp": 8, "imp": 38},
-        {"iso": "GBR", "name": "United Kingdom", "exp": 22, "imp": 12},
-        {"iso": "DEU", "name": "Germany", "exp": 12, "imp": 18},
-        {"iso": "SGP", "name": "Singapore", "exp": 12, "imp": 18},
-        {"iso": "AUS", "name": "Australia", "exp": 12, "imp": 25}
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 25,
+          "imp": 95
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 83,
+          "imp": 40
+        },
+        {
+          "iso": "ARE",
+          "name": "UAE",
+          "exp": 38,
+          "imp": 28
+        },
+        {
+          "iso": "SAU",
+          "name": "Saudi Arabia",
+          "exp": 8,
+          "imp": 38
+        },
+        {
+          "iso": "GBR",
+          "name": "United Kingdom",
+          "exp": 22,
+          "imp": 12
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 12,
+          "imp": 18
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 12,
+          "imp": 18
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 12,
+          "imp": 25
+        }
       ],
       "ftas": [
-        {"name": "India–UAE CEPA", "year": 2022, "parties": "UAE", "scope": "Goods, Services, Investment", "url": "https://dpiit.gov.in/india-uae-comprehensive-economic-partnership-agreement"},
-        {"name": "India–Australia ECTA", "year": 2022, "parties": "Australia", "scope": "Goods, Services (interim agreement)", "url": "https://www.dfat.gov.au/trade/agreements/in-force/ai-ecta"},
-        {"name": "India–ASEAN FTA", "year": 2010, "parties": "10 ASEAN members", "scope": "Goods, Services", "url": "https://rtais.wto.org/"},
-        {"name": "India–Japan CEPA", "year": 2011, "parties": "Japan", "scope": "Goods, Services, Investment", "url": "https://www.mofa.go.jp/ecm/ie/page3e_001045.html"},
-        {"name": "India–South Korea CEPA", "year": 2010, "parties": "South Korea", "scope": "Goods, Services", "url": "https://rtais.wto.org/"},
-        {"name": "India–Mauritius CECPA", "year": 2021, "parties": "Mauritius", "scope": "Goods, Services", "url": "https://rtais.wto.org/"}
+        {
+          "name": "India–UAE CEPA",
+          "year": 2022,
+          "parties": "UAE",
+          "scope": "Goods, Services, Investment",
+          "url": "https://dpiit.gov.in/india-uae-comprehensive-economic-partnership-agreement"
+        },
+        {
+          "name": "India–Australia ECTA",
+          "year": 2022,
+          "parties": "Australia",
+          "scope": "Goods, Services (interim agreement)",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/ai-ecta"
+        },
+        {
+          "name": "India–ASEAN FTA",
+          "year": 2010,
+          "parties": "10 ASEAN members",
+          "scope": "Goods, Services",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "India–Japan CEPA",
+          "year": 2011,
+          "parties": "Japan",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.mofa.go.jp/ecm/ie/page3e_001045.html"
+        },
+        {
+          "name": "India–South Korea CEPA",
+          "year": 2010,
+          "parties": "South Korea",
+          "scope": "Goods, Services",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "India–Mauritius CECPA",
+          "year": 2021,
+          "parties": "Mauritius",
+          "scope": "Goods, Services",
+          "url": "https://rtais.wto.org/"
+        }
       ],
       "disputes": [
-        {"ds": "DS141", "title": "EC — Anti-Dumping on Cotton Yarn from India", "role": "complainant", "year": 1998, "status": "Ruled in favor"},
-        {"ds": "DS436", "title": "US — Countervailing Duties on Hot-Rolled Steel from India", "role": "complainant", "year": 2012, "status": "Ruled in favor"},
-        {"ds": "DS584", "title": "India — Additional Duties on US Goods", "role": "respondent", "year": 2019, "status": "Ongoing"},
-        {"ds": "DS318", "title": "India — Anti-Dumping Measures on Batteries from Bangladesh", "role": "respondent", "year": 2004, "status": "Settled"}
+        {
+          "ds": "DS141",
+          "title": "EC — Anti-Dumping on Cotton Yarn from India",
+          "role": "complainant",
+          "year": 1998,
+          "status": "Ruled in favor"
+        },
+        {
+          "ds": "DS436",
+          "title": "US — Countervailing Duties on Hot-Rolled Steel from India",
+          "role": "complainant",
+          "year": 2012,
+          "status": "Ruled in favor"
+        },
+        {
+          "ds": "DS584",
+          "title": "India — Additional Duties on US Goods",
+          "role": "respondent",
+          "year": 2019,
+          "status": "Ongoing"
+        },
+        {
+          "ds": "DS318",
+          "title": "India — Anti-Dumping Measures on Batteries from Bangladesh",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Settled"
+        }
       ]
     },
     "CHL": {
@@ -470,52 +2113,4422 @@
       "iso2": "CL",
       "wto_member": true,
       "wto_accession": 1995,
-      "centroid": [-71.54, -35.68],
+      "centroid": [
+        -71.54,
+        -35.68
+      ],
       "total_trade": 160,
       "exports": 90,
       "imports": 70,
       "source": "wto_stats",
       "estimated": false,
       "commodities": [
-        ["Copper & Products", 48],
-        ["Lithium & Battery Minerals", 8],
-        ["Pulp & Paper", 5],
-        ["Wine", 4],
-        ["Salmon & Seafood", 4],
-        ["Fruit", 4],
-        ["Molybdenum", 3],
-        ["Other", 24]
+        [
+          "Copper & Products",
+          48
+        ],
+        [
+          "Lithium & Battery Minerals",
+          8
+        ],
+        [
+          "Pulp & Paper",
+          5
+        ],
+        [
+          "Wine",
+          4
+        ],
+        [
+          "Salmon & Seafood",
+          4
+        ],
+        [
+          "Fruit",
+          4
+        ],
+        [
+          "Molybdenum",
+          3
+        ],
+        [
+          "Other",
+          24
+        ]
       ],
       "commodity_sub": {
-        "Copper & Products": [["Refined Copper Cathodes",55],["Copper Ore & Concentrates",28],["Copper Wire & Rods",17]],
-        "Lithium & Battery Minerals": [["Lithium Carbonate",55],["Lithium Hydroxide",30],["Lithium Chloride",15]],
-        "Other": [["Chemicals",15],["Machinery (re-export)",12],["Forestry Products",10],["Iodine",8],["Other Minerals",10],["Other",45]]
+        "Copper & Products": [
+          [
+            "Refined Copper Cathodes",
+            55
+          ],
+          [
+            "Copper Ore & Concentrates",
+            28
+          ],
+          [
+            "Copper Wire & Rods",
+            17
+          ]
+        ],
+        "Lithium & Battery Minerals": [
+          [
+            "Lithium Carbonate",
+            55
+          ],
+          [
+            "Lithium Hydroxide",
+            30
+          ],
+          [
+            "Lithium Chloride",
+            15
+          ]
+        ],
+        "Other": [
+          [
+            "Chemicals",
+            15
+          ],
+          [
+            "Machinery (re-export)",
+            12
+          ],
+          [
+            "Forestry Products",
+            10
+          ],
+          [
+            "Iodine",
+            8
+          ],
+          [
+            "Other Minerals",
+            10
+          ],
+          [
+            "Other",
+            45
+          ]
+        ]
       },
       "partners": [
-        {"iso": "CHN", "name": "China", "exp": 30, "imp": 22},
-        {"iso": "USA", "name": "United States", "exp": 12, "imp": 14},
-        {"iso": "JPN", "name": "Japan", "exp": 8, "imp": 5},
-        {"iso": "BRA", "name": "Brazil", "exp": 6, "imp": 8},
-        {"iso": "ARG", "name": "Argentina", "exp": 5, "imp": 6},
-        {"iso": "KOR", "name": "South Korea", "exp": 8, "imp": 6},
-        {"iso": "PER", "name": "Peru", "exp": 4, "imp": 3},
-        {"iso": "DEU", "name": "Germany", "exp": 2, "imp": 4}
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 30,
+          "imp": 22
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 12,
+          "imp": 14
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 8,
+          "imp": 5
+        },
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 6,
+          "imp": 8
+        },
+        {
+          "iso": "ARG",
+          "name": "Argentina",
+          "exp": 5,
+          "imp": 6
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "PER",
+          "name": "Peru",
+          "exp": 4,
+          "imp": 3
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 2,
+          "imp": 4
+        }
       ],
       "ftas": [
-        {"name": "CPTPP", "year": 2018, "parties": "Australia, Brunei, Canada, Japan, Malaysia, Mexico, NZ, Peru, Singapore, Vietnam", "scope": "Goods, Services, Investment, IP, Procurement", "url": "https://www.dfat.gov.au/trade/agreements/in-force/cptpp"},
-        {"name": "Chile–EU Advanced Framework Agreement", "year": 2024, "parties": "European Union", "scope": "Goods, Services, Investment, Digital Trade", "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/chile_en"},
-        {"name": "Chile–US FTA", "year": 2004, "parties": "United States", "scope": "Goods, Services, Investment", "url": "https://ustr.gov/trade-agreements/free-trade-agreements/chile-fta"},
-        {"name": "Chile–China FTA", "year": 2006, "parties": "China", "scope": "Goods, Services", "url": "https://fta.mofcom.gov.cn/topic/chile.shtml"},
-        {"name": "Chile–Japan EPA", "year": 2007, "parties": "Japan", "scope": "Goods, Services", "url": "https://www.mofa.go.jp/ecm/ie/page3e_001060.html"},
-        {"name": "Pacific Alliance", "year": 2016, "parties": "Colombia, Mexico, Peru", "scope": "Goods, Services, Investment, Labor Mobility", "url": "https://alianzapacifico.net/en/"},
-        {"name": "Chile–Australia FTA", "year": 2009, "parties": "Australia", "scope": "Goods, Services", "url": "https://www.dfat.gov.au/trade/agreements/in-force/ausfta"},
-        {"name": "Chile–Canada FTA", "year": 1997, "parties": "Canada", "scope": "Goods, Services", "url": "https://www.international.gc.ca/trade-commerce/trade-agreements-accords-commerciaux/agr-acc/chile-chili/index.aspx"},
-        {"name": "Mercosur–Chile Association Agreement", "year": 1996, "parties": "Argentina, Brazil, Paraguay, Uruguay", "scope": "Goods (partial tariff reductions)", "url": "https://www.mercosur.int/"}
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "Australia, Brunei, Canada, Japan, Malaysia, Mexico, NZ, Peru, Singapore, Vietnam",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/cptpp"
+        },
+        {
+          "name": "Chile–EU Advanced Framework Agreement",
+          "year": 2024,
+          "parties": "European Union",
+          "scope": "Goods, Services, Investment, Digital Trade",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/chile_en"
+        },
+        {
+          "name": "Chile–US FTA",
+          "year": 2004,
+          "parties": "United States",
+          "scope": "Goods, Services, Investment",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/chile-fta"
+        },
+        {
+          "name": "Chile–China FTA",
+          "year": 2006,
+          "parties": "China",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/chile.shtml"
+        },
+        {
+          "name": "Chile–Japan EPA",
+          "year": 2007,
+          "parties": "Japan",
+          "scope": "Goods, Services",
+          "url": "https://www.mofa.go.jp/ecm/ie/page3e_001060.html"
+        },
+        {
+          "name": "Pacific Alliance",
+          "year": 2016,
+          "parties": "Colombia, Mexico, Peru",
+          "scope": "Goods, Services, Investment, Labor Mobility",
+          "url": "https://alianzapacifico.net/en/"
+        },
+        {
+          "name": "Chile–Australia FTA",
+          "year": 2009,
+          "parties": "Australia",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/ausfta"
+        },
+        {
+          "name": "Chile–Canada FTA",
+          "year": 1997,
+          "parties": "Canada",
+          "scope": "Goods, Services",
+          "url": "https://www.international.gc.ca/trade-commerce/trade-agreements-accords-commerciaux/agr-acc/chile-chili/index.aspx"
+        },
+        {
+          "name": "Mercosur–Chile Association Agreement",
+          "year": 1996,
+          "parties": "Argentina, Brazil, Paraguay, Uruguay",
+          "scope": "Goods (partial tariff reductions)",
+          "url": "https://www.mercosur.int/"
+        }
       ],
       "disputes": [
-        {"ds": "DS171", "title": "Chile — Price Band System and Safeguard Measures for Wheat", "role": "respondent", "year": 1999, "status": "Ruled against"},
-        {"ds": "DS193", "title": "Chile — Measures Affecting Transit and Importation of Swordfish", "role": "respondent", "year": 2000, "status": "Settled 2001"},
-        {"ds": "DS495", "title": "Chile — Tax Measures on Certain Agricultural Products", "role": "respondent", "year": 2015, "status": "Ongoing"}
+        {
+          "ds": "DS171",
+          "title": "Chile — Price Band System and Safeguard Measures for Wheat",
+          "role": "respondent",
+          "year": 1999,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS193",
+          "title": "Chile — Measures Affecting Transit and Importation of Swordfish",
+          "role": "respondent",
+          "year": 2000,
+          "status": "Settled 2001"
+        },
+        {
+          "ds": "DS495",
+          "title": "Chile — Tax Measures on Certain Agricultural Products",
+          "role": "respondent",
+          "year": 2015,
+          "status": "Ongoing"
+        }
+      ]
+    },
+    "FRA": {
+      "name": "France",
+      "iso2": "FR",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        2.21,
+        46.23
+      ],
+      "total_trade": 1350,
+      "exports": 620,
+      "imports": 730,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Aircraft & Aerospace",
+          18
+        ],
+        [
+          "Machinery",
+          14
+        ],
+        [
+          "Pharmaceuticals",
+          10
+        ],
+        [
+          "Vehicles",
+          9
+        ],
+        [
+          "Cosmetics & Perfume",
+          6
+        ],
+        [
+          "Wine & Spirits",
+          4
+        ],
+        [
+          "Chemicals",
+          4
+        ],
+        [
+          "Food",
+          3
+        ],
+        [
+          "Other",
+          32
+        ]
+      ],
+      "commodity_sub": {
+        "Aircraft & Aerospace": [
+          [
+            "Commercial Aircraft",
+            62
+          ],
+          [
+            "Aircraft Engines",
+            18
+          ],
+          [
+            "Defense Aircraft",
+            12
+          ],
+          [
+            "Parts",
+            8
+          ]
+        ],
+        "Wine & Spirits": [
+          [
+            "Champagne",
+            30
+          ],
+          [
+            "Bordeaux",
+            25
+          ],
+          [
+            "Burgundy",
+            20
+          ],
+          [
+            "Spirits (Cognac)",
+            25
+          ]
+        ],
+        "Other": [
+          [
+            "Luxury Goods",
+            20
+          ],
+          [
+            "Electronics",
+            15
+          ],
+          [
+            "Steel",
+            10
+          ],
+          [
+            "Textiles",
+            10
+          ],
+          [
+            "Other Manuf.",
+            45
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 75,
+          "imp": 92
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 48,
+          "imp": 42
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 45,
+          "imp": 40
+        },
+        {
+          "iso": "GBR",
+          "name": "United Kingdom",
+          "exp": 52,
+          "imp": 38
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 42,
+          "imp": 38
+        },
+        {
+          "iso": "BEL",
+          "name": "Belgium",
+          "exp": 38,
+          "imp": 35
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 22,
+          "imp": 55
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 30,
+          "imp": 32
+        }
+      ],
+      "ftas": [
+        {
+          "name": "EU–Canada (CETA)",
+          "year": 2017,
+          "parties": "Canada",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.consilium.europa.eu/en/policies/ceta/"
+        },
+        {
+          "name": "EU–Japan EPA",
+          "year": 2019,
+          "parties": "Japan",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"
+        },
+        {
+          "name": "EU–South Korea FTA",
+          "year": 2011,
+          "parties": "South Korea",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"
+        },
+        {
+          "name": "EU–Vietnam FTA",
+          "year": 2020,
+          "parties": "Vietnam",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/vietnam_en"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS316",
+          "title": "EU Subsidies on Large Civil Aircraft (Airbus)",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Settled 2021"
+        }
+      ]
+    },
+    "CAN": {
+      "name": "Canada",
+      "iso2": "CA",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -96.82,
+        56.13
+      ],
+      "total_trade": 1180,
+      "exports": 590,
+      "imports": 590,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Crude Oil & Bitumen",
+          21
+        ],
+        [
+          "Vehicles & Parts",
+          12
+        ],
+        [
+          "Machinery",
+          9
+        ],
+        [
+          "Gold",
+          6
+        ],
+        [
+          "Lumber & Wood",
+          5
+        ],
+        [
+          "Aircraft",
+          4
+        ],
+        [
+          "Chemicals",
+          3
+        ],
+        [
+          "Food & Agriculture",
+          3
+        ],
+        [
+          "Other",
+          37
+        ]
+      ],
+      "commodity_sub": {
+        "Crude Oil & Bitumen": [
+          [
+            "Oil Sands Bitumen",
+            50
+          ],
+          [
+            "Conventional Crude",
+            35
+          ],
+          [
+            "Condensate",
+            15
+          ]
+        ],
+        "Other": [
+          [
+            "Potash",
+            12
+          ],
+          [
+            "Aluminum",
+            10
+          ],
+          [
+            "Plastics",
+            10
+          ],
+          [
+            "Fish",
+            8
+          ],
+          [
+            "Other Manuf.",
+            60
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 330,
+          "imp": 307
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 22,
+          "imp": 55
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 15,
+          "imp": 12
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 12,
+          "imp": 10
+        },
+        {
+          "iso": "MEX",
+          "name": "Mexico",
+          "exp": 8,
+          "imp": 12
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 10,
+          "imp": 14
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 8,
+          "imp": 9
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 6,
+          "imp": 5
+        }
+      ],
+      "ftas": [
+        {
+          "name": "USMCA",
+          "year": 2020,
+          "parties": "United States, Mexico",
+          "scope": "Goods, Services, IP, Investment, Digital Trade",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.international.gc.ca/trade-commerce/trade-agreements-accords-commerciaux/agr-acc/cptpp-ptpgp/index.aspx"
+        },
+        {
+          "name": "CETA (EU–Canada)",
+          "year": 2017,
+          "parties": "European Union",
+          "scope": "Goods, Services, Investment, IP, Procurement",
+          "url": "https://www.consilium.europa.eu/en/policies/ceta/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS70",
+          "title": "Canada — Measures Affecting Export of Civilian Aircraft",
+          "role": "respondent",
+          "year": 1997,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS103",
+          "title": "Canada — Measures Affecting the Importation of Milk",
+          "role": "respondent",
+          "year": 1997,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "KOR": {
+      "name": "South Korea",
+      "iso2": "KR",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        127.77,
+        35.91
+      ],
+      "total_trade": 1200,
+      "exports": 635,
+      "imports": 565,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Electronics & Semiconductors",
+          22
+        ],
+        [
+          "Vehicles & Parts",
+          11
+        ],
+        [
+          "Machinery",
+          10
+        ],
+        [
+          "Ships",
+          8
+        ],
+        [
+          "Petrochemicals",
+          7
+        ],
+        [
+          "Steel",
+          6
+        ],
+        [
+          "Plastics",
+          4
+        ],
+        [
+          "Other",
+          32
+        ]
+      ],
+      "commodity_sub": {
+        "Electronics & Semiconductors": [
+          [
+            "Memory Chips",
+            45
+          ],
+          [
+            "Display Panels",
+            20
+          ],
+          [
+            "Consumer Electronics",
+            18
+          ],
+          [
+            "Other Semiconductors",
+            17
+          ]
+        ],
+        "Ships": [
+          [
+            "Container Ships",
+            40
+          ],
+          [
+            "LNG Tankers",
+            30
+          ],
+          [
+            "Bulk Carriers",
+            20
+          ],
+          [
+            "Other",
+            10
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 175,
+          "imp": 210
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 95,
+          "imp": 57
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 42,
+          "imp": 52
+        },
+        {
+          "iso": "VNM",
+          "name": "Vietnam",
+          "exp": 55,
+          "imp": 28
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 18,
+          "imp": 35
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 20,
+          "imp": 18
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 18,
+          "imp": 15
+        },
+        {
+          "iso": "TWN",
+          "name": "Taiwan",
+          "exp": 22,
+          "imp": 28
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "Korea–EU FTA",
+          "year": 2011,
+          "parties": "European Union",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"
+        },
+        {
+          "name": "KORUS (Korea–US FTA)",
+          "year": 2012,
+          "parties": "United States",
+          "scope": "Goods, Services, Autos",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta"
+        },
+        {
+          "name": "Korea–China FTA",
+          "year": 2015,
+          "parties": "China",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/chinakorea.shtml"
+        },
+        {
+          "name": "KAFTA",
+          "year": 2014,
+          "parties": "Australia",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/kafta"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS391",
+          "title": "Korea — Measures on Bovine Meat",
+          "role": "respondent",
+          "year": 2009,
+          "status": "Ruled against"
+        },
+        {
+          "ds": "DS589",
+          "title": "Japan — Export Restrictions on Semiconductor Materials",
+          "role": "complainant",
+          "year": 2019,
+          "status": "Settled 2023"
+        }
+      ]
+    },
+    "MEX": {
+      "name": "Mexico",
+      "iso2": "MX",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -102.55,
+        23.63
+      ],
+      "total_trade": 1050,
+      "exports": 580,
+      "imports": 470,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Vehicles & Auto Parts",
+          23
+        ],
+        [
+          "Electronics",
+          18
+        ],
+        [
+          "Machinery",
+          12
+        ],
+        [
+          "Medical Instruments",
+          6
+        ],
+        [
+          "Oil & Petroleum",
+          5
+        ],
+        [
+          "Beer & Beverages",
+          3
+        ],
+        [
+          "Food & Agriculture",
+          3
+        ],
+        [
+          "Other",
+          30
+        ]
+      ],
+      "commodity_sub": {
+        "Vehicles & Auto Parts": [
+          [
+            "Passenger Cars",
+            45
+          ],
+          [
+            "Auto Parts",
+            35
+          ],
+          [
+            "Trucks",
+            12
+          ],
+          [
+            "Other",
+            8
+          ]
+        ],
+        "Other": [
+          [
+            "Silver",
+            10
+          ],
+          [
+            "Clothing",
+            10
+          ],
+          [
+            "Plastics",
+            8
+          ],
+          [
+            "Chemicals",
+            8
+          ],
+          [
+            "Other Manuf.",
+            64
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 420,
+          "imp": 261
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 12,
+          "imp": 70
+        },
+        {
+          "iso": "CAN",
+          "name": "Canada",
+          "exp": 14,
+          "imp": 12
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 8,
+          "imp": 12
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 6,
+          "imp": 10
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 5,
+          "imp": 10
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 6,
+          "imp": 5
+        },
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 7,
+          "imp": 9
+        }
+      ],
+      "ftas": [
+        {
+          "name": "USMCA",
+          "year": 2020,
+          "parties": "United States, Canada",
+          "scope": "Goods, Services, IP, Investment, Digital Trade",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.gob.mx/se/acciones-y-programas/tlcptp"
+        },
+        {
+          "name": "Mexico–EU Global Agreement",
+          "year": 2024,
+          "parties": "European Union",
+          "scope": "Goods, Services, Investment",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/mexico_en"
+        },
+        {
+          "name": "Pacific Alliance",
+          "year": 2016,
+          "parties": "Chile, Colombia, Peru",
+          "scope": "Goods, Services, Investment",
+          "url": "https://alianzapacifico.net/en/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS308",
+          "title": "Mexico — Tax Measures on Soft Drinks",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "RUS": {
+      "name": "Russia",
+      "iso2": "RU",
+      "wto_member": true,
+      "wto_accession": 2012,
+      "centroid": [
+        99.5,
+        61.52
+      ],
+      "total_trade": 780,
+      "exports": 490,
+      "imports": 290,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Crude Oil",
+          33
+        ],
+        [
+          "Natural Gas",
+          12
+        ],
+        [
+          "Metals & Steel",
+          10
+        ],
+        [
+          "Coal",
+          7
+        ],
+        [
+          "Wheat & Grain",
+          5
+        ],
+        [
+          "Arms & Defense",
+          4
+        ],
+        [
+          "Chemicals",
+          3
+        ],
+        [
+          "Other",
+          26
+        ]
+      ],
+      "commodity_sub": {
+        "Crude Oil": [
+          [
+            "Urals Blend",
+            70
+          ],
+          [
+            "Siberian Light",
+            20
+          ],
+          [
+            "Other",
+            10
+          ]
+        ],
+        "Other": [
+          [
+            "Fertilizers",
+            20
+          ],
+          [
+            "Lumber",
+            15
+          ],
+          [
+            "Diamonds",
+            12
+          ],
+          [
+            "Fish",
+            10
+          ],
+          [
+            "Other",
+            43
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 80,
+          "imp": 50
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 18,
+          "imp": 22
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 22,
+          "imp": 8
+        },
+        {
+          "iso": "TUR",
+          "name": "Turkey",
+          "exp": 18,
+          "imp": 10
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 35,
+          "imp": 8
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 12,
+          "imp": 10
+        },
+        {
+          "iso": "KAZ",
+          "name": "Kazakhstan",
+          "exp": 12,
+          "imp": 6
+        },
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 6,
+          "imp": 5
+        }
+      ],
+      "ftas": [
+        {
+          "name": "Eurasian Economic Union (EAEU)",
+          "year": 2015,
+          "parties": "Belarus, Kazakhstan, Armenia, Kyrgyzstan",
+          "scope": "Goods (customs union), Services, Investment",
+          "url": "https://eec.eaeunion.org/en/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS485",
+          "title": "Russia — Tariff Treatment of Certain Agricultural Products",
+          "role": "respondent",
+          "year": 2014,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "SAU": {
+      "name": "Saudi Arabia",
+      "iso2": "SA",
+      "wto_member": true,
+      "wto_accession": 2005,
+      "centroid": [
+        45.08,
+        23.89
+      ],
+      "total_trade": 480,
+      "exports": 310,
+      "imports": 170,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Crude Oil",
+          71
+        ],
+        [
+          "Refined Petroleum",
+          11
+        ],
+        [
+          "Chemicals & Plastics",
+          5
+        ],
+        [
+          "Plastics",
+          3
+        ],
+        [
+          "Other",
+          10
+        ]
+      ],
+      "commodity_sub": {
+        "Crude Oil": [
+          [
+            "Arab Light",
+            50
+          ],
+          [
+            "Arab Heavy",
+            30
+          ],
+          [
+            "Arab Extra Light",
+            20
+          ]
+        ],
+        "Other": [
+          [
+            "Aluminum",
+            20
+          ],
+          [
+            "Steel",
+            15
+          ],
+          [
+            "Fertilizers",
+            15
+          ],
+          [
+            "Food",
+            10
+          ],
+          [
+            "Other",
+            40
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 65,
+          "imp": 38
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 42,
+          "imp": 8
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 35,
+          "imp": 15
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 22,
+          "imp": 25
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 28,
+          "imp": 10
+        },
+        {
+          "iso": "ARE",
+          "name": "UAE",
+          "exp": 12,
+          "imp": 15
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 10,
+          "imp": 5
+        },
+        {
+          "iso": "EGY",
+          "name": "Egypt",
+          "exp": 5,
+          "imp": 3
+        }
+      ],
+      "ftas": [
+        {
+          "name": "GCC Customs Union",
+          "year": 2003,
+          "parties": "UAE, Kuwait, Qatar, Bahrain, Oman",
+          "scope": "Goods (customs union)",
+          "url": "https://www.gcc-sg.org/"
+        },
+        {
+          "name": "GCC–Singapore FTA",
+          "year": 2013,
+          "parties": "Singapore",
+          "scope": "Goods, Services",
+          "url": "https://rtais.wto.org/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS597",
+          "title": "Saudi Arabia — Measures Concerning the Protection of IPRs",
+          "role": "respondent",
+          "year": 2018,
+          "status": "Ongoing"
+        }
+      ]
+    },
+    "NLD": {
+      "name": "Netherlands",
+      "iso2": "NL",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        5.29,
+        52.13
+      ],
+      "total_trade": 1450,
+      "exports": 810,
+      "imports": 640,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Machinery & Equipment",
+          14
+        ],
+        [
+          "Refined Petroleum",
+          12
+        ],
+        [
+          "Electronics",
+          10
+        ],
+        [
+          "Chemicals",
+          8
+        ],
+        [
+          "Pharmaceuticals",
+          6
+        ],
+        [
+          "Food & Agriculture",
+          5
+        ],
+        [
+          "Other",
+          45
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Cut Flowers",
+            15
+          ],
+          [
+            "Plastics",
+            12
+          ],
+          [
+            "Steel",
+            10
+          ],
+          [
+            "Vehicles",
+            8
+          ],
+          [
+            "Other Manuf.",
+            55
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 70,
+          "imp": 85
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 45,
+          "imp": 36
+        },
+        {
+          "iso": "BEL",
+          "name": "Belgium",
+          "exp": 40,
+          "imp": 38
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 40,
+          "imp": 110
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 48,
+          "imp": 40
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 35,
+          "imp": 38
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 22,
+          "imp": 25
+        },
+        {
+          "iso": "RUS",
+          "name": "Russia",
+          "exp": 8,
+          "imp": 22
+        }
+      ],
+      "ftas": [
+        {
+          "name": "EU–Canada (CETA)",
+          "year": 2017,
+          "parties": "Canada",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.consilium.europa.eu/en/policies/ceta/"
+        },
+        {
+          "name": "EU–Japan EPA",
+          "year": 2019,
+          "parties": "Japan",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"
+        },
+        {
+          "name": "EU–South Korea FTA",
+          "year": 2011,
+          "parties": "South Korea",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS316",
+          "title": "EU Subsidies on Large Civil Aircraft",
+          "role": "respondent",
+          "year": 2004,
+          "status": "Settled 2021"
+        }
+      ]
+    },
+    "ZAF": {
+      "name": "South Africa",
+      "iso2": "ZA",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        25.08,
+        -29.0
+      ],
+      "total_trade": 250,
+      "exports": 120,
+      "imports": 130,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Gold",
+          17
+        ],
+        [
+          "Platinum Group Metals",
+          12
+        ],
+        [
+          "Iron Ore",
+          8
+        ],
+        [
+          "Coal",
+          8
+        ],
+        [
+          "Vehicles",
+          6
+        ],
+        [
+          "Diamonds",
+          5
+        ],
+        [
+          "Machinery",
+          4
+        ],
+        [
+          "Other",
+          40
+        ]
+      ],
+      "commodity_sub": {
+        "Platinum Group Metals": [
+          [
+            "Platinum",
+            55
+          ],
+          [
+            "Palladium",
+            28
+          ],
+          [
+            "Rhodium",
+            17
+          ]
+        ],
+        "Other": [
+          [
+            "Chemicals",
+            15
+          ],
+          [
+            "Food",
+            12
+          ],
+          [
+            "Manganese",
+            10
+          ],
+          [
+            "Chromium",
+            8
+          ],
+          [
+            "Other",
+            55
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 20,
+          "imp": 18
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 12,
+          "imp": 8
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 6,
+          "imp": 5
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 6,
+          "imp": 5
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "ZMB",
+          "name": "Zambia",
+          "exp": 3,
+          "imp": 1
+        },
+        {
+          "iso": "MOZ",
+          "name": "Mozambique",
+          "exp": 3,
+          "imp": 1
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "SACU (Southern African Customs Union)",
+          "year": 1910,
+          "parties": "Botswana, Lesotho, Namibia, Eswatini",
+          "scope": "Goods (customs union)",
+          "url": "https://www.sacu.int/"
+        },
+        {
+          "name": "EU–SADC EPA",
+          "year": 2016,
+          "parties": "European Union",
+          "scope": "Goods",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/regions/southern-african-development-community-sadc_en"
+        },
+        {
+          "name": "Mercosur–SACU Agreement",
+          "year": 2009,
+          "parties": "Brazil, Argentina, Paraguay, Uruguay",
+          "scope": "Goods (partial)",
+          "url": "https://rtais.wto.org/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS288",
+          "title": "South Africa — Anti-Dumping on Blanketing from India",
+          "role": "respondent",
+          "year": 2003,
+          "status": "Settled"
+        }
+      ]
+    },
+    "ARG": {
+      "name": "Argentina",
+      "iso2": "AR",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -63.62,
+        -38.42
+      ],
+      "total_trade": 175,
+      "exports": 88,
+      "imports": 87,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Soybeans & Products",
+          20
+        ],
+        [
+          "Soy Oil & Meal",
+          10
+        ],
+        [
+          "Corn",
+          9
+        ],
+        [
+          "Vehicles",
+          8
+        ],
+        [
+          "Wheat",
+          6
+        ],
+        [
+          "Beef",
+          6
+        ],
+        [
+          "Lithium",
+          3
+        ],
+        [
+          "Other",
+          38
+        ]
+      ],
+      "commodity_sub": {
+        "Soybeans & Products": [
+          [
+            "Raw Soybeans",
+            60
+          ],
+          [
+            "Soy Meal",
+            25
+          ],
+          [
+            "Soy Oil",
+            15
+          ]
+        ],
+        "Other": [
+          [
+            "Sunflower Oil",
+            12
+          ],
+          [
+            "Wine",
+            10
+          ],
+          [
+            "Shrimp",
+            8
+          ],
+          [
+            "Biodiesel",
+            8
+          ],
+          [
+            "Other",
+            62
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 12,
+          "imp": 18
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 9,
+          "imp": 14
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 6,
+          "imp": 8
+        },
+        {
+          "iso": "CHL",
+          "name": "Chile",
+          "exp": 6,
+          "imp": 5
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 3,
+          "imp": 5
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 3,
+          "imp": 3
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 4,
+          "imp": 2
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 3,
+          "imp": 2
+        }
+      ],
+      "ftas": [
+        {
+          "name": "Mercosur (Customs Union)",
+          "year": 1991,
+          "parties": "Brazil, Paraguay, Uruguay",
+          "scope": "Goods (customs union), Services (partial)",
+          "url": "https://www.mercosur.int/"
+        },
+        {
+          "name": "Mercosur–EU Agreement",
+          "year": 2024,
+          "parties": "European Union",
+          "scope": "Goods, Services (pending ratification)",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/mercosur_en"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS444",
+          "title": "Argentina — Measures Affecting the Importation of Goods",
+          "role": "respondent",
+          "year": 2012,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "TUR": {
+      "name": "Turkey",
+      "iso2": "TR",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        35.24,
+        38.96
+      ],
+      "total_trade": 480,
+      "exports": 230,
+      "imports": 250,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Vehicles & Parts",
+          12
+        ],
+        [
+          "Machinery",
+          11
+        ],
+        [
+          "Iron & Steel",
+          7
+        ],
+        [
+          "Apparel & Clothing",
+          7
+        ],
+        [
+          "Electronics",
+          6
+        ],
+        [
+          "Chemicals",
+          5
+        ],
+        [
+          "Food & Agriculture",
+          4
+        ],
+        [
+          "Other",
+          48
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Jewelry",
+            12
+          ],
+          [
+            "Plastics",
+            10
+          ],
+          [
+            "Textiles",
+            10
+          ],
+          [
+            "Furniture",
+            8
+          ],
+          [
+            "Other",
+            60
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 20,
+          "imp": 18
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 12,
+          "imp": 8
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 10,
+          "imp": 12
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 5,
+          "imp": 22
+        },
+        {
+          "iso": "RUS",
+          "name": "Russia",
+          "exp": 10,
+          "imp": 18
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 6,
+          "imp": 6
+        }
+      ],
+      "ftas": [
+        {
+          "name": "EU–Turkey Customs Union",
+          "year": 1996,
+          "parties": "European Union",
+          "scope": "Goods (industrial products)",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/turkey_en"
+        },
+        {
+          "name": "Turkey–UK FTA",
+          "year": 2021,
+          "parties": "United Kingdom",
+          "scope": "Goods",
+          "url": "https://www.gov.uk/guidance/uk-turkey-free-trade-agreement"
+        },
+        {
+          "name": "Turkey–EFTA FTA",
+          "year": 1992,
+          "parties": "Switzerland, Norway, Iceland, Liechtenstein",
+          "scope": "Goods",
+          "url": "https://rtais.wto.org/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS552",
+          "title": "Turkey — Certain Measures on Steel Products",
+          "role": "respondent",
+          "year": 2018,
+          "status": "Ongoing"
+        }
+      ]
+    },
+    "IDN": {
+      "name": "Indonesia",
+      "iso2": "ID",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        113.92,
+        -0.79
+      ],
+      "total_trade": 490,
+      "exports": 260,
+      "imports": 230,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Coal",
+          13
+        ],
+        [
+          "Palm Oil",
+          13
+        ],
+        [
+          "Petroleum",
+          9
+        ],
+        [
+          "Natural Gas",
+          7
+        ],
+        [
+          "Copper",
+          5
+        ],
+        [
+          "Gold",
+          4
+        ],
+        [
+          "Nickel",
+          4
+        ],
+        [
+          "Other",
+          45
+        ]
+      ],
+      "commodity_sub": {
+        "Palm Oil": [
+          [
+            "Crude Palm Oil",
+            60
+          ],
+          [
+            "Refined Palm Oil",
+            28
+          ],
+          [
+            "Palm Kernel Oil",
+            12
+          ]
+        ],
+        "Other": [
+          [
+            "Rubber",
+            12
+          ],
+          [
+            "Garments",
+            10
+          ],
+          [
+            "Footwear",
+            8
+          ],
+          [
+            "Electronics",
+            8
+          ],
+          [
+            "Other",
+            62
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 30,
+          "imp": 48
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 20,
+          "imp": 10
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 18,
+          "imp": 15
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 12,
+          "imp": 6
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 12,
+          "imp": 18
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 10,
+          "imp": 12
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 8,
+          "imp": 5
+        },
+        {
+          "iso": "MYS",
+          "name": "Malaysia",
+          "exp": 8,
+          "imp": 10
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "Indonesia–Australia CEPA",
+          "year": 2020,
+          "parties": "Australia",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/ia-cepa"
+        },
+        {
+          "name": "ASEAN Free Trade Area",
+          "year": 1993,
+          "parties": "9 other ASEAN members",
+          "scope": "Goods, Services",
+          "url": "https://asean.org/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS592",
+          "title": "Indonesia — Measures on Nickel Ore",
+          "role": "respondent",
+          "year": 2019,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "SGP": {
+      "name": "Singapore",
+      "iso2": "SG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        103.82,
+        1.36
+      ],
+      "total_trade": 870,
+      "exports": 440,
+      "imports": 430,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Electronics & Semiconductors",
+          28
+        ],
+        [
+          "Machinery",
+          12
+        ],
+        [
+          "Refined Petroleum",
+          11
+        ],
+        [
+          "Pharmaceuticals",
+          7
+        ],
+        [
+          "Chemicals",
+          6
+        ],
+        [
+          "Gold",
+          4
+        ],
+        [
+          "Other",
+          32
+        ]
+      ],
+      "commodity_sub": {
+        "Electronics & Semiconductors": [
+          [
+            "Integrated Circuits",
+            50
+          ],
+          [
+            "Disk Drives",
+            20
+          ],
+          [
+            "Electronic Components",
+            18
+          ],
+          [
+            "Other",
+            12
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 55,
+          "imp": 50
+        },
+        {
+          "iso": "MYS",
+          "name": "Malaysia",
+          "exp": 45,
+          "imp": 35
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 28,
+          "imp": 22
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 18,
+          "imp": 12
+        },
+        {
+          "iso": "IDN",
+          "name": "Indonesia",
+          "exp": 18,
+          "imp": 12
+        },
+        {
+          "iso": "HKG",
+          "name": "Hong Kong",
+          "exp": 25,
+          "imp": 20
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 18,
+          "imp": 15
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 15,
+          "imp": 12
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.mti.gov.sg/Trade/Free-Trade-Agreements/CPTPP"
+        },
+        {
+          "name": "EU–Singapore FTA",
+          "year": 2019,
+          "parties": "European Union",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/singapore_en"
+        },
+        {
+          "name": "US–Singapore FTA",
+          "year": 2004,
+          "parties": "United States",
+          "scope": "Goods, Services",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/singapore-fta"
+        },
+        {
+          "name": "Mercosur–Singapore FTA",
+          "year": 2024,
+          "parties": "Brazil, Argentina, Paraguay, Uruguay",
+          "scope": "Goods, Services, Investment",
+          "url": "https://www.mti.gov.sg/Trade/Free-Trade-Agreements/MSSFTA"
+        },
+        {
+          "name": "India–Singapore CECA",
+          "year": 2005,
+          "parties": "India",
+          "scope": "Goods, Services, Investment",
+          "url": "https://rtais.wto.org/"
+        }
+      ],
+      "disputes": []
+    },
+    "NGA": {
+      "name": "Nigeria",
+      "iso2": "NG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        8.68,
+        9.08
+      ],
+      "total_trade": 130,
+      "exports": 62,
+      "imports": 68,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Crude Oil",
+          85
+        ],
+        [
+          "Natural Gas",
+          5
+        ],
+        [
+          "Refined Petroleum",
+          3
+        ],
+        [
+          "Cocoa",
+          2
+        ],
+        [
+          "Other",
+          5
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Sesame Seeds",
+            20
+          ],
+          [
+            "Rubber",
+            15
+          ],
+          [
+            "Cashews",
+            15
+          ],
+          [
+            "Leather",
+            10
+          ],
+          [
+            "Other",
+            40
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 10,
+          "imp": 3
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 8,
+          "imp": 4
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 5,
+          "imp": 2
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 4,
+          "imp": 2
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 5,
+          "imp": 8
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 4,
+          "imp": 1
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 3,
+          "imp": 2
+        },
+        {
+          "iso": "ZAF",
+          "name": "S. Africa",
+          "exp": 2,
+          "imp": 2
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "ECOWAS Trade Liberalization Scheme",
+          "year": 1990,
+          "parties": "14 West African nations",
+          "scope": "Goods",
+          "url": "https://www.ecowas.int/"
+        }
+      ],
+      "disputes": []
+    },
+    "POL": {
+      "name": "Poland",
+      "iso2": "PL",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        19.14,
+        51.92
+      ],
+      "total_trade": 530,
+      "exports": 280,
+      "imports": 250,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Machinery & Equipment",
+          14
+        ],
+        [
+          "Vehicles & Parts",
+          12
+        ],
+        [
+          "Electronics",
+          10
+        ],
+        [
+          "Furniture",
+          5
+        ],
+        [
+          "Chemicals",
+          5
+        ],
+        [
+          "Food",
+          4
+        ],
+        [
+          "Steel",
+          3
+        ],
+        [
+          "Other",
+          47
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Plastics",
+            12
+          ],
+          [
+            "Clothing",
+            10
+          ],
+          [
+            "Paper",
+            8
+          ],
+          [
+            "Glass",
+            6
+          ],
+          [
+            "Other",
+            64
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 38,
+          "imp": 75
+        },
+        {
+          "iso": "CZE",
+          "name": "Czechia",
+          "exp": 18,
+          "imp": 20
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 12,
+          "imp": 10
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 10,
+          "imp": 12
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 12,
+          "imp": 14
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 5,
+          "imp": 18
+        }
+      ],
+      "ftas": [
+        {
+          "name": "EU–Canada (CETA)",
+          "year": 2017,
+          "parties": "Canada",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.consilium.europa.eu/en/policies/ceta/"
+        },
+        {
+          "name": "EU–Japan EPA",
+          "year": 2019,
+          "parties": "Japan",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/japan_en"
+        },
+        {
+          "name": "EU–South Korea FTA",
+          "year": 2011,
+          "parties": "South Korea",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/south-korea_en"
+        }
+      ],
+      "disputes": []
+    },
+    "MYS": {
+      "name": "Malaysia",
+      "iso2": "MY",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        109.7,
+        2.11
+      ],
+      "total_trade": 520,
+      "exports": 285,
+      "imports": 235,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Electronics & Semiconductors",
+          37
+        ],
+        [
+          "Petroleum",
+          9
+        ],
+        [
+          "Palm Oil",
+          7
+        ],
+        [
+          "Machinery",
+          7
+        ],
+        [
+          "Rubber",
+          4
+        ],
+        [
+          "Chemicals",
+          3
+        ],
+        [
+          "Other",
+          33
+        ]
+      ],
+      "commodity_sub": {
+        "Electronics & Semiconductors": [
+          [
+            "Integrated Circuits",
+            55
+          ],
+          [
+            "Electronic Components",
+            25
+          ],
+          [
+            "Consumer Electronics",
+            12
+          ],
+          [
+            "Other",
+            8
+          ]
+        ],
+        "Palm Oil": [
+          [
+            "Crude Palm Oil",
+            55
+          ],
+          [
+            "Refined Palm Oil",
+            30
+          ],
+          [
+            "Palm Kernel Products",
+            15
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 40,
+          "imp": 50
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 35,
+          "imp": 45
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 30,
+          "imp": 18
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 20,
+          "imp": 15
+        },
+        {
+          "iso": "THA",
+          "name": "Thailand",
+          "exp": 16,
+          "imp": 14
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 12,
+          "imp": 8
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 8,
+          "imp": 5
+        },
+        {
+          "iso": "KOR",
+          "name": "S. Korea",
+          "exp": 10,
+          "imp": 12
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://www.miti.gov.my/"
+        },
+        {
+          "name": "ASEAN Free Trade Area",
+          "year": 1993,
+          "parties": "9 other ASEAN members",
+          "scope": "Goods, Services",
+          "url": "https://asean.org/"
+        },
+        {
+          "name": "Malaysia–Australia FTA",
+          "year": 2013,
+          "parties": "Australia",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/mafta"
+        }
+      ],
+      "disputes": []
+    },
+    "THA": {
+      "name": "Thailand",
+      "iso2": "TH",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        100.99,
+        15.87
+      ],
+      "total_trade": 540,
+      "exports": 285,
+      "imports": 255,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Electronics",
+          15
+        ],
+        [
+          "Vehicles & Parts",
+          12
+        ],
+        [
+          "Machinery",
+          10
+        ],
+        [
+          "Rubber",
+          5
+        ],
+        [
+          "Rice",
+          4
+        ],
+        [
+          "Chemicals",
+          4
+        ],
+        [
+          "Food",
+          4
+        ],
+        [
+          "Other",
+          46
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Gems & Jewelry",
+            12
+          ],
+          [
+            "Plastics",
+            10
+          ],
+          [
+            "Sugar",
+            8
+          ],
+          [
+            "Cassava",
+            6
+          ],
+          [
+            "Other",
+            64
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 32,
+          "imp": 12
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 28,
+          "imp": 52
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 25,
+          "imp": 40
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 10,
+          "imp": 5
+        },
+        {
+          "iso": "MYS",
+          "name": "Malaysia",
+          "exp": 14,
+          "imp": 16
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 10,
+          "imp": 8
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "VNM",
+          "name": "Vietnam",
+          "exp": 8,
+          "imp": 6
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "ASEAN Free Trade Area",
+          "year": 1993,
+          "parties": "9 other ASEAN members",
+          "scope": "Goods, Services",
+          "url": "https://asean.org/"
+        },
+        {
+          "name": "Thailand–Australia FTA",
+          "year": 2005,
+          "parties": "Australia",
+          "scope": "Goods, Services",
+          "url": "https://www.dfat.gov.au/trade/agreements/in-force/tafta"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS371",
+          "title": "Thailand — Customs and Fiscal Measures on Cigarettes",
+          "role": "respondent",
+          "year": 2008,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "VNM": {
+      "name": "Vietnam",
+      "iso2": "VN",
+      "wto_member": true,
+      "wto_accession": 2007,
+      "centroid": [
+        108.28,
+        14.06
+      ],
+      "total_trade": 560,
+      "exports": 290,
+      "imports": 270,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Electronics & Phones",
+          30
+        ],
+        [
+          "Machinery",
+          15
+        ],
+        [
+          "Textiles & Garments",
+          12
+        ],
+        [
+          "Footwear",
+          7
+        ],
+        [
+          "Furniture",
+          5
+        ],
+        [
+          "Agricultural Products",
+          4
+        ],
+        [
+          "Other",
+          27
+        ]
+      ],
+      "commodity_sub": {
+        "Electronics & Phones": [
+          [
+            "Mobile Phones",
+            55
+          ],
+          [
+            "Electronic Components",
+            25
+          ],
+          [
+            "Computers",
+            12
+          ],
+          [
+            "Other",
+            8
+          ]
+        ],
+        "Other": [
+          [
+            "Seafood",
+            15
+          ],
+          [
+            "Coffee",
+            12
+          ],
+          [
+            "Rice",
+            10
+          ],
+          [
+            "Rubber",
+            8
+          ],
+          [
+            "Other",
+            55
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 58,
+          "imp": 130
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 96,
+          "imp": 14
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 28,
+          "imp": 55
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 22,
+          "imp": 20
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 6,
+          "imp": 4
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 5,
+          "imp": 6
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 5,
+          "imp": 3
+        }
+      ],
+      "ftas": [
+        {
+          "name": "RCEP",
+          "year": 2022,
+          "parties": "ASEAN+4",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rcepsec.org/"
+        },
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "EU–Vietnam FTA (EVFTA)",
+          "year": 2020,
+          "parties": "European Union",
+          "scope": "Goods, Services, IP",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/vietnam_en"
+        },
+        {
+          "name": "Vietnam–UK FTA",
+          "year": 2021,
+          "parties": "United Kingdom",
+          "scope": "Goods, Services",
+          "url": "https://www.gov.uk/guidance/uk-vietnam-free-trade-agreement"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS404",
+          "title": "US — Anti-Dumping on Shrimp from Vietnam",
+          "role": "complainant",
+          "year": 2010,
+          "status": "Ruled in favor"
+        }
+      ]
+    },
+    "COL": {
+      "name": "Colombia",
+      "iso2": "CO",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -74.3,
+        4.57
+      ],
+      "total_trade": 115,
+      "exports": 55,
+      "imports": 60,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Crude Oil",
+          36
+        ],
+        [
+          "Coal",
+          14
+        ],
+        [
+          "Coffee",
+          8
+        ],
+        [
+          "Gold",
+          8
+        ],
+        [
+          "Cut Flowers",
+          4
+        ],
+        [
+          "Other",
+          30
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Bananas",
+            15
+          ],
+          [
+            "Shrimp",
+            10
+          ],
+          [
+            "Avocados",
+            8
+          ],
+          [
+            "Plastics",
+            7
+          ],
+          [
+            "Other",
+            60
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 10,
+          "imp": 15
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 6,
+          "imp": 12
+        },
+        {
+          "iso": "PAN",
+          "name": "Panama",
+          "exp": 4,
+          "imp": 2
+        },
+        {
+          "iso": "MEX",
+          "name": "Mexico",
+          "exp": 3,
+          "imp": 4
+        },
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 2,
+          "imp": 3
+        },
+        {
+          "iso": "ECU",
+          "name": "Ecuador",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "CHL",
+          "name": "Chile",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "PER",
+          "name": "Peru",
+          "exp": 2,
+          "imp": 2
+        }
+      ],
+      "ftas": [
+        {
+          "name": "Pacific Alliance",
+          "year": 2016,
+          "parties": "Chile, Mexico, Peru",
+          "scope": "Goods, Services, Investment",
+          "url": "https://alianzapacifico.net/en/"
+        },
+        {
+          "name": "Colombia–US FTA",
+          "year": 2012,
+          "parties": "United States",
+          "scope": "Goods, Services, Investment",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/colombia-fta"
+        },
+        {
+          "name": "Colombia–EU FTA",
+          "year": 2013,
+          "parties": "European Union",
+          "scope": "Goods, Services",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/colombia_en"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS461",
+          "title": "Colombia — Measures on Importation of Textiles",
+          "role": "respondent",
+          "year": 2013,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "NOR": {
+      "name": "Norway",
+      "iso2": "NO",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        8.47,
+        60.47
+      ],
+      "total_trade": 310,
+      "exports": 180,
+      "imports": 130,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Crude Oil",
+          37
+        ],
+        [
+          "Natural Gas",
+          17
+        ],
+        [
+          "Fish & Seafood",
+          8
+        ],
+        [
+          "Machinery",
+          7
+        ],
+        [
+          "Metals & Aluminum",
+          5
+        ],
+        [
+          "Other",
+          26
+        ]
+      ],
+      "commodity_sub": {
+        "Fish & Seafood": [
+          [
+            "Atlantic Salmon",
+            55
+          ],
+          [
+            "Cod",
+            20
+          ],
+          [
+            "Mackerel",
+            12
+          ],
+          [
+            "Other Fish",
+            13
+          ]
+        ],
+        "Other": [
+          [
+            "Ships",
+            15
+          ],
+          [
+            "Chemicals",
+            12
+          ],
+          [
+            "Wood Products",
+            10
+          ],
+          [
+            "Other",
+            63
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 28,
+          "imp": 22
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 22,
+          "imp": 18
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 18,
+          "imp": 12
+        },
+        {
+          "iso": "SWE",
+          "name": "Sweden",
+          "exp": 16,
+          "imp": 14
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 12,
+          "imp": 10
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 10,
+          "imp": 18
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 8,
+          "imp": 10
+        },
+        {
+          "iso": "DNK",
+          "name": "Denmark",
+          "exp": 8,
+          "imp": 8
+        }
+      ],
+      "ftas": [
+        {
+          "name": "EEA (European Economic Area)",
+          "year": 1994,
+          "parties": "EU + Iceland, Liechtenstein",
+          "scope": "Single market access (goods, services, capital, people)",
+          "url": "https://www.efta.int/eea"
+        },
+        {
+          "name": "EFTA–Canada FTA",
+          "year": 2009,
+          "parties": "Canada",
+          "scope": "Goods, Services",
+          "url": "https://www.efta.int/free-trade/free-trade-agreements/canada"
+        },
+        {
+          "name": "EFTA–Chile FTA",
+          "year": 2004,
+          "parties": "Chile",
+          "scope": "Goods, Services",
+          "url": "https://www.efta.int/free-trade/free-trade-agreements/chile"
+        }
+      ],
+      "disputes": []
+    },
+    "ARE": {
+      "name": "UAE",
+      "iso2": "AE",
+      "wto_member": true,
+      "wto_accession": 1996,
+      "centroid": [
+        53.85,
+        23.42
+      ],
+      "total_trade": 780,
+      "exports": 380,
+      "imports": 400,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Crude Oil",
+          26
+        ],
+        [
+          "Refined Petroleum",
+          18
+        ],
+        [
+          "Gold",
+          13
+        ],
+        [
+          "Electronics (re-export)",
+          7
+        ],
+        [
+          "Diamonds",
+          5
+        ],
+        [
+          "Aluminum",
+          4
+        ],
+        [
+          "Other",
+          27
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Chemicals",
+            15
+          ],
+          [
+            "Machinery (re-export)",
+            14
+          ],
+          [
+            "Jewelry",
+            12
+          ],
+          [
+            "Vehicles (re-export)",
+            10
+          ],
+          [
+            "Other",
+            49
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 28,
+          "imp": 38
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 22,
+          "imp": 38
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 15,
+          "imp": 20
+        },
+        {
+          "iso": "SAU",
+          "name": "Saudi Arabia",
+          "exp": 15,
+          "imp": 12
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 12,
+          "imp": 6
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 10,
+          "imp": 8
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "EGY",
+          "name": "Egypt",
+          "exp": 6,
+          "imp": 3
+        }
+      ],
+      "ftas": [
+        {
+          "name": "GCC Customs Union",
+          "year": 2003,
+          "parties": "Saudi Arabia, Kuwait, Qatar, Bahrain, Oman",
+          "scope": "Goods (customs union)",
+          "url": "https://www.gcc-sg.org/"
+        },
+        {
+          "name": "India–UAE CEPA",
+          "year": 2022,
+          "parties": "India",
+          "scope": "Goods, Services, Investment",
+          "url": "https://dpiit.gov.in/india-uae-comprehensive-economic-partnership-agreement"
+        },
+        {
+          "name": "UAE–Israel FTA",
+          "year": 2022,
+          "parties": "Israel",
+          "scope": "Goods, Services",
+          "url": "https://rtais.wto.org/"
+        }
+      ],
+      "disputes": []
+    },
+    "EGY": {
+      "name": "Egypt",
+      "iso2": "EG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        30.8,
+        26.82
+      ],
+      "total_trade": 140,
+      "exports": 45,
+      "imports": 95,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Refined Petroleum",
+          16
+        ],
+        [
+          "Gold",
+          11
+        ],
+        [
+          "Cotton & Textiles",
+          8
+        ],
+        [
+          "Chemicals",
+          6
+        ],
+        [
+          "Vegetables & Fruit",
+          5
+        ],
+        [
+          "Other",
+          54
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Fertilizers",
+            15
+          ],
+          [
+            "Aluminum",
+            10
+          ],
+          [
+            "Ceramics",
+            8
+          ],
+          [
+            "Cement",
+            7
+          ],
+          [
+            "Other",
+            60
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 4,
+          "imp": 10
+        },
+        {
+          "iso": "SAU",
+          "name": "Saudi Arabia",
+          "exp": 4,
+          "imp": 4
+        },
+        {
+          "iso": "ITA",
+          "name": "Italy",
+          "exp": 3,
+          "imp": 4
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 2,
+          "imp": 5
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 4,
+          "imp": 5
+        },
+        {
+          "iso": "ARE",
+          "name": "UAE",
+          "exp": 3,
+          "imp": 4
+        },
+        {
+          "iso": "TUR",
+          "name": "Turkey",
+          "exp": 2,
+          "imp": 3
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 2,
+          "imp": 3
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "EU–Egypt Association Agreement",
+          "year": 2004,
+          "parties": "European Union",
+          "scope": "Goods (industrial)",
+          "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/egypt_en"
+        },
+        {
+          "name": "COMESA Free Trade Area",
+          "year": 2000,
+          "parties": "21 Eastern & Southern African nations",
+          "scope": "Goods",
+          "url": "https://www.comesa.int/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS212",
+          "title": "Egypt — Definitive Anti-Dumping Measures on Steel Rebar",
+          "role": "respondent",
+          "year": 2000,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "KEN": {
+      "name": "Kenya",
+      "iso2": "KE",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        37.91,
+        0.02
+      ],
+      "total_trade": 28,
+      "exports": 8,
+      "imports": 20,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Tea",
+          20
+        ],
+        [
+          "Cut Flowers",
+          14
+        ],
+        [
+          "Coffee",
+          5
+        ],
+        [
+          "Vegetables & Fruit",
+          9
+        ],
+        [
+          "Fish",
+          5
+        ],
+        [
+          "Other",
+          47
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Titanium Ore",
+            15
+          ],
+          [
+            "Tobacco",
+            10
+          ],
+          [
+            "Sisal",
+            8
+          ],
+          [
+            "Wattle Bark",
+            7
+          ],
+          [
+            "Other",
+            60
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 1,
+          "imp": 5
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 1,
+          "imp": 3
+        },
+        {
+          "iso": "ARE",
+          "name": "UAE",
+          "exp": 1,
+          "imp": 2
+        },
+        {
+          "iso": "UGA",
+          "name": "Uganda",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "TZA",
+          "name": "Tanzania",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 1,
+          "imp": 0.5
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 0.5,
+          "imp": 0.5
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "EAC Customs Union",
+          "year": 2005,
+          "parties": "Uganda, Tanzania, Rwanda, Burundi, South Sudan, DRC",
+          "scope": "Goods (customs union)",
+          "url": "https://www.eac.int/"
+        },
+        {
+          "name": "COMESA Free Trade Area",
+          "year": 2000,
+          "parties": "21 Eastern & Southern African nations",
+          "scope": "Goods",
+          "url": "https://www.comesa.int/"
+        }
+      ],
+      "disputes": []
+    },
+    "GHA": {
+      "name": "Ghana",
+      "iso2": "GH",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -1.02,
+        7.95
+      ],
+      "total_trade": 30,
+      "exports": 14,
+      "imports": 16,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Gold",
+          40
+        ],
+        [
+          "Cocoa",
+          19
+        ],
+        [
+          "Crude Oil",
+          18
+        ],
+        [
+          "Timber",
+          5
+        ],
+        [
+          "Tuna",
+          3
+        ],
+        [
+          "Other",
+          15
+        ]
+      ],
+      "commodity_sub": {
+        "Gold": [
+          [
+            "Refined Gold",
+            60
+          ],
+          [
+            "Gold Ore",
+            30
+          ],
+          [
+            "Gold Alloys",
+            10
+          ]
+        ],
+        "Cocoa": [
+          [
+            "Cocoa Beans",
+            50
+          ],
+          [
+            "Cocoa Butter",
+            28
+          ],
+          [
+            "Cocoa Powder",
+            22
+          ]
+        ],
+        "Other": [
+          [
+            "Aluminum",
+            20
+          ],
+          [
+            "Manganese",
+            15
+          ],
+          [
+            "Bauxite",
+            12
+          ],
+          [
+            "Diamonds",
+            10
+          ],
+          [
+            "Other",
+            43
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 3,
+          "imp": 5
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "CHE",
+          "name": "Switzerland",
+          "exp": 3,
+          "imp": 1
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "ZAF",
+          "name": "S. Africa",
+          "exp": 1,
+          "imp": 2
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "FRA",
+          "name": "France",
+          "exp": 0.5,
+          "imp": 0.5
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "ECOWAS Trade Liberalization Scheme",
+          "year": 1990,
+          "parties": "14 West African nations",
+          "scope": "Goods",
+          "url": "https://www.ecowas.int/"
+        }
+      ],
+      "disputes": []
+    },
+    "PER": {
+      "name": "Peru",
+      "iso2": "PE",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -75.02,
+        -9.19
+      ],
+      "total_trade": 115,
+      "exports": 60,
+      "imports": 55,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Copper",
+          28
+        ],
+        [
+          "Gold",
+          20
+        ],
+        [
+          "Lead",
+          5
+        ],
+        [
+          "Zinc",
+          5
+        ],
+        [
+          "Coffee",
+          4
+        ],
+        [
+          "Fishmeal",
+          4
+        ],
+        [
+          "Other",
+          34
+        ]
+      ],
+      "commodity_sub": {
+        "Copper": [
+          [
+            "Copper Cathodes",
+            50
+          ],
+          [
+            "Copper Concentrates",
+            35
+          ],
+          [
+            "Copper Wire",
+            15
+          ]
+        ],
+        "Other": [
+          [
+            "Asparagus",
+            12
+          ],
+          [
+            "Avocados",
+            10
+          ],
+          [
+            "Grapes",
+            8
+          ],
+          [
+            "Blueberries",
+            8
+          ],
+          [
+            "Other",
+            62
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 16,
+          "imp": 10
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 8,
+          "imp": 9
+        },
+        {
+          "iso": "CAN",
+          "name": "Canada",
+          "exp": 4,
+          "imp": 2
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 3,
+          "imp": 2
+        },
+        {
+          "iso": "CHL",
+          "name": "Chile",
+          "exp": 3,
+          "imp": 4
+        },
+        {
+          "iso": "BRA",
+          "name": "Brazil",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "ESP",
+          "name": "Spain",
+          "exp": 2,
+          "imp": 1
+        }
+      ],
+      "ftas": [
+        {
+          "name": "CPTPP",
+          "year": 2018,
+          "parties": "10 Pacific Rim countries",
+          "scope": "Goods, Services, Investment, IP",
+          "url": "https://rtais.wto.org/"
+        },
+        {
+          "name": "Pacific Alliance",
+          "year": 2016,
+          "parties": "Chile, Colombia, Mexico",
+          "scope": "Goods, Services, Investment",
+          "url": "https://alianzapacifico.net/en/"
+        },
+        {
+          "name": "Peru–US FTA",
+          "year": 2009,
+          "parties": "United States",
+          "scope": "Goods, Services, Investment",
+          "url": "https://ustr.gov/trade-agreements/free-trade-agreements/peru-tpa"
+        },
+        {
+          "name": "Peru–China FTA",
+          "year": 2010,
+          "parties": "China",
+          "scope": "Goods, Services",
+          "url": "https://fta.mofcom.gov.cn/topic/peru.shtml"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS457",
+          "title": "Peru — Additional Duty on Imports of Certain Agricultural Products",
+          "role": "respondent",
+          "year": 2013,
+          "status": "Ruled against"
+        }
+      ]
+    },
+    "UGA": {
+      "name": "Uganda",
+      "iso2": "UG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        32.29,
+        1.37
+      ],
+      "total_trade": 12,
+      "exports": 4,
+      "imports": 8,
+      "source": "seed",
+      "estimated": true,
+      "reference_year": 2022,
+      "commodities": [
+        [
+          "Coffee",
+          22
+        ],
+        [
+          "Gold",
+          18
+        ],
+        [
+          "Fish",
+          8
+        ],
+        [
+          "Tea",
+          5
+        ],
+        [
+          "Tobacco",
+          4
+        ],
+        [
+          "Other",
+          43
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "Cocoa",
+            15
+          ],
+          [
+            "Flowers",
+            12
+          ],
+          [
+            "Beans",
+            10
+          ],
+          [
+            "Sesame",
+            8
+          ],
+          [
+            "Other",
+            55
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "KEN",
+          "name": "Kenya",
+          "exp": 2,
+          "imp": 1
+        },
+        {
+          "iso": "IND",
+          "name": "India",
+          "exp": 2,
+          "imp": 4
+        },
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 1,
+          "imp": 5
+        },
+        {
+          "iso": "ARE",
+          "name": "UAE",
+          "exp": 2,
+          "imp": 2
+        },
+        {
+          "iso": "GBR",
+          "name": "UK",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "TZA",
+          "name": "Tanzania",
+          "exp": 1,
+          "imp": 1
+        },
+        {
+          "iso": "ZAF",
+          "name": "South Africa",
+          "exp": 0.5,
+          "imp": 0.5
+        },
+        {
+          "iso": "RWA",
+          "name": "Rwanda",
+          "exp": 0.5,
+          "imp": 0.3
+        }
+      ],
+      "ftas": [
+        {
+          "name": "African Continental Free Trade Area (AfCFTA)",
+          "year": 2021,
+          "parties": "54 African Union members",
+          "scope": "Goods, Services, Investment (phased)",
+          "url": "https://au-afcfta.org/"
+        },
+        {
+          "name": "EAC Customs Union",
+          "year": 2005,
+          "parties": "Kenya, Tanzania, Rwanda, Burundi, South Sudan, DRC",
+          "scope": "Goods (customs union)",
+          "url": "https://www.eac.int/"
+        },
+        {
+          "name": "COMESA Free Trade Area",
+          "year": 2000,
+          "parties": "21 Eastern & Southern African nations",
+          "scope": "Goods",
+          "url": "https://www.comesa.int/"
+        }
+      ],
+      "disputes": []
+    },
+    "TWN": {
+      "name": "Taiwan",
+      "iso2": "TW",
+      "wto_member": true,
+      "wto_accession": 2002,
+      "centroid": [
+        120.96,
+        23.7
+      ],
+      "total_trade": 820,
+      "exports": 460,
+      "imports": 360,
+      "source": "seed",
+      "estimated": false,
+      "reference_year": 2023,
+      "commodities": [
+        [
+          "Semiconductors & IC",
+          35
+        ],
+        [
+          "Machinery",
+          14
+        ],
+        [
+          "Plastics",
+          8
+        ],
+        [
+          "Metals",
+          5
+        ],
+        [
+          "Chemicals",
+          4
+        ],
+        [
+          "Other",
+          34
+        ]
+      ],
+      "commodity_sub": {
+        "Semiconductors & IC": [
+          [
+            "Logic Chips (TSMC etc.)",
+            55
+          ],
+          [
+            "Memory Chips",
+            22
+          ],
+          [
+            "Chip Packaging",
+            13
+          ],
+          [
+            "Other",
+            10
+          ]
+        ],
+        "Other": [
+          [
+            "Computers",
+            15
+          ],
+          [
+            "Flat Panels",
+            12
+          ],
+          [
+            "Optical Instruments",
+            10
+          ],
+          [
+            "Vehicles",
+            8
+          ],
+          [
+            "Other",
+            55
+          ]
+        ]
+      },
+      "partners": [
+        {
+          "iso": "CHN",
+          "name": "China",
+          "exp": 80,
+          "imp": 58
+        },
+        {
+          "iso": "USA",
+          "name": "United States",
+          "exp": 65,
+          "imp": 35
+        },
+        {
+          "iso": "JPN",
+          "name": "Japan",
+          "exp": 38,
+          "imp": 48
+        },
+        {
+          "iso": "KOR",
+          "name": "South Korea",
+          "exp": 22,
+          "imp": 28
+        },
+        {
+          "iso": "SGP",
+          "name": "Singapore",
+          "exp": 22,
+          "imp": 15
+        },
+        {
+          "iso": "DEU",
+          "name": "Germany",
+          "exp": 10,
+          "imp": 12
+        },
+        {
+          "iso": "AUS",
+          "name": "Australia",
+          "exp": 8,
+          "imp": 6
+        },
+        {
+          "iso": "NLD",
+          "name": "Netherlands",
+          "exp": 10,
+          "imp": 8
+        }
+      ],
+      "ftas": [
+        {
+          "name": "Taiwan–New Zealand ECA",
+          "year": 2013,
+          "parties": "New Zealand",
+          "scope": "Goods, Services",
+          "url": "https://www.moea.gov.tw/"
+        },
+        {
+          "name": "Taiwan–Singapore ECA",
+          "year": 2014,
+          "parties": "Singapore",
+          "scope": "Goods, Services",
+          "url": "https://www.moea.gov.tw/"
+        }
+      ],
+      "disputes": [
+        {
+          "ds": "DS274",
+          "title": "Taiwan — Anti-Dumping on Straight Length Steel Bars",
+          "role": "respondent",
+          "year": 2002,
+          "status": "Settled"
+        }
       ]
     }
   }
