@@ -313,6 +313,7 @@ function initMap() {
       .then(r => r.json())
       .then(world => {
         geoData = topojson.feature(world, world.objects.countries);
+        buildFeatureIndex();
         g.selectAll(".cp").data(geoData.features).join("path")
           .attr("class","cp").attr("d",pathFn)
           .on("mousemove", onHover)
@@ -339,30 +340,38 @@ function updateProjection() {
   d3.selectAll(".cp").attr("d", pathFn);
 }
 
-// Project a [lon, lat] centroid to SVG [x, y] using current projection
-function projectCentroid(lonlat) {
-  if (!lonlat || !projection) return null;
-  return projection(lonlat);
+// Build a lookup from ISO3 → GeoJSON feature for fast centroid calculation
+let featureByIso = {};
+function buildFeatureIndex() {
+  if (!geoData) return;
+  featureByIso = {};
+  geoData.features.forEach(f => {
+    const iso = ISO_N2A[+f.id];
+    if (iso) featureByIso[iso] = f;
+  });
 }
 
 function drawArcs(iso, partners) {
   d3.selectAll(".trade-arc").remove();
   if (!DATA || !geoData) return;
-  updateProjection();
-  const cd = DATA.countries[iso];
-  if (!cd || !cd.centroid) return;
-  const sc = projectCentroid(cd.centroid);
-  if (!sc) return;
+
+  // Use pathFn.centroid(feature) — this gives coordinates in the SAME space
+  // as the drawn country paths (inside the zoom group), so arcs always
+  // connect correctly regardless of zoom level or panel open/close state.
+  const selFeature = featureByIso[iso];
+  if (!selFeature) return;
+  const sc = pathFn.centroid(selFeature);
+  if (!sc || isNaN(sc[0])) return;
+
   const g = d3.select("#map-g");
   const maxVol = Math.max(...partners.map(p => p.exp + p.imp), 1);
 
   partners.forEach(p => {
-    const pc_data = DATA.countries[p.iso];
-    if (!pc_data || !pc_data.centroid) return;
-    const pc = projectCentroid(pc_data.centroid);
-    if (!pc) return;
+    const pf = featureByIso[p.iso];
+    if (!pf) return;
+    const pc = pathFn.centroid(pf);
+    if (!pc || isNaN(pc[0])) return;
     const vol = (p.exp + p.imp) / maxVol;
-    // Arc: quadratic bezier curving upward
     const mx = (sc[0] + pc[0]) / 2;
     const my = Math.min(sc[1], pc[1]) - 60 * vol;
     g.insert("path", ".cp")
@@ -410,9 +419,9 @@ function onClick(event, d) {
     d3.selectAll(".cp").filter(dd => ISO_N2A[+dd.id] === p.iso).classed(net ? "pe" : "pi", true);
   });
   showPanel(iso);
-  // Wait for bottom panel to fully open and map to reflow before drawing arcs
-  // requestAnimationFrame is not enough — the panel resize takes ~1 frame to settle
-  setTimeout(() => { updateProjection(); drawArcs(iso, partners); }, 80);
+  // Draw arcs immediately — pathFn.centroid reads from the GeoJSON geometry
+  // in the same coordinate space as the drawn paths, so no timing issues
+  drawArcs(iso, partners);
   colorByView();
 }
 
@@ -730,7 +739,7 @@ document.getElementById("cite-modal").addEventListener("click", e => {
 window.addEventListener("resize", () => {
   if (!geoData) return;
   updateProjection();
-  if (sel) setTimeout(() => drawArcs(sel, (DATA.countries[sel]||{}).partners||[]), 80);
+  if (sel) drawArcs(sel, (DATA.countries[sel]||{}).partners||[]);
 });
 
 window.addEventListener("load", () => {
