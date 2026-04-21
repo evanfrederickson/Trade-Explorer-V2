@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Trade Explorer</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0e14;--surface:#111720;--surface2:#192233;--border:rgba(100,140,200,0.15);
+  --accent:#3a8fff;--accent2:#f0a500;--text:#d4e4f7;--text-dim:#6a85a8;--text-dimmer:#3a4f6a;
+  --exp:#3a8fff;--imp:#f0a500;--surplus:#2ecc71;--deficit:#e74c3c;
+  --mono:'DM Mono',monospace;--display:'Fraunces',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px}
+#app{display:grid;grid-template-rows:44px 1fr;height:100vh}
+
+/* Header */
+#header{display:flex;align-items:center;padding:0 18px;border-bottom:1px solid var(--border);gap:16px;background:var(--surface);flex-shrink:0;flex-wrap:wrap}
+#header h1{font-family:var(--display);font-size:16px;font-weight:400;font-style:italic;white-space:nowrap}
+.hsep{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.vtb{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all .15s;letter-spacing:.03em}
+.vtb.active{background:rgba(58,143,255,.15);border-color:var(--accent);color:var(--accent)}
+.hint{margin-left:auto;font-size:10px;color:var(--text-dimmer)}
+#data-status{font-size:10px;color:var(--text-dimmer);cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
+#data-status:hover{color:var(--text-dim)}
+
+/* Main layout */
+#main{display:grid;grid-template-rows:1fr auto;height:100%;overflow:hidden}
+#map-wrap{position:relative;overflow:hidden;min-height:0}
+#map-svg{width:100%;height:100%;display:block}
+.cp{fill:#1a2a40;stroke:#253650;stroke-width:.4;cursor:pointer;transition:fill .12s}
+.cp:hover{fill:#2a3f60}
+.cp.selected{fill:#1e3a6e;stroke:var(--accent);stroke-width:1.2}
+.cp.pe{fill:#172840}.cp.pi{fill:#2a2010}
+.trade-arc{fill:none;pointer-events:none}
+.ta-exp{stroke:var(--exp)}.ta-imp{stroke:var(--imp)}
+#mtt{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:5px 9px;font-size:11px;pointer-events:none;opacity:0;z-index:10;color:var(--text);max-width:210px;line-height:1.5}
+
+/* Bottom panel */
+#bottom-panel{background:var(--surface);border-top:1px solid var(--border);display:none;flex-direction:column;max-height:52vh;min-height:0}
+#bottom-panel.open{display:flex}
+#bp-header{display:flex;align-items:center;padding:8px 16px;border-bottom:1px solid var(--border);gap:12px;flex-shrink:0}
+#bp-country{font-family:var(--display);font-size:17px;font-weight:300;font-style:italic}
+#bp-meta{font-size:10px;color:var(--text-dim)}
+.met-row{display:flex;gap:8px;padding:0 16px;margin:8px 0;flex-shrink:0;flex-wrap:wrap}
+.met{background:var(--surface2);border-radius:4px;padding:6px 10px;min-width:85px}
+.ml{font-size:9px;color:var(--text-dimmer);letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+.mv{font-size:14px;font-weight:500}
+.mv.pos{color:var(--surplus)}.mv.neg{color:var(--deficit)}
+.data-badge{font-size:9px;padding:2px 6px;border-radius:2px;background:var(--surface2);border:1px solid var(--border);color:var(--text-dimmer);margin-left:auto;flex-shrink:0}
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 16px;flex-shrink:0}
+.tb{font-family:var(--mono);font-size:11px;padding:6px 10px;color:var(--text-dimmer);cursor:pointer;border-bottom:2px solid transparent;letter-spacing:.03em;background:none;border-top:none;border-left:none;border-right:none;transition:all .15s}
+.tb.active{color:var(--accent);border-bottom-color:var(--accent)}
+#tab-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 16px;min-height:0}
+#tab-body::-webkit-scrollbar{width:4px}
+#tab-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* Partners */
+.slabel{font-size:9px;color:var(--text-dimmer);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;margin-top:12px}
+.slabel:first-child{margin-top:0}
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:6px}
+.pitem{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;background:var(--surface2);border-radius:4px;cursor:pointer;border:1px solid transparent;transition:border-color .15s}
+.pitem:hover{border-color:var(--accent)}
+.pflag{width:26px;height:19px;background:var(--surface);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--accent);flex-shrink:0;border:1px solid var(--border);margin-top:2px}
+.pdet{flex:1;min-width:0}
+.pname{font-size:11px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbars{margin-top:3px}
+.brow{display:flex;align-items:center;gap:4px;margin-bottom:2px}
+.blbl{font-size:9px;width:22px;flex-shrink:0}
+.btrack{flex:1;height:3px;background:var(--bg);border-radius:2px;overflow:hidden}
+.bfill{height:100%;border-radius:2px}
+.bval{font-size:9px;color:var(--text-dim);width:38px;text-align:right;flex-shrink:0}
+.bal-line{font-size:9px;margin-top:3px}
+
+/* FTAs */
+.fta-item{padding:7px 0;border-bottom:1px solid var(--border)}
+.fta-name{font-size:12px;color:var(--accent);text-decoration:none}
+.fta-name:hover{color:var(--text)}
+.fta-scope{font-size:10px;color:var(--text-dimmer);margin-top:2px}
+.fta-parties{font-size:10px;color:var(--text-dim);margin-top:1px}
+
+/* Disputes */
+.disp-item{padding:7px 0;border-bottom:1px solid var(--border)}
+.disp-ds{font-size:10px;color:var(--text-dimmer)}
+.disp-title{font-size:11px;color:var(--text);margin-top:2px}
+.disp-meta{font-size:10px;color:var(--text-dimmer);margin-top:2px}
+.dbadge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:2px;margin-right:4px}
+.bc{background:rgba(58,143,255,.12);color:var(--accent);border:1px solid rgba(58,143,255,.25)}
+.br{background:rgba(240,165,0,.1);color:var(--accent2);border:1px solid rgba(240,165,0,.25)}
+
+/* Inline commodity treemap */
+#comm-treemap-wrap{width:100%;height:180px;margin-top:6px;position:relative}
+#comm-treemap-svg{width:100%;height:180px;display:block}
+#comm-bc{font-size:10px;color:var(--text-dimmer);margin-top:4px;min-height:16px}
+.inline-tt{position:fixed;background:#192233;border:1px solid rgba(100,140,200,.2);border-radius:3px;padding:4px 8px;font-size:11px;pointer-events:none;z-index:999;color:#d4e4f7;font-family:'DM Mono',monospace;display:none}
+
+/* Treemap modal */
+#tm-modal{position:fixed;inset:0;background:rgba(5,10,18,.92);z-index:100;display:none;align-items:center;justify-content:center}
+#tm-modal.open{display:flex}
+#tm-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;width:860px;max-width:96vw;height:480px;display:flex;flex-direction:column;overflow:hidden}
+#tm-hdr{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+#tm-title{font-family:var(--display);font-size:15px;font-style:italic;font-weight:300}
+#tm-close{font-size:16px;color:var(--text-dim);cursor:pointer;background:none;border:none;padding:2px 6px}
+#tm-close:hover{color:var(--text)}
+#tm-body{display:grid;grid-template-columns:1fr 1fr;flex:1;overflow:hidden}
+.tm-pane{display:flex;flex-direction:column;overflow:hidden;min-height:0}
+.tm-pane+.tm-pane{border-left:1px solid var(--border)}
+.tm-ph{padding:8px 12px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0}
+.tm-ph.e{color:var(--exp)}.tm-ph.i{color:var(--imp)}
+.tm-ph span{font-size:11px;text-transform:none;letter-spacing:0;color:var(--text-dim);margin-left:6px}
+.tm-bc{padding:4px 12px;font-size:10px;color:var(--text-dimmer);border-bottom:1px solid var(--border);min-height:24px;flex-shrink:0}
+.tm-bc a{color:var(--accent);cursor:pointer;text-decoration:none}
+.tm-bc a:hover{color:var(--text)}
+.tm-svg-wrap{flex:1;overflow:hidden;min-height:0;position:relative}
+.tm-svg{width:100%;height:100%}
+.tm-tt{position:absolute;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:4px 8px;font-size:11px;pointer-events:none;opacity:0;z-index:20;color:var(--text);white-space:nowrap}
+
+/* Citation modal */
+#cite-modal{position:fixed;inset:0;background:rgba(5,10,18,.88);z-index:200;display:none;align-items:center;justify-content:center}
+#cite-modal.open{display:flex}
+#cite-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;width:700px;max-width:94vw;max-height:85vh;display:flex;flex-direction:column;overflow:hidden}
+#cite-hdr{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+#cite-hdr h2{font-family:var(--display);font-size:16px;font-weight:300;font-style:italic}
+#cite-body{padding:16px;overflow-y:auto;flex:1;font-size:12px;line-height:1.7;color:var(--text-dim)}
+.cite-source{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.cite-source:last-child{border-bottom:none;margin-bottom:0}
+.cite-source h3{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+.cite-source a{color:var(--accent)}
+.cite-source a:hover{color:var(--text)}
+.cite-method{margin-top:16px;padding:10px;background:var(--surface2);border-radius:4px;font-size:11px;color:var(--text-dimmer);line-height:1.6}
+</style>
+</head>
+<body>
+<div id="app">
+<div id="header">
+  <h1>Global Trade Explorer</h1>
+  <div class="hsep"></div>
+  <button class="vtb active" onclick="setView('flows',this)">Trade flows</button>
+  <button class="vtb" onclick="setView('fta',this)">FTA network</button>
+  <button class="vtb" onclick="setView('disputes',this)">Disputes</button>
+  <div class="hsep"></div>
+  <span id="data-status" onclick="openCite()">Loading data…</span>
+  <div class="hint">Click any country →</div>
+</div>
+<div id="main">
+  <div id="map-wrap">
+    <svg id="map-svg"></svg>
+    <div id="mtt"></div>
+  </div>
+  <div id="bottom-panel">
+    <div id="bp-header">
+      <div id="bp-country"></div>
+      <div id="bp-meta"></div>
+      <div id="bp-badge" class="data-badge"></div>
+      <button onclick="closePanel()" style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;padding:0 4px;margin-left:8px">✕</button>
+    </div>
+    <div class="met-row" id="met-row"></div>
+    <div class="tabs">
+      <button class="tb active" onclick="showTab('partners',this)">Partners</button>
+      <button class="tb" onclick="showTab('commodities',this)">Commodities</button>
+      <button class="tb" onclick="showTab('ftas',this)">FTAs</button>
+      <button class="tb" onclick="showTab('disputes',this)">WTO Disputes</button>
+    </div>
+    <div id="tab-body"></div>
+  </div>
+</div>
+</div>
+
+<!-- Treemap modal -->
+<div id="tm-modal">
+<div id="tm-box">
+  <div id="tm-hdr">
+    <div id="tm-title"></div>
+    <button id="tm-close" onclick="closeTM()">✕</button>
+  </div>
+  <div id="tm-body">
+    <div class="tm-pane">
+      <div class="tm-ph e">Exports <span id="tm-elbl"></span></div>
+      <div class="tm-bc" id="bc-e"></div>
+      <div class="tm-svg-wrap"><svg class="tm-svg" id="tm-e-svg"></svg><div class="tm-tt" id="tt-e"></div></div>
+    </div>
+    <div class="tm-pane">
+      <div class="tm-ph i">Imports <span id="tm-ilbl"></span></div>
+      <div class="tm-bc" id="bc-i"></div>
+      <div class="tm-svg-wrap"><svg class="tm-svg" id="tm-i-svg"></svg><div class="tm-tt" id="tt-i"></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Citation modal -->
+<div id="cite-modal">
+<div id="cite-box">
+  <div id="cite-hdr">
+    <h2>Data sources & methodology</h2>
+    <button onclick="closeCite()" style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;padding:2px 6px">✕</button>
+  </div>
+  <div id="cite-body">Loading…</div>
+</div>
+</div>
+
+<div class="inline-tt" id="inline-tt"></div>
+
+<script>
+// ── GLOBALS ────────────────────────────────────────────────────────────────
+let DATA = null;        // loaded from data.json
+let sel = null;         // selected ISO3
+let view = "flows";
+let geoData = null;
+let projection, pathFn;
+const EXP_C = ["#0d2044","#122353","#182c68","#1f3880","#274898","#3058b0","#3a8fff","#5aa3ff","#7ab8ff","#9aceff"];
+const IMP_C = ["#3d2200","#4f2c00","#663800","#804500","#9a5500","#b46800","#d07f00","#e89820","#f0b030","#f8ca60"];
+let tmState = {};
+
+// ── FORMAT ─────────────────────────────────────────────────────────────────
+function fmt(val) {
+  if (val === null || val === undefined || isNaN(val)) return "N/A";
+  const abs = Math.abs(val), sign = val < 0 ? "-" : "";
+  if (abs >= 1000) return sign + "$" + (abs / 1000).toFixed(abs >= 10000 ? 1 : 2).replace(/\.?0+$/, "") + "T";
+  if (abs >= 1)    return sign + "$" + abs.toFixed(abs >= 100 ? 0 : 1).replace(/\.0$/, "") + "B";
+  if (abs >= 0.001) return sign + "$" + Math.round(abs * 1000) + "M";
+  return sign + "$" + (abs * 1000).toFixed(0) + "M";
+}
+
+// ── LOAD DATA.JSON ─────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const r = await fetch("data.json");
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    DATA = await r.json();
+    const meta = DATA._meta || {};
+    const year = meta.reference_year || "?";
+    const gen  = meta.generated ? new Date(meta.generated).toLocaleDateString() : "unknown";
+    const n    = Object.keys(DATA.countries || {}).length;
+    document.getElementById("data-status").textContent =
+      `${n} countries · ${year} data · updated ${gen} · sources ↗`;
+    colorByView();
+  } catch (e) {
+    document.getElementById("data-status").textContent = "⚠ data.json not found — run fetch_trade_data.py";
+    console.error("Failed to load data.json:", e);
+  }
+}
+
+// ── CITATION MODAL ─────────────────────────────────────────────────────────
+function openCite() {
+  document.getElementById("cite-modal").classList.add("open");
+  if (!DATA) { document.getElementById("cite-body").innerHTML = "No data loaded yet."; return; }
+  const meta = DATA._meta || {};
+  const sources = (meta.data_sources || []).map(s => `
+    <div class="cite-source">
+      <h3>${s.name}</h3>
+      <div>${s.description}</div>
+      <div style="margin-top:4px;color:var(--text-dimmer)">Coverage: ${s.coverage} · License: ${s.license}</div>
+      <div style="margin-top:4px"><a href="${s.url}" target="_blank">${s.url} ↗</a></div>
+      <div style="margin-top:4px;font-style:italic;font-size:11px;color:var(--text-dimmer)">${s.citation}</div>
+    </div>`).join("");
+  document.getElementById("cite-body").innerHTML = sources + `
+    <div class="cite-method">
+      <b>Methodology:</b> ${meta.methodology || "See fetch_trade_data.py for full details."}<br><br>
+      <b>Reference year:</b> ${meta.reference_year || "See _meta.reference_year in data.json"}<br>
+      <b>Last updated:</b> ${meta.generated || "Unknown"}<br>
+      <b>Arc rendering:</b> Trade flow arcs use geographic centroids (center-of-mass) from
+      Natural Earth geometries stored in data.json — not hardcoded pixel coordinates.
+      The projection recalculates centroid positions on every render, making arcs
+      immune to map resize or projection changes.
+    </div>`;
+}
+function closeCite() { document.getElementById("cite-modal").classList.remove("open"); }
+
+// ── MAP INIT ───────────────────────────────────────────────────────────────
+// ISO numeric → ISO3 alpha mapping (Natural Earth / UN numeric codes)
+const ISO_N2A = {4:"AFG",8:"ALB",12:"DZA",24:"AGO",32:"ARG",36:"AUS",40:"AUT",31:"AZE",
+  50:"BGD",56:"BEL",64:"BTN",68:"BOL",76:"BRA",100:"BGR",116:"KHM",120:"CMR",124:"CAN",
+  144:"LKA",152:"CHL",156:"CHN",170:"COL",188:"CRI",191:"HRV",192:"CUB",203:"CZE",
+  208:"DNK",214:"DOM",218:"ECU",818:"EGY",231:"ETH",246:"FIN",250:"FRA",276:"DEU",
+  288:"GHA",300:"GRC",320:"GTM",348:"HUN",356:"IND",360:"IDN",364:"IRN",368:"IRQ",
+  372:"IRL",376:"ISR",380:"ITA",388:"JAM",392:"JPN",400:"JOR",398:"KAZ",404:"KEN",
+  410:"KOR",414:"KWT",442:"LUX",484:"MEX",496:"MNG",504:"MAR",508:"MOZ",104:"MMR",
+  524:"NPL",528:"NLD",554:"NZL",566:"NGA",578:"NOR",586:"PAK",591:"PAN",604:"PER",
+  608:"PHL",616:"POL",620:"PRT",634:"QAT",642:"ROU",643:"RUS",682:"SAU",686:"SEN",
+  703:"SVK",710:"ZAF",724:"ESP",752:"SWE",756:"CHE",158:"TWN",764:"THA",834:"TZA",
+  792:"TUR",800:"UGA",804:"UKR",784:"ARE",840:"USA",858:"URY",860:"UZB",862:"VEN",
+  704:"VNM",887:"YEM",894:"ZMB",716:"ZWE",688:"SRB",440:"LTU",428:"LVA",233:"EST",
+  705:"SVN",470:"MLT",352:"ISL",268:"GEO",112:"BLR",454:"MWI",788:"TUN",422:"LBN",
+  598:"PNG",384:"CIV",894:"ZMB",174:"COM",262:"DJI",232:"ERI",516:"NAM",760:"SYR",
+  266:"GAB",324:"GIN",624:"GNB",430:"LBR",466:"MLI",478:"MRT",508:"MOZ",562:"NER",
+  646:"RWA",706:"SOM",736:"SDN",729:"SDN",834:"TZA",800:"UGA",678:"STP",694:"SLE",
+  148:"TCD",204:"BEN",854:"BFA",140:"CAF",174:"COM",180:"COD",178:"COG",262:"DJI",
+};
+
+function initMap() {
+  const wrap = document.getElementById("map-wrap");
+  const W = wrap.clientWidth, H = wrap.clientHeight;
+  const svg = d3.select("#map-svg");
+  projection = d3.geoNaturalEarth1().scale(W / 6.3).translate([W / 2, H / 2]);
+  pathFn = d3.geoPath().projection(projection);
+  svg.append("rect").attr("width", W).attr("height", H).attr("fill", "#080d14");
+  const g = svg.append("g").attr("id", "map-g");
+  svg.call(d3.zoom().scaleExtent([1, 8]).on("zoom", e => g.attr("transform", e.transform)));
+
+  const topo = document.createElement("script");
+  topo.src = "https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js";
+  topo.onload = () => {
+    fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+      .then(r => r.json())
+      .then(world => {
+        geoData = topojson.feature(world, world.objects.countries);
+        g.append("path").datum({type:"Sphere"}).attr("d",pathFn).attr("fill","#0c1824").attr("stroke","#1a2a40").attr("stroke-width",.3);
+        g.selectAll(".cp").data(geoData.features).join("path")
+          .attr("class","cp").attr("d",pathFn)
+          .on("mousemove", onHover)
+          .on("mouseleave", () => document.getElementById("mtt").style.opacity = 0)
+          .on("click", onClick);
+        colorByView();
+      });
+  };
+  document.head.appendChild(topo);
+}
+
+// ── PROJECTION HELPERS ─────────────────────────────────────────────────────
+// Arc endpoints use centroid data from data.json (lon/lat),
+// projected fresh on each draw call — not cached pixel coords.
+// This means arcs stay correct after resize or panel open/close.
+function updateProjection() {
+  if (!geoData) return;
+  const wrap = document.getElementById("map-wrap");
+  const W = wrap.clientWidth, H = wrap.clientHeight;
+  if (W < 10 || H < 10) return;
+  projection.scale(W / 6.3).translate([W / 2, H / 2]);
+  pathFn = d3.geoPath().projection(projection);
+  d3.select("#map-svg rect").attr("width", W).attr("height", H);
+  d3.selectAll(".cp").attr("d", pathFn);
+}
+
+// Project a [lon, lat] centroid to SVG [x, y] using current projection
+function projectCentroid(lonlat) {
+  if (!lonlat || !projection) return null;
+  return projection(lonlat);
+}
+
+function drawArcs(iso, partners) {
+  d3.selectAll(".trade-arc").remove();
+  if (!DATA || !geoData) return;
+  updateProjection();
+  const cd = DATA.countries[iso];
+  if (!cd || !cd.centroid) return;
+  const sc = projectCentroid(cd.centroid);
+  if (!sc) return;
+  const g = d3.select("#map-g");
+  const maxVol = Math.max(...partners.map(p => p.exp + p.imp), 1);
+
+  partners.forEach(p => {
+    const pc_data = DATA.countries[p.iso];
+    if (!pc_data || !pc_data.centroid) return;
+    const pc = projectCentroid(pc_data.centroid);
+    if (!pc) return;
+    const vol = (p.exp + p.imp) / maxVol;
+    // Arc: quadratic bezier curving upward
+    const mx = (sc[0] + pc[0]) / 2;
+    const my = Math.min(sc[1], pc[1]) - 60 * vol;
+    g.insert("path", ".cp")
+      .attr("class", "trade-arc " + (p.exp > p.imp ? "ta-exp" : "ta-imp"))
+      .attr("d", `M${sc[0]},${sc[1]}Q${mx},${my}${pc[0]},${pc[1]}`)
+      .attr("stroke-width", 0.6 + vol * 4)
+      .attr("opacity", 0.3 + vol * 0.4);
+  });
+}
+
+// ── MAP INTERACTIONS ───────────────────────────────────────────────────────
+function onHover(event, d) {
+  const iso = ISO_N2A[+d.id];
+  const mtt = document.getElementById("mtt");
+  mtt.style.opacity = "1";
+  mtt.style.left = (event.offsetX + 14) + "px";
+  mtt.style.top  = (event.offsetY - 8) + "px";
+
+  const cd = iso && DATA ? DATA.countries[iso] : null;
+  if (sel && iso && DATA) {
+    const ps = (DATA.countries[sel] || {}).partners || [];
+    const p = ps.find(x => x.iso === iso);
+    if (p) {
+      const bal = p.exp - p.imp;
+      mtt.innerHTML = `<b>${cd ? cd.name : iso}</b><br>
+        Exports to ${DATA.countries[sel].name}: ${fmt(p.exp)}<br>
+        Imports from ${DATA.countries[sel].name}: ${fmt(p.imp)}<br>
+        <span style="color:${bal >= 0 ? 'var(--surplus)' : 'var(--deficit)'}">Balance: ${bal >= 0 ? '+' : ''}${fmt(bal)}</span>`;
+      return;
+    }
+  }
+  if (cd) mtt.innerHTML = `<b>${cd.name}</b><br>Total trade: ${fmt(cd.total_trade)}`;
+  else mtt.innerHTML = iso || "Unknown territory";
+}
+
+function onClick(event, d) {
+  const iso = ISO_N2A[+d.id];
+  if (!iso || !DATA || !DATA.countries[iso]) return;
+  sel = iso;
+  d3.selectAll(".cp").classed("selected", false).classed("pe", false).classed("pi", false);
+  d3.selectAll(".cp").filter(dd => ISO_N2A[+dd.id] === iso).classed("selected", true);
+  const partners = DATA.countries[iso].partners || [];
+  partners.forEach(p => {
+    const net = p.exp > p.imp;
+    d3.selectAll(".cp").filter(dd => ISO_N2A[+dd.id] === p.iso).classed(net ? "pe" : "pi", true);
+  });
+  showPanel(iso);
+  // Draw arcs AFTER panel opens so projection is computed for the new map height
+  requestAnimationFrame(() => { updateProjection(); drawArcs(iso, partners); });
+  colorByView();
+}
+
+function colorByView() {
+  if (!geoData || !DATA) return;
+  if (view === "fta") {
+    d3.selectAll(".cp").attr("fill", function(d) {
+      const iso = ISO_N2A[+d.id];
+      if (!iso) return "#1a2a40";
+      if (d3.select(this).classed("selected")) return null;
+      const cd = DATA.countries[iso];
+      return (cd && cd.ftas && cd.ftas.length) ? "#1a3a50" : "#1a2a40";
+    });
+  } else if (view === "disputes") {
+    d3.selectAll(".cp").attr("fill", function(d) {
+      const iso = ISO_N2A[+d.id];
+      if (!iso) return "#1a2a40";
+      if (d3.select(this).classed("selected")) return null;
+      const cd = DATA.countries[iso];
+      if (!cd || !cd.disputes || !cd.disputes.length) return "#1a2a40";
+      const resp = cd.disputes.filter(x => x.role === "respondent").length;
+      if (resp >= 3) return "#3a1a1a";
+      if (resp >= 1) return "#2a1a10";
+      return "#1a2a1a";
+    });
+  } else {
+    d3.selectAll(".cp:not(.selected):not(.pe):not(.pi)").attr("fill", null);
+  }
+}
+
+// ── PANEL ──────────────────────────────────────────────────────────────────
+function closePanel() {
+  document.getElementById("bottom-panel").classList.remove("open");
+  sel = null;
+  d3.selectAll(".cp").classed("selected", false).classed("pe", false).classed("pi", false);
+  d3.selectAll(".trade-arc").remove();
+}
+
+function showPanel(iso) {
+  const cd = DATA.countries[iso];
+  document.getElementById("bottom-panel").classList.add("open");
+  document.getElementById("bp-country").textContent = cd.name;
+  const wto = cd.wto_member ? `WTO member since ${cd.wto_accession || "1995"}` : "Observer / Not a WTO member";
+  document.getElementById("bp-meta").textContent = wto;
+
+  // Data provenance badge
+  const yr = cd.reference_year || DATA._meta.reference_year || "?";
+  const est = cd.estimated ? " (estimated)" : "";
+  const src = {wto_stats:"WTO Stats API", world_bank:"World Bank API", un_comtrade:"UN Comtrade", seed:"Seed data"}[cd.source] || cd.source || "data.json";
+  document.getElementById("bp-badge").textContent = `${src} · ${yr}${est}`;
+
+  const bal = (cd.exports || 0) - (cd.imports || 0);
+  document.getElementById("met-row").innerHTML = `
+    <div class="met"><div class="ml">Total trade</div><div class="mv">${fmt(cd.total_trade)}</div></div>
+    <div class="met"><div class="ml">Exports</div><div class="mv" style="color:var(--exp)">${fmt(cd.exports)}</div></div>
+    <div class="met"><div class="ml">Imports</div><div class="mv" style="color:var(--imp)">${fmt(cd.imports)}</div></div>
+    <div class="met"><div class="ml">Balance</div><div class="mv ${bal >= 0 ? 'pos' : 'neg'}">${bal >= 0 ? '+' : ''}${fmt(bal)}</div></div>`;
+  showTab("partners");
+}
+
+// ── TABS ───────────────────────────────────────────────────────────────────
+function showTab(tab, btn) {
+  document.querySelectorAll(".tb").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+  else document.querySelectorAll(".tb")[["partners","commodities","ftas","disputes"].indexOf(tab)].classList.add("active");
+  renderTab(tab);
+}
+
+function renderTab(tab) {
+  const iso = sel; if (!iso || !DATA) return;
+  const cd = DATA.countries[iso];
+  const body = document.getElementById("tab-body");
+
+  if (tab === "partners") {
+    const ps = cd.partners || [];
+    if (!ps.length) {
+      body.innerHTML = `<div style="color:var(--text-dimmer);padding:12px 0;font-size:12px">
+        Partner data not yet available.<br>Run <code>fetch_trade_data.py</code> to populate from UN Comtrade.<br><br>
+        <a href="https://comtrade.un.org" target="_blank" style="color:var(--accent)">UN Comtrade ↗</a></div>`;
+      return;
+    }
+    const mE = Math.max(...ps.map(p => p.exp), 1), mI = Math.max(...ps.map(p => p.imp), 1);
+    body.innerHTML = `<div class="slabel">Click a partner to view commodity treemap</div>
+      <div class="partners-grid">${ps.map(p => {
+        const bal = p.exp - p.imp;
+        return `<div class="pitem" onclick='openTM("${iso}","${p.iso}","${p.name}",${p.exp},${p.imp})'>
+          <div class="pflag">${p.iso.slice(0,2)}</div>
+          <div class="pdet">
+            <div class="pname">${p.name}</div>
+            <div class="pbars">
+              <div class="brow"><span class="blbl" style="color:var(--exp)">EXP</span><div class="btrack"><div class="bfill" style="width:${Math.round(p.exp/mE*100)}%;background:var(--exp)"></div></div><span class="bval">${fmt(p.exp)}</span></div>
+              <div class="brow"><span class="blbl" style="color:var(--imp)">IMP</span><div class="btrack"><div class="bfill" style="width:${Math.round(p.imp/mI*100)}%;background:var(--imp)"></div></div><span class="bval">${fmt(p.imp)}</span></div>
+            </div>
+            <div class="bal-line" style="color:${bal >= 0 ? 'var(--surplus)' : 'var(--deficit)'}">${bal >= 0 ? '↑' : '↓'} ${fmt(Math.abs(bal))} ${bal >= 0 ? 'surplus' : 'deficit'}</div>
+          </div>
+        </div>`;
+      }).join("")}</div>`;
+
+  } else if (tab === "commodities") {
+    body.innerHTML = `<div class="slabel">Export commodity breakdown — click any block to drill down</div>
+      <div id="comm-treemap-wrap"><svg id="comm-treemap-svg"></svg></div>
+      <div id="comm-bc"></div>`;
+    setTimeout(() => drawInlineTM(iso, null), 30);
+
+  } else if (tab === "ftas") {
+    const ftas = cd.ftas || [];
+    if (!ftas.length) {
+      body.innerHTML = `<div style="color:var(--text-dimmer);padding:12px 0;font-size:12px">
+        No FTA data loaded for this country.<br><br>
+        <a href="https://rtais.wto.org/UI/PublicMaintainRTAHome.aspx" target="_blank" style="color:var(--accent)">WTO RTA Information System ↗</a> ·
+        <a href="https://www.designoftradeagreements.org/" target="_blank" style="color:var(--accent)">DESTA Database ↗</a></div>`;
+      return;
+    }
+    body.innerHTML = ftas.map(f => `
+      <div class="fta-item">
+        <a class="fta-name" href="${f.url}" target="_blank">${f.name} ↗</a>
+        <div class="fta-scope">${f.year ? `In force: ${f.year}` : "Negotiation / Provisional"} · ${f.scope}</div>
+        <div class="fta-parties">Parties: ${f.parties}</div>
+      </div>`).join("") +
+      `<div style="margin-top:12px;padding:7px;background:var(--surface2);border-radius:3px;font-size:10px;color:var(--text-dimmer)">
+        Full database: <a href="https://rtais.wto.org/UI/PublicMaintainRTAHome.aspx" target="_blank" style="color:var(--accent)">WTO RTA Information System ↗</a> ·
+        <a href="https://www.designoftradeagreements.org/" target="_blank" style="color:var(--accent)">DESTA Database ↗</a></div>`;
+
+  } else if (tab === "disputes") {
+    const disputes = cd.disputes || [];
+    if (!disputes.length) {
+      body.innerHTML = `<div style="color:var(--text-dimmer);padding:12px 0;font-size:12px">
+        No dispute data loaded for this country.<br><br>
+        <a href="https://www.wto.org/english/tratop_e/dispu_e/dispu_e.htm" target="_blank" style="color:var(--accent)">WTO Dispute Settlement Database ↗</a></div>`;
+      return;
+    }
+    body.innerHTML = disputes.map(d => `
+      <div class="disp-item">
+        <div class="disp-ds">${d.ds} · ${d.year}</div>
+        <div class="disp-title">${d.title}</div>
+        <div class="disp-meta"><span class="dbadge ${d.role === 'complainant' ? 'bc' : 'br'}">${d.role}</span>${d.status}</div>
+      </div>`).join("") +
+      `<div style="margin-top:12px;padding:7px;background:var(--surface2);border-radius:3px;font-size:10px;color:var(--text-dimmer)">
+        Full database: <a href="https://www.wto.org/english/tratop_e/dispu_e/dispu_e.htm" target="_blank" style="color:var(--accent)">WTO Dispute Settlement ↗</a></div>`;
+  }
+}
+
+// ── INLINE TREEMAP (Commodities tab) ──────────────────────────────────────
+function drawInlineTM(iso, subCat) {
+  const cd = DATA && DATA.countries[iso]; if (!cd) return;
+  const el = document.getElementById("comm-treemap-svg"); if (!el) return;
+  const W = el.clientWidth || 640, H = 180;
+  el.setAttribute("height", H);
+  const svg = d3.select("#comm-treemap-svg"); svg.selectAll("*").remove();
+  const bc = document.getElementById("comm-bc");
+  const comms = cd.commodities || [];
+  const subs  = cd.commodity_sub || {};
+
+  let items, parentVal;
+  if (subCat) {
+    const sub = subs[subCat];
+    const parentEntry = comms.find(([nm]) => nm === subCat) || [subCat, 10];
+    parentVal = parentEntry[1] / 100 * (cd.exports || 0);
+    if (!sub) {
+      bc.innerHTML = `<a onclick='drawInlineTM("${iso}",null)' style="color:var(--accent);cursor:pointer">← All</a> / ${subCat} — no subcategory data`;
+      return;
+    }
+    const st = sub.reduce((s,[,p])=>s+p,0);
+    items = sub.map(([nm,pct]) => ({name:nm, value: pct/st*parentVal*1e9, pct, hasSub:false}));
+    bc.innerHTML = `<a onclick='drawInlineTM("${iso}",null)' style="color:var(--accent);cursor:pointer">← All commodities</a> / ${subCat}`;
+  } else {
+    const tot = cd.exports || 0;
+    const sp = comms.reduce((s,[,p])=>s+p,0) || 100;
+    items = comms.map(([nm,pct]) => ({name:nm, value:pct/sp*tot*1e9, pct, hasSub: !!subs[nm]}));
+    if (bc) bc.innerHTML = "";
+  }
+
+  const root = d3.hierarchy({name:"root", children:items}).sum(d=>d.value).sort((a,b)=>b.value-a.value);
+  d3.treemap().size([W,H]).padding(2)(root);
+  const cells = svg.selectAll("g").data(root.leaves()).join("g").attr("transform", d=>`translate(${d.x0},${d.y0})`);
+
+  cells.append("rect")
+    .attr("width", d=>Math.max(0,d.x1-d.x0)).attr("height", d=>Math.max(0,d.y1-d.y0))
+    .attr("fill",(d,i)=>EXP_C[i%EXP_C.length]).attr("rx",2)
+    .style("cursor", d=>(!subCat && d.data.hasSub) ? "pointer" : "default")
+    .on("mousemove",(ev,d) => showInlineTT(ev,d))
+    .on("mouseleave",() => { document.getElementById("inline-tt").style.display="none"; })
+    .on("click",(ev,d) => { if (!subCat && d.data.hasSub) drawInlineTM(iso, d.data.name); });
+
+  cells.each(function(d) {
+    const cw=d.x1-d.x0, ch=d.y1-d.y0, g=d3.select(this);
+    const drill = !subCat && d.data.hasSub;
+    if (cw>48&&ch>18) g.append("text").attr("x",5).attr("y",14).attr("font-family","'DM Mono',monospace").attr("font-size","10px").attr("fill","rgba(255,255,255,.9)")
+      .text((d.data.name.length>14?d.data.name.slice(0,13)+"…":d.data.name) + (drill?" ▸":""));
+    if (cw>48&&ch>30) g.append("text").attr("x",5).attr("y",26).attr("font-family","'DM Mono',monospace").attr("font-size","9px").attr("fill","rgba(255,255,255,.6)")
+      .text(fmt(d.data.value/1e9));
+  });
+}
+
+function showInlineTT(event, d) {
+  const tt = document.getElementById("inline-tt");
+  tt.style.display = "block";
+  tt.style.left = (event.clientX + 12) + "px";
+  tt.style.top  = (event.clientY - 8)  + "px";
+  tt.innerHTML  = `<b>${d.data.name}</b><br>${d.data.pct ? d.data.pct + '% · ' : ''}${fmt(d.data.value/1e9)}`;
+}
+
+// ── TREEMAP MODAL (Partners) ───────────────────────────────────────────────
+function openTM(mainIso, partnerIso, partnerName, expBil, impBil) {
+  tmState = {mainIso, partnerIso, partnerName, expBil, impBil};
+  const mainName = DATA.countries[mainIso] ? DATA.countries[mainIso].name : mainIso;
+  document.getElementById("tm-title").textContent = `${mainName} ↔ ${partnerName}`;
+  document.getElementById("tm-elbl").textContent  = `${mainName} → ${partnerName} (${fmt(expBil)})`;
+  document.getElementById("tm-ilbl").textContent  = `${partnerName} → ${mainName} (${fmt(impBil)})`;
+  document.getElementById("bc-e").innerHTML = "";
+  document.getElementById("bc-i").innerHTML = "";
+  document.getElementById("tm-modal").classList.add("open");
+  setTimeout(() => {
+    const expComms = (DATA.countries[mainIso]    || {}).commodities || [];
+    const impComms = (DATA.countries[partnerIso] || DATA.countries[mainIso] || {}).commodities || [];
+    const expSubs  = (DATA.countries[mainIso]    || {}).commodity_sub || {};
+    const impSubs  = (DATA.countries[partnerIso] || DATA.countries[mainIso] || {}).commodity_sub || {};
+    buildTM("tm-e-svg","tt-e",expComms,expSubs,expBil,EXP_C,"e","bc-e",mainIso,partnerIso);
+    buildTM("tm-i-svg","tt-i",impComms,impSubs,impBil,IMP_C,"i","bc-i",partnerIso,mainIso);
+  }, 40);
+}
+function closeTM() { document.getElementById("tm-modal").classList.remove("open"); }
+
+function buildTM(svgId, ttId, comms, subs, totalBil, colors, side, bcId, fromIso, toIso) {
+  const wrap = document.getElementById(svgId).parentElement;
+  const W = wrap.clientWidth || 400, H = wrap.clientHeight || 340;
+  const svg = d3.select("#"+svgId); svg.selectAll("*").remove();
+  svg.attr("width", W).attr("height", H);
+  const sp = comms.reduce((s,[,p])=>s+p,0) || 100;
+  const items = comms.map(([nm,pct]) => ({name:nm, value:pct/sp*totalBil*1e9, pct, totalBil, hasSub:!!subs[nm]}));
+  const root = d3.hierarchy({name:"root",children:items}).sum(d=>d.value).sort((a,b)=>b.value-a.value);
+  d3.treemap().size([W,H]).padding(2)(root);
+  const cells = svg.selectAll("g").data(root.leaves()).join("g").attr("transform",d=>`translate(${d.x0},${d.y0})`);
+  cells.append("rect")
+    .attr("width",d=>Math.max(0,d.x1-d.x0)).attr("height",d=>Math.max(0,d.y1-d.y0))
+    .attr("fill",(d,i)=>colors[i%colors.length]).attr("rx",2)
+    .style("cursor",d=>d.data.hasSub?"pointer":"default")
+    .on("mousemove",(ev,d) => showTT(ttId, ev, d))
+    .on("mouseleave",() => document.getElementById(ttId).style.opacity="0")
+    .on("click",(ev,d) => { if(d.data.hasSub) drillTM(svgId,ttId,d.data.name,subs,d.data.totalBil,colors,side,bcId,fromIso,toIso); });
+  cells.each(function(d) {
+    const cw=d.x1-d.x0,ch=d.y1-d.y0,g=d3.select(this);
+    if(cw>42&&ch>18) g.append("text").attr("x",4).attr("y",14).attr("font-family","'DM Mono',monospace").attr("font-size","10px").attr("fill","rgba(255,255,255,.9)").text((d.data.name.length>15?d.data.name.slice(0,14)+"…":d.data.name)+(d.data.hasSub?" ▸":""));
+    if(cw>42&&ch>30) g.append("text").attr("x",4).attr("y",26).attr("font-family","'DM Mono',monospace").attr("font-size","9px").attr("fill","rgba(255,255,255,.6)").text(fmt(d.data.value/1e9));
+  });
+}
+
+function showTT(ttId, event, d) {
+  const tt = document.getElementById(ttId);
+  const wrap = tt.parentElement.getBoundingClientRect();
+  tt.style.opacity = "1";
+  tt.style.left = Math.min(event.clientX - wrap.left + 10, wrap.width - 190) + "px";
+  tt.style.top  = Math.max(4, event.clientY - wrap.top - 44) + "px";
+  tt.innerHTML  = `<b>${d.data.name}</b><br>${d.data.pct ? d.data.pct + '% · ' : ''}<b>${fmt(d.data.value/1e9)}</b>`;
+}
+
+function drillTM(svgId, ttId, catName, subs, totalBil, colors, side, bcId, fromIso, toIso) {
+  const sub = subs[catName]; if (!sub) return;
+  document.getElementById(bcId).innerHTML =
+    `<a onclick='resetTM("${svgId}","${ttId}","${side}","${bcId}","${fromIso}","${toIso}")'>← All</a> / ${catName}`;
+  const wrap = document.getElementById(svgId).parentElement;
+  const W = wrap.clientWidth||400, H = wrap.clientHeight||340;
+  const svg = d3.select("#"+svgId); svg.selectAll("*").remove();
+  svg.attr("width",W).attr("height",H);
+  const fromComms = (DATA.countries[fromIso]||{}).commodities||[];
+  const parentEntry = fromComms.find(([nm])=>nm===catName)||[catName,10];
+  const parentBil = parentEntry[1]/100*totalBil;
+  const st = sub.reduce((s,[,p])=>s+p,0)||100;
+  const items = sub.map(([nm,pct])=>({name:nm,value:pct/st*parentBil*1e9,pct,totalBil:parentBil,hasSub:false}));
+  const root = d3.hierarchy({name:"root",children:items}).sum(d=>d.value).sort((a,b)=>b.value-a.value);
+  d3.treemap().size([W,H]).padding(2)(root);
+  const cells = svg.selectAll("g").data(root.leaves()).join("g").attr("transform",d=>`translate(${d.x0},${d.y0})`);
+  cells.append("rect")
+    .attr("width",d=>Math.max(0,d.x1-d.x0)).attr("height",d=>Math.max(0,d.y1-d.y0))
+    .attr("fill",(d,i)=>colors[Math.min(i+2,colors.length-1)]).attr("rx",2)
+    .on("mousemove",(ev,d)=>showTT(ttId,ev,d))
+    .on("mouseleave",()=>document.getElementById(ttId).style.opacity="0");
+  cells.each(function(d){
+    const cw=d.x1-d.x0,ch=d.y1-d.y0,g=d3.select(this);
+    if(cw>42&&ch>18) g.append("text").attr("x",4).attr("y",14).attr("font-family","'DM Mono',monospace").attr("font-size","10px").attr("fill","rgba(255,255,255,.9)").text(d.data.name);
+    if(cw>42&&ch>30) g.append("text").attr("x",4).attr("y",26).attr("font-family","'DM Mono',monospace").attr("font-size","9px").attr("fill","rgba(255,255,255,.6)").text(fmt(d.data.value/1e9));
+  });
+}
+
+function resetTM(svgId, ttId, side, bcId, fromIso, toIso) {
+  document.getElementById(bcId).innerHTML = "";
+  const {expBil, impBil, mainIso, partnerIso} = tmState;
+  const bil   = side === "e" ? expBil : impBil;
+  const iso   = side === "e" ? mainIso : partnerIso;
+  const comms = (DATA.countries[iso]||{}).commodities||[];
+  const subs  = (DATA.countries[iso]||{}).commodity_sub||{};
+  const cols  = side === "e" ? EXP_C : IMP_C;
+  buildTM(svgId, ttId, comms, subs, bil, cols, side, bcId, fromIso, toIso);
+}
+
+function setView(v, btn) {
+  view = v;
+  document.querySelectorAll(".vtb").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  colorByView();
+  if (sel) {
+    if (v === "fta") showTab("ftas");
+    else if (v === "disputes") showTab("disputes");
+    else showTab("partners");
+  }
+}
+
+// ── EVENT LISTENERS ────────────────────────────────────────────────────────
+document.getElementById("tm-modal").addEventListener("click", e => {
+  if (e.target === document.getElementById("tm-modal")) closeTM();
+});
+document.getElementById("cite-modal").addEventListener("click", e => {
+  if (e.target === document.getElementById("cite-modal")) closeCite();
+});
+window.addEventListener("resize", () => {
+  if (!geoData) return;
+  updateProjection();
+  if (sel) requestAnimationFrame(() => drawArcs(sel, (DATA.countries[sel]||{}).partners||[]));
+});
+
+window.addEventListener("load", () => {
+  initMap();
+  loadData();
+});
+</script>
+</body>
+</html>
