@@ -300,11 +300,18 @@ function initMap() {
   const wrap = document.getElementById("map-wrap");
   const W = wrap.clientWidth, H = wrap.clientHeight;
   const svg = d3.select("#map-svg");
-  projection = d3.geoNaturalEarth1().scale(W / 6.3).translate([W / 2, H / 2]);
+  // Use full viewport height for projection so panel opening doesn't shift centroids
+  const fullH = document.getElementById("app").clientHeight;
+  projection = d3.geoNaturalEarth1().scale(W / 6.3).translate([W / 2, fullH / 2]);
   pathFn = d3.geoPath().projection(projection);
-  svg.append("rect").attr("width", W).attr("height", H).attr("fill", "#080d14");
+  svg.append("rect").attr("width", W).attr("height", fullH).attr("fill", "#080d14");
   const g = svg.append("g").attr("id", "map-g");
-  svg.call(d3.zoom().scaleExtent([1, 8]).on("zoom", e => g.attr("transform", e.transform)));
+  // Store zoom state so we can access current transform
+  const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", e => {
+    g.attr("transform", e.transform);
+    currentZoom = e.transform;
+  });
+  svg.call(zoom);
 
   const topo = document.createElement("script");
   topo.src = "https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js";
@@ -374,7 +381,7 @@ function drawArcs(iso, partners) {
     const curveHeight = isWrapped ? 20 : 60;
     const my = Math.min(sc[1], pc[1]) - (curveHeight * vol);
     if (!isNaN(mx) && !isNaN(my)) {
-      g.insert("path", ".cp")
+      g.append("path")
         .attr("class", "trade-arc " + (p.exp > p.imp ? "ta-exp" : "ta-imp"))
         .attr("d", `M${sc[0]},${sc[1]}Q${mx},${my} ${pc[0]},${pc[1]}`)
         .attr("stroke-width", 0.6 + vol * 4)
