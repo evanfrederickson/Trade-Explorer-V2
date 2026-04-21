@@ -227,10 +227,14 @@ function fmt(val) {
 
 // ── LOAD DATA.JSON ─────────────────────────────────────────────────────────
 async function loadData() {
-  try {
-    const r = await fetch("data.json");
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    DATA = await r.json();
+  // Works both locally and on GitHub Pages (repo subfolder)
+  const paths = ["data.json", "./data.json"];
+  let lastError;
+  for (const path of paths) {
+    try {
+      const r = await fetch(path);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      DATA = await r.json();
     const meta = DATA._meta || {};
     const year = meta.reference_year || "?";
     const gen  = meta.generated ? new Date(meta.generated).toLocaleDateString() : "unknown";
@@ -238,10 +242,11 @@ async function loadData() {
     document.getElementById("data-status").textContent =
       `${n} countries · ${year} data · updated ${gen} · sources ↗`;
     colorByView();
-  } catch (e) {
-    document.getElementById("data-status").textContent = "⚠ data.json not found — run fetch_trade_data.py";
-    console.error("Failed to load data.json:", e);
+    return;
+    } catch (e) { lastError = e; }
   }
+  document.getElementById("data-status").textContent = "⚠ data.json not found — check file is uploaded to repo";
+  console.error("Failed to load data.json:", lastError);
 }
 
 // ── CITATION MODAL ─────────────────────────────────────────────────────────
@@ -308,7 +313,6 @@ function initMap() {
       .then(r => r.json())
       .then(world => {
         geoData = topojson.feature(world, world.objects.countries);
-        g.append("path").datum({type:"Sphere"}).attr("d",pathFn).attr("fill","#0c1824").attr("stroke","#1a2a40").attr("stroke-width",.3);
         g.selectAll(".cp").data(geoData.features).join("path")
           .attr("class","cp").attr("d",pathFn)
           .on("mousemove", onHover)
@@ -406,8 +410,9 @@ function onClick(event, d) {
     d3.selectAll(".cp").filter(dd => ISO_N2A[+dd.id] === p.iso).classed(net ? "pe" : "pi", true);
   });
   showPanel(iso);
-  // Draw arcs AFTER panel opens so projection is computed for the new map height
-  requestAnimationFrame(() => { updateProjection(); drawArcs(iso, partners); });
+  // Wait for bottom panel to fully open and map to reflow before drawing arcs
+  // requestAnimationFrame is not enough — the panel resize takes ~1 frame to settle
+  setTimeout(() => { updateProjection(); drawArcs(iso, partners); }, 80);
   colorByView();
 }
 
@@ -725,7 +730,7 @@ document.getElementById("cite-modal").addEventListener("click", e => {
 window.addEventListener("resize", () => {
   if (!geoData) return;
   updateProjection();
-  if (sel) requestAnimationFrame(() => drawArcs(sel, (DATA.countries[sel]||{}).partners||[]));
+  if (sel) setTimeout(() => drawArcs(sel, (DATA.countries[sel]||{}).partners||[]), 80);
 });
 
 window.addEventListener("load", () => {
@@ -735,4 +740,3 @@ window.addEventListener("load", () => {
 </script>
 </body>
 </html>
-
