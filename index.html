@@ -346,39 +346,41 @@ function buildFeatureIndex() {
   if (!geoData) return;
   featureByIso = {};
   geoData.features.forEach(f => {
-    const iso = ISO_N2A[+f.id];
+    const numericId = +f.id;
+    const iso = ISO_N2A[numericId];
     if (iso) featureByIso[iso] = f;
   });
 }
 
 function drawArcs(iso, partners) {
   d3.selectAll(".trade-arc").remove();
-  if (!DATA || !geoData) return;
-
-  // Use pathFn.centroid(feature) — this gives coordinates in the SAME space
-  // as the drawn country paths (inside the zoom group), so arcs always
-  // connect correctly regardless of zoom level or panel open/close state.
+  if (!DATA || !geoData) { console.warn("drawArcs: missing DATA or geoData"); return; }
   const selFeature = featureByIso[iso];
-  if (!selFeature) return;
+  if (!selFeature) { console.warn("drawArcs: no feature found for", iso, "— featureByIso keys:", Object.keys(featureByIso).slice(0,10)); return; }
   const sc = pathFn.centroid(selFeature);
-  if (!sc || isNaN(sc[0])) return;
-
+  if (!sc || isNaN(sc[0])) { console.warn("drawArcs: bad centroid for", iso, sc); return; }
+  console.log("drawArcs: selected", iso, "centroid", sc, "| partners:", partners.length);
   const g = d3.select("#map-g");
   const maxVol = Math.max(...partners.map(p => p.exp + p.imp), 1);
-
+  const mapWidth = document.getElementById("map-wrap").clientWidth;
   partners.forEach(p => {
     const pf = featureByIso[p.iso];
     if (!pf) return;
     const pc = pathFn.centroid(pf);
     if (!pc || isNaN(pc[0])) return;
     const vol = (p.exp + p.imp) / maxVol;
+    const isWrapped = Math.abs(pc[0] - sc[0]) > mapWidth / 2;
     const mx = (sc[0] + pc[0]) / 2;
-    const my = Math.min(sc[1], pc[1]) - 60 * vol;
-    g.insert("path", ".cp")
-      .attr("class", "trade-arc " + (p.exp > p.imp ? "ta-exp" : "ta-imp"))
-      .attr("d", `M${sc[0]},${sc[1]}Q${mx},${my}${pc[0]},${pc[1]}`)
-      .attr("stroke-width", 0.6 + vol * 4)
-      .attr("opacity", 0.3 + vol * 0.4);
+    const curveHeight = isWrapped ? 20 : 60;
+    const my = Math.min(sc[1], pc[1]) - (curveHeight * vol);
+    if (!isNaN(mx) && !isNaN(my)) {
+      g.insert("path", ".cp")
+        .attr("class", "trade-arc " + (p.exp > p.imp ? "ta-exp" : "ta-imp"))
+        .attr("d", `M${sc[0]},${sc[1]}Q${mx},${my} ${pc[0]},${pc[1]}`)
+        .attr("stroke-width", 0.6 + vol * 4)
+        .attr("opacity", isWrapped ? 0.15 : 0.3 + vol * 0.4)
+        .style("stroke-dasharray", isWrapped ? "2,2" : "none");
+    }
   });
 }
 
