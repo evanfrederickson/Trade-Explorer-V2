@@ -1,0 +1,67 @@
+name: Daily Comtrade Data Fetch
+
+on:
+  # Run every day at 04:00 UTC (after midnight US time, APIs less busy)
+  schedule:
+    - cron: "0 4 * * *"
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
+
+jobs:
+  fetch-comtrade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run daily Comtrade fetcher
+        env:
+          # Optional — add your Comtrade subscription key as a GitHub Secret
+          # for higher rate limits (10,000 req/day vs 250/day free)
+          COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
+        run: python fetch_comtrade_daily.py
+        timeout-minutes: 20
+
+      - name: Validate output
+        run: |
+          python - << 'EOF'
+          import json
+          with open("data.json") as f:
+              d = json.load(f)
+          n = len(d["countries"])
+          updated = d["_meta"].get("countries_updated_today", 0)
+          reqs = d["_meta"].get("requests_used", 0)
+          print(f"✓ {n} total countries, {updated} updated today, {reqs} requests used")
+          assert n > 0, "No countries in output"
+          EOF
+
+      - name: Commit updated data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet data.json || (
+            git add data.json &&
+            git commit -m "chore: daily Comtrade update — $(date -u +'%Y-%m-%d')" &&
+            git push
+          )
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: comtrade-data-${{ github.run_id }}
+          path: data.json
+          retention-days: 7
