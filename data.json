@@ -27,9 +27,9 @@
     "value_units": "USD billions (current)",
     "arc_note": "Trade flow arcs rendered using ISO 3166-1 alpha-3 centroids computed from Natural Earth geometries, not hardcoded coordinates. Projection-safe.",
     "fetcher_version": "1.0.0",
-    "last_daily_run": "2026-04-21T19:19:26.147080+00:00",
+    "last_daily_run": "2026-04-22T09:23:39.194209+00:00",
     "countries_updated_today": 60,
-    "total_countries": 75,
+    "total_countries": 102,
     "requests_used": 240
   },
   "countries": {
@@ -508,20 +508,8 @@
       "source": "world_bank+comtrade",
       "reference_year": 2024,
       "estimated": false,
-      "commodities": [
-        [
-          "Other",
-          100.0
-        ]
-      ],
-      "commodity_sub": {
-        "Other": [
-          [
-            "HS Chapter -2",
-            100.0
-          ]
-        ]
-      },
+      "commodities": [],
+      "commodity_sub": {},
       "partners": [],
       "ftas": [
         {
@@ -1480,8 +1468,20 @@
       "source": "world_bank+comtrade",
       "reference_year": 2024,
       "estimated": false,
-      "commodities": [],
-      "commodity_sub": {},
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [
         {
@@ -2273,8 +2273,20 @@
       "source": "world_bank+comtrade",
       "reference_year": 2024,
       "estimated": false,
-      "commodities": [],
-      "commodity_sub": {},
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -3571,10 +3583,10 @@
       ]
     },
     "ECU": {
-      "name": "ECU",
+      "name": "Ecuador",
       "iso2": "EC",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -78.14,
         -1.83
@@ -3582,11 +3594,23 @@
       "total_trade": 71.32,
       "exports": 37.75,
       "imports": 33.57,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -3691,10 +3715,10 @@
       "disputes": []
     },
     "ETH": {
-      "name": "ETH",
+      "name": "Ethiopia",
       "iso2": "ET",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         40.49,
         9.14
@@ -3702,11 +3726,23 @@
       "total_trade": 26.05,
       "exports": 8.29,
       "imports": 17.76,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -3723,109 +3759,24 @@
       "total_trade": 48.36,
       "exports": 20.54,
       "imports": 27.82,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Tea",
-          20
-        ],
-        [
-          "Cut Flowers",
-          14
-        ],
-        [
-          "Coffee",
-          5
-        ],
-        [
-          "Vegetables & Fruit",
-          9
-        ],
-        [
-          "Fish",
-          5
-        ],
-        [
           "Other",
-          47
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Titanium Ore",
-            15
-          ],
-          [
-            "Tobacco",
-            10
-          ],
-          [
-            "Sisal",
-            8
-          ],
-          [
-            "Wattle Bark",
-            7
-          ],
-          [
-            "Other",
-            60
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 1,
-          "imp": 5
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 1,
-          "imp": 3
-        },
-        {
-          "iso": "ARE",
-          "name": "UAE",
-          "exp": 1,
-          "imp": 2
-        },
-        {
-          "iso": "UGA",
-          "name": "Uganda",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "TZA",
-          "name": "Tanzania",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 1,
-          "imp": 0.5
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 0.5,
-          "imp": 0.5
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -3863,137 +3814,24 @@
       "total_trade": 57.44,
       "exports": 29.2,
       "imports": 28.24,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Gold",
-          40
-        ],
-        [
-          "Cocoa",
-          19
-        ],
-        [
-          "Crude Oil",
-          18
-        ],
-        [
-          "Timber",
-          5
-        ],
-        [
-          "Tuna",
-          3
-        ],
-        [
           "Other",
-          15
+          100.0
         ]
       ],
       "commodity_sub": {
-        "Gold": [
-          [
-            "Refined Gold",
-            60
-          ],
-          [
-            "Gold Ore",
-            30
-          ],
-          [
-            "Gold Alloys",
-            10
-          ]
-        ],
-        "Cocoa": [
-          [
-            "Cocoa Beans",
-            50
-          ],
-          [
-            "Cocoa Butter",
-            28
-          ],
-          [
-            "Cocoa Powder",
-            22
-          ]
-        ],
         "Other": [
           [
-            "Aluminum",
-            20
-          ],
-          [
-            "Manganese",
-            15
-          ],
-          [
-            "Bauxite",
-            12
-          ],
-          [
-            "Diamonds",
-            10
-          ],
-          [
-            "Other",
-            43
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 3,
-          "imp": 5
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "CHE",
-          "name": "Switzerland",
-          "exp": 3,
-          "imp": 1
-        },
-        {
-          "iso": "USA",
-          "name": "United States",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "ZAF",
-          "name": "S. Africa",
-          "exp": 1,
-          "imp": 2
-        },
-        {
-          "iso": "NLD",
-          "name": "Netherlands",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "FRA",
-          "name": "France",
-          "exp": 0.5,
-          "imp": 0.5
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -4013,10 +3851,10 @@
       "disputes": []
     },
     "CIV": {
-      "name": "CIV",
+      "name": "Côte d'Ivoire",
       "iso2": "CI",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -5.55,
         7.54
@@ -4024,20 +3862,32 @@
       "total_trade": 44.65,
       "exports": 22.67,
       "imports": 21.98,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "ZMB": {
-      "name": "ZMB",
+      "name": "Zambia",
       "iso2": "ZM",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         27.85,
         -13.13
@@ -4045,20 +3895,32 @@
       "total_trade": 15.82,
       "exports": 8.85,
       "imports": 6.97,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "TZA": {
-      "name": "TZA",
+      "name": "Tanzania",
       "iso2": "TZ",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         34.89,
         -6.37
@@ -4066,20 +3928,32 @@
       "total_trade": 32.74,
       "exports": 15.64,
       "imports": 17.1,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "SEN": {
-      "name": "SEN",
+      "name": "Senegal",
       "iso2": "SN",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -14.45,
         14.5
@@ -4087,11 +3961,23 @@
       "total_trade": 22.35,
       "exports": 8.1,
       "imports": 14.25,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -4108,109 +3994,24 @@
       "total_trade": 22.99,
       "exports": 9.03,
       "imports": 13.96,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [
         [
-          "Coffee",
-          22
-        ],
-        [
-          "Gold",
-          18
-        ],
-        [
-          "Fish",
-          8
-        ],
-        [
-          "Tea",
-          5
-        ],
-        [
-          "Tobacco",
-          4
-        ],
-        [
           "Other",
-          43
+          100.0
         ]
       ],
       "commodity_sub": {
         "Other": [
           [
-            "Cocoa",
-            15
-          ],
-          [
-            "Flowers",
-            12
-          ],
-          [
-            "Beans",
-            10
-          ],
-          [
-            "Sesame",
-            8
-          ],
-          [
-            "Other",
-            55
+            "HS Chapter -2",
+            100.0
           ]
         ]
       },
-      "partners": [
-        {
-          "iso": "KEN",
-          "name": "Kenya",
-          "exp": 2,
-          "imp": 1
-        },
-        {
-          "iso": "IND",
-          "name": "India",
-          "exp": 2,
-          "imp": 4
-        },
-        {
-          "iso": "CHN",
-          "name": "China",
-          "exp": 1,
-          "imp": 5
-        },
-        {
-          "iso": "ARE",
-          "name": "UAE",
-          "exp": 2,
-          "imp": 2
-        },
-        {
-          "iso": "GBR",
-          "name": "UK",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "TZA",
-          "name": "Tanzania",
-          "exp": 1,
-          "imp": 1
-        },
-        {
-          "iso": "ZAF",
-          "name": "South Africa",
-          "exp": 0.5,
-          "imp": 0.5
-        },
-        {
-          "iso": "RWA",
-          "name": "Rwanda",
-          "exp": 0.5,
-          "imp": 0.3
-        }
-      ],
+      "partners": [],
       "ftas": [
         {
           "name": "African Continental Free Trade Area (AfCFTA)",
@@ -4399,10 +4200,10 @@
       "disputes": []
     },
     "HRV": {
-      "name": "HRV",
+      "name": "Croatia",
       "iso2": "HR",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         15.2,
         45.1
@@ -4410,20 +4211,32 @@
       "total_trade": 97.55,
       "exports": 46.62,
       "imports": 50.93,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
     },
     "SRB": {
-      "name": "SRB",
+      "name": "Serbia",
       "iso2": "RS",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 2013,
       "centroid": [
         20.91,
         44.02
@@ -4431,9 +4244,9 @@
       "total_trade": 100.66,
       "exports": 48.28,
       "imports": 52.38,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -4441,10 +4254,10 @@
       "disputes": []
     },
     "ISL": {
-      "name": "ISL",
+      "name": "Iceland",
       "iso2": "IS",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         -18.56,
         64.96
@@ -4452,11 +4265,23 @@
       "total_trade": 28.59,
       "exports": 14.12,
       "imports": 14.47,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
-      "commodities": [],
-      "commodity_sub": {},
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
       "partners": [],
       "ftas": [],
       "disputes": []
@@ -4483,10 +4308,10 @@
       "disputes": []
     },
     "LUX": {
-      "name": "LUX",
+      "name": "Luxembourg",
       "iso2": "LU",
       "wto_member": true,
-      "wto_accession": null,
+      "wto_accession": 1995,
       "centroid": [
         6.13,
         49.82
@@ -4494,9 +4319,9 @@
       "total_trade": 327.66,
       "exports": 178.66,
       "imports": 149.0,
-      "source": "world_bank",
+      "source": "world_bank+comtrade",
       "reference_year": 2024,
-      "estimated": true,
+      "estimated": false,
       "commodities": [],
       "commodity_sub": {},
       "partners": [],
@@ -4631,125 +4456,920 @@
       "partners": [],
       "ftas": [],
       "disputes": []
+    },
+    "AGO": {
+      "name": "Angola",
+      "iso2": "AO",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        17.87,
+        -11.2
+      ],
+      "total_trade": 51.35,
+      "exports": 31.8,
+      "imports": 19.55,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "LBY": {
+      "name": "Libya",
+      "iso2": "LY",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        17.23,
+        26.34
+      ],
+      "total_trade": 62.46,
+      "exports": 34.9,
+      "imports": 27.56,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "AZE": {
+      "name": "Azerbaijan",
+      "iso2": "AZ",
+      "wto_member": false,
+      "wto_accession": null,
+      "centroid": [
+        47.58,
+        40.14
+      ],
+      "total_trade": 61.45,
+      "exports": 34.11,
+      "imports": 27.34,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "OMN": {
+      "name": "Oman",
+      "iso2": "OM",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        57.55,
+        21.51
+      ],
+      "total_trade": 123.05,
+      "exports": 70.79,
+      "imports": 52.26,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "BHR": {
+      "name": "Bahrain",
+      "iso2": "BH",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        50.56,
+        26.07
+      ],
+      "total_trade": 74.34,
+      "exports": 41.3,
+      "imports": 33.04,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "TUN": {
+      "name": "Tunisia",
+      "iso2": "TN",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        9.56,
+        33.89
+      ],
+      "total_trade": 54.57,
+      "exports": 25.67,
+      "imports": 28.9,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "SVN": {
+      "name": "Slovenia",
+      "iso2": "SI",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        14.82,
+        46.15
+      ],
+      "total_trade": 113.59,
+      "exports": 59.05,
+      "imports": 54.54,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "BGR": {
+      "name": "Bulgaria",
+      "iso2": "BG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        25.49,
+        42.73
+      ],
+      "total_trade": 124.93,
+      "exports": 63.89,
+      "imports": 61.04,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "LTU": {
+      "name": "Lithuania",
+      "iso2": "LT",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        23.88,
+        55.17
+      ],
+      "total_trade": 121.4,
+      "exports": 62.9,
+      "imports": 58.5,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "LVA": {
+      "name": "Latvia",
+      "iso2": "LV",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        24.6,
+        56.88
+      ],
+      "total_trade": 57.78,
+      "exports": 28.54,
+      "imports": 29.24,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "EST": {
+      "name": "Estonia",
+      "iso2": "EE",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        25.01,
+        58.6
+      ],
+      "total_trade": 65.15,
+      "exports": 32.64,
+      "imports": 32.51,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "GEO": {
+      "name": "Georgia",
+      "iso2": "GE",
+      "wto_member": true,
+      "wto_accession": 2000,
+      "centroid": [
+        43.36,
+        42.32
+      ],
+      "total_trade": 35.37,
+      "exports": 16.35,
+      "imports": 19.02,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "BLR": {
+      "name": "Belarus",
+      "iso2": "BY",
+      "wto_member": false,
+      "wto_accession": null,
+      "centroid": [
+        28.05,
+        53.71
+      ],
+      "total_trade": 100.2,
+      "exports": 49.42,
+      "imports": 50.78,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "UZB": {
+      "name": "Uzbekistan",
+      "iso2": "UZ",
+      "wto_member": false,
+      "wto_accession": null,
+      "centroid": [
+        63.85,
+        41.38
+      ],
+      "total_trade": 69.81,
+      "exports": 26.17,
+      "imports": 43.64,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "CMR": {
+      "name": "Cameroon",
+      "iso2": "CM",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        12.35,
+        5.69
+      ],
+      "total_trade": 18.33,
+      "exports": 8.35,
+      "imports": 9.98,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "MOZ": {
+      "name": "Mozambique",
+      "iso2": "MZ",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        35.55,
+        -18.67
+      ],
+      "total_trade": 21.76,
+      "exports": 9.74,
+      "imports": 12.02,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "ZWE": {
+      "name": "Zimbabwe",
+      "iso2": "ZW",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        29.15,
+        -19.02
+      ],
+      "total_trade": 17.24,
+      "exports": 7.5,
+      "imports": 9.74,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "BOL": {
+      "name": "Bolivia",
+      "iso2": "BO",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -64.67,
+        -16.29
+      ],
+      "total_trade": 25.78,
+      "exports": 11.76,
+      "imports": 14.02,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [],
+      "commodity_sub": {},
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "PRY": {
+      "name": "Paraguay",
+      "iso2": "PY",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -58.44,
+        -23.44
+      ],
+      "total_trade": 34.16,
+      "exports": 16.54,
+      "imports": 17.62,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "URY": {
+      "name": "Uruguay",
+      "iso2": "UY",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -55.77,
+        -32.52
+      ],
+      "total_trade": 42.48,
+      "exports": 23.29,
+      "imports": 19.19,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "GTM": {
+      "name": "Guatemala",
+      "iso2": "GT",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -90.23,
+        15.78
+      ],
+      "total_trade": 53.59,
+      "exports": 17.99,
+      "imports": 35.6,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "CRI": {
+      "name": "Costa Rica",
+      "iso2": "CR",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -83.75,
+        9.75
+      ],
+      "total_trade": 68.01,
+      "exports": 36.74,
+      "imports": 31.27,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "PAN": {
+      "name": "Panama",
+      "iso2": "PA",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -80.78,
+        8.54
+      ],
+      "total_trade": 72.4,
+      "exports": 38.38,
+      "imports": 34.02,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "DOM": {
+      "name": "Dominican Republic",
+      "iso2": "DO",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -70.16,
+        18.74
+      ],
+      "total_trade": 64.36,
+      "exports": 28.3,
+      "imports": 36.06,
+      "source": "world_bank+comtrade",
+      "reference_year": 2024,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "JAM": {
+      "name": "Jamaica",
+      "iso2": "JM",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -77.3,
+        18.11
+      ],
+      "total_trade": 9.59,
+      "exports": 2.0,
+      "imports": 7.59,
+      "source": "un_comtrade",
+      "reference_year": 2023,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "TTO": {
+      "name": "Trinidad & Tobago",
+      "iso2": "TT",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        -61.22,
+        10.45
+      ],
+      "total_trade": 17.02,
+      "exports": 7.86,
+      "imports": 9.16,
+      "source": "un_comtrade",
+      "reference_year": 2023,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
+    },
+    "PNG": {
+      "name": "Papua New Guinea",
+      "iso2": "PG",
+      "wto_member": true,
+      "wto_accession": 1995,
+      "centroid": [
+        143.96,
+        -6.31
+      ],
+      "total_trade": 5.14,
+      "exports": 2.83,
+      "imports": 2.31,
+      "source": "world_bank+comtrade",
+      "reference_year": 2004,
+      "estimated": false,
+      "commodities": [
+        [
+          "Other",
+          100.0
+        ]
+      ],
+      "commodity_sub": {
+        "Other": [
+          [
+            "HS Chapter -2",
+            100.0
+          ]
+        ]
+      },
+      "partners": [],
+      "ftas": [],
+      "disputes": []
     }
   },
   "_fetch_state": {
     "CHN": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "USA": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 8,
       "commodity_sections": 10
     },
     "DEU": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
-      "commodity_sections": 1
+      "commodity_sections": 0
     },
     "JPN": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "GBR": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 0
     },
     "FRA": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 8,
       "commodity_sections": 9
     },
     "KOR": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "NLD": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "HKG": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "ITA": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "CAN": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "BEL": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "MEX": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
-      "commodity_sections": 0
+      "commodity_sections": 1
     },
     "SGP": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "RUS": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 8,
       "commodity_sections": 8
     },
     "IND": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 8,
       "commodity_sections": 9
     },
     "TWN": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "seed",
       "partners_count": 8,
       "commodity_sections": 6
     },
     "AUS": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 1
     },
     "ESP": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
-      "commodity_sections": 0
+      "commodity_sections": 1
     },
     "CHE": {
-      "last_updated": "2026-04-21",
+      "last_updated": "2026-04-22",
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 0
@@ -4993,6 +5613,246 @@
       "source": "world_bank+comtrade",
       "partners_count": 0,
       "commodity_sections": 0
+    },
+    "AGO": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "LBY": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "AZE": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "OMN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BHR": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "TUN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "LUX": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "HRV": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "SRB": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "SVN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "BGR": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "LTU": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "LVA": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "EST": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "ISL": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "GEO": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BLR": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "UZB": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "TZA": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ETH": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "KEN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "GHA": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "CIV": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ZMB": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "CMR": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "SEN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "UGA": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "MOZ": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ZWE": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "BOL": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 0
+    },
+    "PRY": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "URY": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "ECU": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "GTM": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "CRI": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "PAN": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "DOM": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "JAM": {
+      "last_updated": "2026-04-22",
+      "source": "un_comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "TTO": {
+      "last_updated": "2026-04-22",
+      "source": "un_comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
+    },
+    "PNG": {
+      "last_updated": "2026-04-22",
+      "source": "world_bank+comtrade",
+      "partners_count": 0,
+      "commodity_sections": 1
     }
   }
 }
