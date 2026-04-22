@@ -40,9 +40,9 @@ log = logging.getLogger("comtrade_daily")
 OUTPUT_FILE      = Path(__file__).parent / "data.json"
 REFERENCE_YEAR   = 2023
 FALLBACK_YEAR    = 2022
-DAILY_REQ_LIMIT  = 230        # Conservative — leave buffer for retries
-REQS_PER_COUNTRY = 4          # 2 partner + 2 commodity calls
-COUNTRIES_PER_DAY = DAILY_REQ_LIMIT // REQS_PER_COUNTRY  # ~57
+DAILY_REQ_LIMIT  = 200        # Conservative — 250 limit minus buffer for retries
+REQS_PER_COUNTRY = 5          # 2 WB + 1 partner exp + 1 partner imp + 1 commodity
+COUNTRIES_PER_DAY = DAILY_REQ_LIMIT // REQS_PER_COUNTRY  # ~40
 
 COMTRADE_KEY = os.environ.get("COMTRADE_API_KEY", "").strip()
 
@@ -176,7 +176,7 @@ def get_json(url, params=None, headers=None, retries=3, delay=3):
                 log.warning(f"404 — No data found for this query")
                 return None
             r.raise_for_status()
-            time.sleep(1.2)   # Respect 1 req/sec rate limit
+            time.sleep(1.5)   # Respect 1 req/sec rate limit with buffer
             return r.json()
         except requests.RequestException as e:
             log.warning(f"Attempt {attempt+1} failed: {e}")
@@ -186,26 +186,37 @@ def get_json(url, params=None, headers=None, retries=3, delay=3):
     return None
 
 
-def fetch_comtrade(reporter_m49, flow, cmd_code, year):
+def fetch_comtrade(reporter_m49, flow, cmd_code, year, partner_code=None):
     """
     Call the Comtrade v1 API with a subscription key.
     Endpoint: https://comtradeapi.un.org/data/v1/get/C/A/HS
+
+    For partner flows: cmdCode="TOTAL", partnerCode omitted (returns all partners)
+    For commodities:   cmdCode="AG2" means 2-digit HS aggregation level,
+                       partnerCode="0" means aggregate all partners into one total
     """
     url = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
     headers = {"Ocp-Apim-Subscription-Key": COMTRADE_KEY}
     params = {
         "reporterCode": reporter_m49,
-        "period": year,
-        "flowCode": flow,        # X=exports, M=imports
-        "cmdCode": cmd_code,     # TOTAL or AG2 for chapter-level
-        "maxRecords": 500,
-        "format": "JSON",
-        "includeDesc": True,
+        "period":       year,
+        "flowCode":     flow,
+        "cmdCode":      cmd_code,
+        "maxRecords":   500,
+        "includeDesc":  True,
     }
+    # For commodity breakdown we want all partners summed together (partnerCode=0)
+    # For partner flows we omit partnerCode to get individual partner rows
+    if partner_code is not None:
+        params["partnerCode"] = partner_code
+
+    log.debug(f"  GET {url} params={params}")
     data = get_json(url, params=params, headers=headers)
     if not data:
         return []
-    return data.get("data", [])
+    rows = data.get("data", [])
+    log.debug(f"  → {len(rows)} rows returned")
+    return rows
 
 
 def fetch_partners(iso3, flow="X", year=REFERENCE_YEAR):
@@ -214,43 +225,67 @@ def fetch_partners(iso3, flow="X", year=REFERENCE_YEAR):
     if not m49 or not COMTRADE_KEY:
         return {}
 
+    # No partnerCode = API returns one row per partner country
     rows = fetch_comtrade(m49, flow, "TOTAL", year)
 
-    # If no data for 2023, try 2022
     if not rows and year == REFERENCE_YEAR:
-        log.info(f"  No {year} data for {iso3}, trying {FALLBACK_YEAR}")
+        log.info(f"  No {year} partner data for {iso3}, trying {FALLBACK_YEAR}")
         rows = fetch_comtrade(m49, flow, "TOTAL", FALLBACK_YEAR)
+
+    if not rows:
+        log.warning(f"  No partner data returned for {iso3} {flow}")
+        return {}
 
     result = {}
     for row in rows:
         pc = row.get("partnerCode")
-        # Skip world aggregate (0), areas NES (896), and special categories
         if not pc or pc in (0, 896, "0", "896"):
             continue
         val = (row.get("primaryValue") or 0) / 1e9
-        if val > 0.001:  # Skip tiny flows < $1M
+        if val > 0.001:
             result[int(pc)] = {
                 "name": row.get("partnerDesc", ""),
                 "value": round(val, 3)
             }
+    log.info(f"  Partners ({flow}): {len(result)} countries")
     return result
 
 
 def fetch_commodities(iso3, flow="X", year=REFERENCE_YEAR):
-    """Fetch commodity breakdown at HS 2-digit chapter level."""
+    """
+    Fetch commodity breakdown at HS 2-digit chapter level.
+    partnerCode=0 means sum across all partners (world total for this reporter).
+    cmdCode=AG2 tells Comtrade to return 2-digit HS chapter aggregates.
+    """
     m49 = ISO3_TO_M49.get(iso3)
     if not m49 or not COMTRADE_KEY:
         return {}
 
-    # AG2 = 2-digit HS chapter aggregation
-    rows = fetch_comtrade(m49, flow, "AG2", year)
+    # partnerCode=0 = world total, cmdCode=AG2 = 2-digit chapter aggregation
+    rows = fetch_comtrade(m49, flow, "AG2", year, partner_code=0)
 
     if not rows and year == REFERENCE_YEAR:
-        rows = fetch_comtrade(m49, flow, "AG2", FALLBACK_YEAR)
+        log.info(f"  No {year} commodity data for {iso3}, trying {FALLBACK_YEAR}")
+        rows = fetch_comtrade(m49, flow, "AG2", FALLBACK_YEAR, partner_code=0)
+
+    if not rows:
+        log.warning(f"  No commodity data returned for {iso3} {flow}")
+        return {}
+
+    log.info(f"  Commodity rows ({flow}): {len(rows)}")
+    if rows:
+        # Log first row to see actual field names coming back
+        sample = rows[0]
+        log.info(f"  Sample row keys: {list(sample.keys())}")
+        log.info(f"  Sample cmdCode={sample.get('cmdCode')} cmdDesc={sample.get('cmdDesc')} val={sample.get('primaryValue')}")
 
     chapters = {}
     for row in rows:
-        cmd = row.get("cmdCode", "")
+        # Comtrade may return cmdCode as "01", "84", etc. — strip leading zeros
+        cmd = str(row.get("cmdCode", "")).strip()
+        # Skip non-numeric or aggregate codes
+        if not cmd.isdigit():
+            continue
         try:
             ch = int(cmd)
         except (ValueError, TypeError):
@@ -264,6 +299,7 @@ def fetch_commodities(iso3, flow="X", year=REFERENCE_YEAR):
                 "section": chapter_to_section(ch),
                 "value": round(val, 3)
             }
+    log.info(f"  Parsed {len(chapters)} chapters for {iso3}")
     return chapters
 
 
