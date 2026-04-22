@@ -39,10 +39,11 @@ log = logging.getLogger("comtrade_daily")
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 OUTPUT_FILE      = Path(__file__).parent / "data.json"
 REFERENCE_YEAR   = 2023
-FALLBACK_YEAR    = 2022
-DAILY_REQ_LIMIT  = 200        # Conservative — 250 limit minus buffer for retries
+FALLBACK_YEARS   = [2023, 2022, 2021, 2020]  # Try each in order until we get data
+DAILY_REQ_LIMIT  = 180        # Conservative — 250 limit minus buffer for rate limit uncertainty
 REQS_PER_COUNTRY = 5          # 2 WB + 1 partner exp + 1 partner imp + 1 commodity
-COUNTRIES_PER_DAY = DAILY_REQ_LIMIT // REQS_PER_COUNTRY  # ~40
+COUNTRIES_PER_DAY = DAILY_REQ_LIMIT // REQS_PER_COUNTRY  # ~36
+MIN_COMMODITY_PCT = 0.1       # Show chapters that are at least 0.1% of exports
 
 COMTRADE_KEY = os.environ.get("COMTRADE_API_KEY", "").strip()
 
@@ -220,20 +221,21 @@ def fetch_comtrade(reporter_m49, flow, cmd_code, year, partner_code=None):
 
 
 def fetch_partners(iso3, flow="X", year=REFERENCE_YEAR):
-    """Fetch top bilateral partner flows."""
+    """Fetch top bilateral partner flows, trying fallback years if needed."""
     m49 = ISO3_TO_M49.get(iso3)
     if not m49 or not COMTRADE_KEY:
         return {}
 
-    # No partnerCode = API returns one row per partner country
-    rows = fetch_comtrade(m49, flow, "TOTAL", year)
-
-    if not rows and year == REFERENCE_YEAR:
-        log.info(f"  No {year} partner data for {iso3}, trying {FALLBACK_YEAR}")
-        rows = fetch_comtrade(m49, flow, "TOTAL", FALLBACK_YEAR)
+    rows = []
+    for try_year in FALLBACK_YEARS:
+        rows = fetch_comtrade(m49, flow, "TOTAL", try_year)
+        if rows:
+            if try_year != REFERENCE_YEAR:
+                log.info(f"  Using {try_year} partner data for {iso3} (no {REFERENCE_YEAR} data)")
+            break
 
     if not rows:
-        log.warning(f"  No partner data returned for {iso3} {flow}")
+        log.warning(f"  No partner data returned for {iso3} {flow} in any year")
         return {}
 
     result = {}
@@ -274,18 +276,29 @@ def fetch_commodities(iso3, flow="X", year=REFERENCE_YEAR):
 
     log.info(f"  Commodity rows ({flow}): {len(rows)}")
     if rows:
-        # Log first row to see actual field names coming back
         sample = rows[0]
         log.info(f"  Sample row keys: {list(sample.keys())}")
         log.info(f"  Sample cmdCode={sample.get('cmdCode')} cmdDesc={sample.get('cmdDesc')} val={sample.get('primaryValue')}")
+        # Log aggrLevel distribution to understand what we're getting
+        levels = {}
+        for r in rows:
+            lv = r.get("aggrLevel", "?")
+            levels[lv] = levels.get(lv, 0) + 1
+        log.info(f"  aggrLevel distribution: {levels}")
 
     chapters = {}
     for row in rows:
-        # Comtrade may return cmdCode as "01", "84", etc. — strip leading zeros
-        cmd = str(row.get("cmdCode", "")).strip()
-        # Skip non-numeric or aggregate codes
-        if not cmd.isdigit():
+        # CRITICAL: only take rows at aggrLevel=2 (2-digit HS chapter)
+        # aggrLevel=4 = 4-digit heading, aggrLevel=6 = 6-digit subheading
+        # Comtrade may return aggrLevel as int or string — handle both
+        aggr_level = row.get("aggrLevel")
+        try:
+            if int(aggr_level) != 2:
+                continue
+        except (TypeError, ValueError):
             continue
+
+        cmd = str(row.get("cmdCode", "")).strip().lstrip("0") or "0"
         try:
             ch = int(cmd)
         except (ValueError, TypeError):
@@ -299,27 +312,26 @@ def fetch_commodities(iso3, flow="X", year=REFERENCE_YEAR):
                 "section": chapter_to_section(ch),
                 "value": round(val, 3)
             }
-    log.info(f"  Parsed {len(chapters)} chapters for {iso3}")
+    log.info(f"  Parsed {len(chapters)} chapters (aggrLevel=2) for {iso3}")
     return chapters
 
 
 def build_commodity_lists(chapters, total_exports):
-    """Aggregate HS chapters into sections with drill-down."""
-    if not chapters or not total_exports:
+    """
+    Build two-level commodity structure from raw HS chapters.
+    Top level: individual HS chapters sorted by value (top 15).
+    Drill-down: chapters grouped into HS sections.
+
+    IMPORTANT: We calculate percentages from the SUM of chapter values,
+    not from total_exports (World Bank), because World Bank includes services
+    while Comtrade only covers goods. Using chapter sum avoids deflated percentages.
+    """
+    if not chapters:
         return [], {}
 
-def build_commodity_lists(chapters, total_exports):
-    """
-    Build two-level commodity structure from raw HS chapters:
-    - Top level: the individual HS chapters themselves (e.g. "Pharmaceuticals", "Vehicles & Auto Parts")
-      sorted by value, top 15 shown
-    - Drill-down (commodity_sub): groups chapters into sections so you can see
-      what's inside "Chemicals & Pharmaceuticals" etc.
-
-    This gives much better granularity than grouping first — you see the real
-    top export categories, not just 8 broad buckets.
-    """
-    if not chapters or not total_exports:
+    # Use sum of chapter values as denominator — avoids goods vs goods+services mismatch
+    chapter_total = sum(info["value"] for info in chapters.values())
+    if chapter_total <= 0:
         return [], {}
 
     # Sort chapters by value descending
@@ -327,12 +339,11 @@ def build_commodity_lists(chapters, total_exports):
 
     commodities = []
     commodity_sub = {}
-
-    # First pass: build top-level list from individual chapters
     other_val = 0.0
     shown = 0
+
     for ch, info in sorted_chapters:
-        pct = round(info["value"] / total_exports * 100, 1)
+        pct = round(info["value"] / chapter_total * 100, 1)
         if pct < 0.2:
             other_val += info["value"]
             continue
@@ -342,20 +353,18 @@ def build_commodity_lists(chapters, total_exports):
         else:
             other_val += info["value"]
 
-    # Add "Other" bucket for everything not shown
+    # Add "Other" bucket
     if other_val > 0:
-        other_pct = round(other_val / total_exports * 100, 1)
+        other_pct = round(other_val / chapter_total * 100, 1)
         if other_pct >= 0.5:
             commodities.append(["Other", other_pct])
 
     # Normalize to 100%
     total_pct = sum(p for _, p in commodities)
-    if total_pct > 0 and total_pct != 100:
+    if total_pct > 0 and abs(total_pct - 100) > 1:
         commodities = [[n, round(p / total_pct * 100, 1)] for n, p in commodities]
 
-    # Second pass: build section-level drill-down
-    # Group chapters into their HS sections so clicking "Other" shows what's in it,
-    # and clicking any chapter can show related chapters in the same section
+    # Build section-level drill-down
     sections = {}
     for ch, info in chapters.items():
         sec = info["section"]
@@ -365,7 +374,7 @@ def build_commodity_lists(chapters, total_exports):
 
     for sec_name, chaps in sections.items():
         if len(chaps) < 2:
-            continue  # No point drilling into a section with one chapter
+            continue
         chaps_sorted = sorted(chaps, key=lambda x: x[1], reverse=True)
         sec_total = sum(v for _, v in chaps_sorted)
         sub = []
@@ -380,7 +389,7 @@ def build_commodity_lists(chapters, total_exports):
                 sub = [[n, round(p / sub_total * 100, 1)] for n, p in sub]
             commodity_sub[sec_name] = sub
 
-    # Also add drill-downs keyed by chapter label for direct access
+    # Key drill-downs by chapter label too for direct treemap access
     for ch, info in chapters.items():
         lbl = info["label"]
         sec = info["section"]
@@ -534,6 +543,8 @@ def get_next_batch(fetch_state):
 def run():
     log.info("=== Daily Comtrade Fetcher ===")
     log.info(f"API key present: {'YES' if COMTRADE_KEY else 'NO — World Bank only mode'}")
+    log.info(f"Daily request budget: {DAILY_REQ_LIMIT} (Comtrade free tier = 250/day)")
+    log.info("⚠ Do not run this script more than once per day — requests accumulate across runs")
 
     d = load_data()
     fetch_state = d.get("_fetch_state", {})
