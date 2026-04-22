@@ -308,49 +308,86 @@ def build_commodity_lists(chapters, total_exports):
     if not chapters or not total_exports:
         return [], {}
 
-    # Aggregate into sections
+def build_commodity_lists(chapters, total_exports):
+    """
+    Build two-level commodity structure from raw HS chapters:
+    - Top level: the individual HS chapters themselves (e.g. "Pharmaceuticals", "Vehicles & Auto Parts")
+      sorted by value, top 15 shown
+    - Drill-down (commodity_sub): groups chapters into sections so you can see
+      what's inside "Chemicals & Pharmaceuticals" etc.
+
+    This gives much better granularity than grouping first — you see the real
+    top export categories, not just 8 broad buckets.
+    """
+    if not chapters or not total_exports:
+        return [], {}
+
+    # Sort chapters by value descending
+    sorted_chapters = sorted(chapters.items(), key=lambda x: x[1]["value"], reverse=True)
+
+    commodities = []
+    commodity_sub = {}
+
+    # First pass: build top-level list from individual chapters
+    other_val = 0.0
+    shown = 0
+    for ch, info in sorted_chapters:
+        pct = round(info["value"] / total_exports * 100, 1)
+        if pct < 0.2:
+            other_val += info["value"]
+            continue
+        if shown < 15:
+            commodities.append([info["label"], pct])
+            shown += 1
+        else:
+            other_val += info["value"]
+
+    # Add "Other" bucket for everything not shown
+    if other_val > 0:
+        other_pct = round(other_val / total_exports * 100, 1)
+        if other_pct >= 0.5:
+            commodities.append(["Other", other_pct])
+
+    # Normalize to 100%
+    total_pct = sum(p for _, p in commodities)
+    if total_pct > 0 and total_pct != 100:
+        commodities = [[n, round(p / total_pct * 100, 1)] for n, p in commodities]
+
+    # Second pass: build section-level drill-down
+    # Group chapters into their HS sections so clicking "Other" shows what's in it,
+    # and clicking any chapter can show related chapters in the same section
     sections = {}
     for ch, info in chapters.items():
         sec = info["section"]
         if sec not in sections:
-            sections[sec] = {"value": 0.0, "chapters": []}
-        sections[sec]["value"] += info["value"]
-        sections[sec]["chapters"].append((info["label"], info["value"]))
+            sections[sec] = []
+        sections[sec].append((info["label"], info["value"]))
 
-    sorted_secs = sorted(sections.items(), key=lambda x: x[1]["value"], reverse=True)
-
-    commodities = []
-    commodity_sub = {}
-    covered = 0.0
-
-    for sec_name, sec_data in sorted_secs:
-        pct = round(sec_data["value"] / total_exports * 100, 1)
-        if pct < 0.3:
-            continue
-        commodities.append([sec_name, pct])
-        covered += pct
-
-        # Build chapter-level drill-down
-        chaps = sorted(sec_data["chapters"], key=lambda x: x[1], reverse=True)
+    for sec_name, chaps in sections.items():
+        if len(chaps) < 2:
+            continue  # No point drilling into a section with one chapter
+        chaps_sorted = sorted(chaps, key=lambda x: x[1], reverse=True)
+        sec_total = sum(v for _, v in chaps_sorted)
         sub = []
-        for label, val in chaps:
-            if sec_data["value"] > 0:
-                ch_pct = round(val / sec_data["value"] * 100, 1)
+        for label, val in chaps_sorted[:10]:
+            if sec_total > 0:
+                ch_pct = round(val / sec_total * 100, 1)
                 if ch_pct >= 1.0:
                     sub.append([label, ch_pct])
         if sub:
-            # Normalize subcategory percentages
             sub_total = sum(p for _, p in sub)
             if sub_total > 0:
-                sub = [[n, round(p/sub_total*100,1)] for n,p in sub]
+                sub = [[n, round(p / sub_total * 100, 1)] for n, p in sub]
             commodity_sub[sec_name] = sub
 
-    # Normalize top-level percentages
-    total_pct = sum(p for _, p in commodities)
-    if total_pct > 0:
-        commodities = [[n, round(p/total_pct*100,1)] for n,p in commodities]
+    # Also add drill-downs keyed by chapter label for direct access
+    for ch, info in chapters.items():
+        lbl = info["label"]
+        sec = info["section"]
+        if lbl not in commodity_sub and sec in commodity_sub:
+            commodity_sub[lbl] = commodity_sub[sec]
 
-    return commodities[:12], commodity_sub
+    return commodities, commodity_sub
 
 
 def merge_partners(exp_data, imp_data, top_n=10):
